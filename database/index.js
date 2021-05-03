@@ -2,23 +2,25 @@ const seedDB = require('./seeder.js');
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/overview', {useNewUrlParser: true, useUnifiedTopology: true});
-const db = mongoose.connection;
+module.exports.db = mongoose.connection;
 
 const testConnection = () => {
-  db.on('error', () => {
+  module.exports.db.on('error', () => {
     console.log('ERROR! DB no Connected...')
   });
-  db.once('open', () => {
+  module.exports.db.once('open', () => {
     console.log('DB Connected!!')
   });
+
+  // should probs run a test to see if DB has been seeded
+  //if not, seed db called seedDB
 }
 testConnection();
 
 // ----- SCHEMAS -----
 const locationSchema = new  mongoose.Schema({
   name: String,
-  address: String,
-
+  address: String
 });
 
 const ownerSchema = new mongoose.Schema({
@@ -132,3 +134,7 @@ const overviewSchema = new mongoose.Schema({
   activities: activitiesSchema,
   terrain: terrainSchema
 })
+
+module.exports = {
+
+}
