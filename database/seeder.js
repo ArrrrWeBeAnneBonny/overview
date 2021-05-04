@@ -1,7 +1,8 @@
 const faker = require('faker');
-// const database = require('./index');
-// console.log(database)
 const mongoose = require('mongoose');
+
+const { addresses } = require('./addresses.js');
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 mongoose.connect('mongodb://localhost/overview', { useNewUrlParser: true, useUnifiedTopology: true });
 db = mongoose.connection;
@@ -148,36 +149,82 @@ const Activities = mongoose.model('Activities', activitiesSchema);
 const Terrain = mongoose.model('Terrain', terrainSchema);
 const Overview = mongoose.model('Overview', overviewSchema);
 
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 module.exports.seed = async () => {
-  await db.dropCollection('owners')
-    .then(result => {
-      console.log('owners dropped ', result);
-    })
-    .catch(error => {
-      console.log('error: ', error)
-    })
+  // await db.dropCollection('owners')
+  //   .then(result => {
+  //     console.log('owners dropped ', result);
+  //   })
+  //   .catch(error => {
+  //     console.log('error: ', error)
+  //   });
+
+  // await db.dropCollection('locations')
+  //   .then(result => {
+  //     console.log('locations dropped ', result);
+  //   })
+  //   .catch(error => {
+  //     console.log('error: ', error)
+  //   });
+
+  // await db.dropCollection('pricings')
+  //   .then(result => {
+  //     console.log('pricings dropped ', result);
+  //   })
+  //   .catch(error => {
+  //     console.log('error: ', error)
+  //   });
 
   for (let i = 0; i < 5; i++) {
+    //---LOCATION---
+    const locName = faker.commerce.productAdjective() + faker.animal.dog() + faker.address.streetSuffix();
+    const locAddress = addresses[Math.floor(Math.random() * addresses.length)];
+    const newLocation = {
+      name: locName,
+      address: locAddress
+    };
+    console.log('Location info: ', newLocation);
+
     //---OWNER---
-    const imageUrl = faker.image.avatar();
-    console.log('owner pic: ', imageUrl);
-    const name = faker.name.firstName() + ' ' + alphabet[Math.floor(Math.random() * alphabet.length)] + '.';
-    console.log('owner name: ', name);
+    const ownerImageUrl = faker.image.avatar();
+    const ownerName = faker.name.firstName() + ' ' + alphabet[Math.floor(Math.random() * alphabet.length)] + '.';
     const newOwner = {
-      name: name,
-      imageUrl: imageUrl
-    }
-    await Owner.create(newOwner)
-      .then(result => {
-        console.log('Owner Saved: ', result);
-      })
-      .catch(err => {
-        console.log('error creating doc: ', err)
-      })
+      name: ownerName,
+      imageUrl: ownerImageUrl
+    };
+    console.log('owner info: ', newOwner);
+
+    // await Owner.create(newOwner)
+    //   .then(result => {
+    //     console.log('Owner Saved: ', result);
+    //   })
+    //   .catch(err => {
+    //     console.log('error creating doc: ', err)
+    //   });
+
+      //---Pricing---
+      const averagePricePerNight = faker.datatype.number({ min: 40, max: 250, precision: 10 });
+      const cleaningFee = faker.datatype.number({ min: 10, max: 50, precision: 1 });
+      const monthsOutForBooking = faker.datatype.number({ min: 2, max: 10, precision: 1 });
+      const weeknightDiscount = faker.datatype.number({ min: 0, max: .5, precision: .1 });
+      const instantBook = faker.datatype.boolean();
+      const newPrice = {
+        averagePricePerNight: averagePricePerNight,
+        cleaningFee: cleaningFee,
+        monthsOutForBooking: monthsOutForBooking,
+        weeknightDiscount: weeknightDiscount,
+        instantBook: instantBook
+      };
+      console.log('Pricing info: ', newPrice);
+      // await Owner.create(newOwner)
+      //   .then(result => {
+      //     console.log('Owner Saved: ', result);
+      //   })
+      //   .catch(err => {
+      //     console.log('error creating doc: ', err)
+      //   });
+
   }
-  // const address = faker.address.streetAddress(true);
-  // console.log('Address: ', address);
+
 
 
 
