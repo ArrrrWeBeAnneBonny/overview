@@ -1,11 +1,12 @@
 const faker = require('faker');
 const mongoose = require('mongoose');
-
+const db = require('./index');
+console.log (db)
 const { addresses } = require('./addresses.js');
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-mongoose.connect('mongodb://localhost/overview', { useNewUrlParser: true, useUnifiedTopology: true });
-db = mongoose.connection;
+// mongoose.connect('mongodb://localhost/overview', { useNewUrlParser: true, useUnifiedTopology: true });
+// db = mongoose.connection;
 try {
   db.on('error', () => {
     throw Error('DB Not Connected!')
@@ -17,139 +18,7 @@ try {
   console.log('ERROR: ', error);
 }
 
-// ----- SCHEMAS -----
-
-const locationSchema = new mongoose.Schema({
-  name: String,
-  address: String
-});
-
-const ownerSchema = new mongoose.Schema({
-  name: String,
-  imageUrl: String
-});
-
-const pricingSchema = new mongoose.Schema({
-  averagePricePerNight: Number,
-  cleaningFee: Number,
-  monthsOutForBooking: Number,
-  weeknightDiscount: Number,
-  instantBook: Boolean
-});
-
-const detailsSchema = new mongoose.Schema({
-  checkInTime: Number,
-  checkOutTime: Number,
-  cancellationPolicy: Number,
-  onArrival: Number,
-  responseTime: Number,
-  responseRate: Number
-});
-
-const lodgingSchema = new mongoose.Schema({
-  type: Number,
-  numberOfSites: Number,
-  maxGuestsPerSite: Number,
-  ADAaccess: Boolean,
-  parking: Boolean
-});
-
-const essentialsSchema = new mongoose.Schema({
-  campfires: Boolean,
-  toilet: Boolean,
-  pets: Boolean
-});
-
-const amenitiesSchema = new mongoose.Schema({
-  potableWater: {
-    available: Boolean,
-    options: String,
-    description: String
-  },
-  kitchen: {
-    available: Boolean,
-    options: String,
-    description: String
-  },
-  shower: {
-    available: Boolean,
-    options: String,
-    description: String
-  },
-  picnicTable: {
-    available: Boolean,
-    description: String
-  },
-  wifi: {
-    available: Boolean,
-    description: String
-  },
-  bins: {
-    available: Boolean,
-    options: String,
-    description: String
-  }
-});
-
-const activitiesSchema = new mongoose.Schema({
-  biking: Boolean,
-  fishing: Boolean,
-  hiking: Boolean,
-  horsebackRiding: Boolean,
-  boating: Boolean,
-  offRoading: Boolean,
-  whitewaterPaddling: Boolean,
-  climbing: Boolean,
-  snowsports: Boolean,
-  surfing: Boolean,
-  windsports: Boolean,
-  swimming: Boolean,
-  paddling: Boolean,
-  wildlifeWatching: Boolean,
-  surfing: Boolean
-});
-
-const terrainSchema = new mongoose.Schema({
-  lake: Boolean,
-  beach: Boolean,
-  forest: Boolean,
-  reviewStreamCreek: Boolean,
-  hotSpring: Boolean,
-  swimmingHole: Boolean,
-  desert: Boolean,
-  cave: Boolean,
-  waterfall: Boolean,
-  driveway: Boolean
-});
-
-const overviewSchema = new mongoose.Schema({
-  siteId: Number,
-  name: String,
-  description: String,
-  location: locationSchema,
-  owner: ownerSchema,
-  pricing: pricingSchema,
-  details: detailsSchema,
-  lodging: lodgingSchema,
-  essentials: essentialsSchema,
-  amenities: amenitiesSchema,
-  activities: activitiesSchema,
-  terrain: terrainSchema
-})
-
-// -----MODELS-----
-const Location = mongoose.model('Location', locationSchema);
-const Owner = mongoose.model('Owner', ownerSchema);
-const Pricing = mongoose.model('Pricing', pricingSchema);
-const Details = mongoose.model('Details', detailsSchema);
-const Lodging = mongoose.model('Lodging', lodgingSchema);
-const Essentials = mongoose.model('Essentials', essentialsSchema);
-const Amenities = mongoose.model('Amenities', amenitiesSchema);
-const Activities = mongoose.model('Activities', activitiesSchema);
-const Terrain = mongoose.model('Terrain', terrainSchema);
-const Overview = mongoose.model('Overview', overviewSchema);
-
-module.exports.seed = async () => {
+const seed = async () => {
   try {
     await db.dropCollection('owners')
       .then(result => {
@@ -201,7 +70,7 @@ module.exports.seed = async () => {
       name: locName,
       address: locAddress
     };
-    console.log('Location info: ', newLocation);
+    // console.log('Location info: ', newLocation);
 
     // await Location.create(newLocation)
     //   .then(result => {
@@ -218,7 +87,7 @@ module.exports.seed = async () => {
       name: ownerName,
       imageUrl: ownerImageUrl
     };
-    console.log('owner info: ', newOwner);
+    // console.log('owner info: ', newOwner);
 
     // await Owner.create(newOwner)
     //   .then(result => {
@@ -241,7 +110,7 @@ module.exports.seed = async () => {
       weeknightDiscount: weeknightDiscount,
       instantBook: instantBook
     };
-    console.log('Pricing info: ', newPrice);
+    // console.log('Pricing info: ', newPrice);
 
     // await Owner.create(newOwner)
     //   .then(result => {
@@ -266,7 +135,7 @@ module.exports.seed = async () => {
       responseTime: responseTime,
       responseRate: responseRate
     };
-    console.log('Details info: ', newDetails);
+    // console.log('Details info: ', newDetails);
 
     // await Details.create(newDetails)
     //   .then(result => {
@@ -289,7 +158,7 @@ module.exports.seed = async () => {
       ADAaccess: ADAaccess,
       parking: parking
     };
-    console.log('Lodging info: ', newLodging);
+    // console.log('Lodging info: ', newLodging);
 
     // await Lodging.create(newLodging)
     //   .then(result => {
@@ -308,7 +177,7 @@ module.exports.seed = async () => {
       toilet: toilet,
       pets: pets
     };
-    console.log('Essentials info: ', newEssentials);
+    // console.log('Essentials info: ', newEssentials);
 
     // await Essentials.create(newEssentials)
     //   .then(result => {
@@ -355,7 +224,7 @@ module.exports.seed = async () => {
       wifi: wifi,
       bins: bins
     };
-    console.log('Amenities info: ', newAmenities);
+    // console.log('Amenities info: ', newAmenities);
 
     // await Amenities.create(newAmenities)
     //   .then(result => {
@@ -369,3 +238,5 @@ module.exports.seed = async () => {
 
 
 };
+
+module.exports = {seed}
