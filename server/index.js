@@ -7,6 +7,9 @@ app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
 
+app.use(express.static('public'))
+app.use('/dist', express.static('dist'))
+
 app.patch('/overview/:campId', async (req, res) => {
   let campId = req.params.campId;
 
