@@ -4,3 +4,20 @@
   font-weight: 600;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('./Calibre/test-calibre-regular.woff') format('woff');
+  font-style: normal;
+}
+
+h1 {
+  font-family: 'Calibre', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 4.2rem;
+  line-height: 1;
+  color: #333333;
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
