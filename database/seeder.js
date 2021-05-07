@@ -122,7 +122,7 @@ const terrainSchema = new mongoose.Schema({
 });
 
 const overviewSchema = new mongoose.Schema({
-  campId: Number,
+  campId: { type: Number, unique : true, required : true },
   name: String,
   description: String,
   location: locationSchema,
@@ -165,7 +165,7 @@ const seed = async () => {
         },
         owner: {
           name: 'Anne B.',
-          imageUrl: 'https://krita-artists.org/uploads/default/original/2X/c/cb096de3604544196cb63799a02405a0e32420bf.jpeg'
+          imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
         },
         pricing: {
           averagePricePerNight: 165,

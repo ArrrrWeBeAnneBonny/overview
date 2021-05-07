@@ -1,7 +1,11 @@
 const {seed} = require('./seeder.js');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/overview', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/overview');
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 
@@ -28,3 +32,31 @@ const Overview = mongoose.model('Overview');
 
 testConnection();
 
+module.exports = {
+  generalLookup: async (campId) => {
+    let response = {};
+    await Overview.find({campId}).exec()
+      .then(query => {
+        console.log('Query returned: ', query)
+        let info = query[0];
+        response = {
+          name: info.name,
+          location: {
+            name: info.location.name,
+            address: info.location.address,
+            numberOfSites: info.lodging.numberOfSites
+          },
+          owner: {
+            name: info.owner.name,
+            imageUrl: info.owner.imageUrl
+          }
+        };
+      })
+      .catch(error => {
+        console.log('ERROR FINDING CAMPID');
+        console.log(error);
+      });
+      console.log(response)
+      return response;
+  }
+}

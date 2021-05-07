@@ -19,6 +19,7 @@ app.get('/overview', async (req, res) => {
     campId = 0;
   }
 
+  let data = await db.generalLookup(campId);
 
 
   const mockData = { name: 'Twisselman\'s Glamping by the Pond',
@@ -31,7 +32,7 @@ app.get('/overview', async (req, res) => {
       name: 'Anne B.',
       imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
 }};
-res.send(mockData);
+res.send(data);
 });
 
 app.get('/overview/location', async (req, res) => {
@@ -57,7 +58,7 @@ app.get('/overview/owner', async (req, res) => {
 
   const mockData = {
     name: 'Anne B.',
-    imageUrl: 'https://krita-artists.org/uploads/default/original/2X/c/cb096de3604544196cb63799a02405a0e32420bf.jpeg'
+    imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
   };
 
   res.send(mockData);
