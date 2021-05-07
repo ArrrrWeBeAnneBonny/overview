@@ -31,7 +31,7 @@ app.get('/overview', async (req, res) => {
 res.send(mockData);
 });
 
-app.patch('/overview/:campId/location', async (req, res) => {
+app.get('/overview/:campId/location', async (req, res) => {
   let campId = req.params.campId;
 
   const mockData = {
@@ -43,7 +43,7 @@ app.patch('/overview/:campId/location', async (req, res) => {
   res.send(mockData);
 });
 
-app.patch('/overview/:campId/owner', async (req, res) => {
+app.get('/overview/:campId/owner', async (req, res) => {
   let campId = req.params.campId;
 
   const mockData = {
@@ -54,7 +54,7 @@ app.patch('/overview/:campId/owner', async (req, res) => {
   res.send(mockData);
 });
 
-app.patch('/overview/:campId/pricing', async (req, res) => {
+app.get('/overview/:campId/pricing', async (req, res) => {
   let campId = req.params.campId;
 
   const mockData = {
