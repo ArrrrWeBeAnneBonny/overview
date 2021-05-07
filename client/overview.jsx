@@ -7,9 +7,24 @@ class Overview extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/overview', {params: {campId: 0}})
+    axios.get('/overview', {params: {campId: 14}})
       .then(response => {
         console.log('Response for get overview', response);
+      })
+      .catch(error => {
+        console.log('ERROR in get ', error);
+      })
+
+      axios.get('/overview/?campId=55')
+      .then(response => {
+        console.log('Response for get overview ?', response);
+      })
+      .catch(error => {
+        console.log('ERROR in get ', error);
+      })
+
+      axios.get('/overview/')
+      .then(response => {
       })
       .catch(error => {
         console.log('ERROR in get ', error);
