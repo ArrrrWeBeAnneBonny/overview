@@ -14,8 +14,11 @@ app.use('/dist', express.static('dist'))
 
 app.get('/overview', async (req, res) => {
   console.log('request query: ', req.query)
-  const campId = parseInt(req.query.campId);
-
+  let campId = parseInt(req.query.campId);
+  if (!campId) {
+    campId = 0;
+  }
+  console.log(campId)
 
 
   const mockData = { name: 'Twisselman\'s Glamping by the Pond',
@@ -26,7 +29,7 @@ app.get('/overview', async (req, res) => {
     },
     owner: {
       name: 'Anne B.',
-      imageUrl: 'https://krita-artists.org/uploads/default/original/2X/c/cb096de3604544196cb63799a02405a0e32420bf.jpeg'
+      imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
 }};
 res.send(mockData);
 });
