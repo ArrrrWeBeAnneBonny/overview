@@ -13,33 +13,27 @@ app.use(express.static('public'))
 app.use('/dist', express.static('dist'))
 
 app.get('/overview', async (req, res) => {
-  console.log('request query: ', req.query)
+  console.log('overview request query: ', req.query);
   let campId = parseInt(req.query.campId);
-  if (typeof campId !== 'Number') {
+  console.log('campId:', campId)
+
+  if (typeof campId !== 'number') {
     campId = 0;
   }
-
+  console.log('campId:', campId)
   let data = await db.generalLookup(campId);
 
-
-  const mockData = { name: 'Twisselman\'s Glamping by the Pond',
-    location: {
-      name: 'Twisselman Ranch',
-      address: '7645 Cattle Dr, Santa Margarita, CA 93453',
-      numberOfSites: 5
-    },
-    owner: {
-      name: 'Anne B.',
-      imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
-}};
-res.send(data);
+  res.send(data);
 });
 
 app.get('/overview/location', async (req, res) => {
+  console.log('location request query: ', req.query);
   let campId = parseInt(req.query.campId);
   if (!campId) {
     campId = 0;
   }
+
+  let data = await db.locationLookup(campId);
 
   const mockData = {
     name: 'Twisselman Ranch',
@@ -47,7 +41,7 @@ app.get('/overview/location', async (req, res) => {
     numberOfSites: 5
   };
 
-  res.send(mockData);
+  res.send(data);
 });
 
 app.get('/overview/owner', async (req, res) => {
@@ -55,6 +49,8 @@ app.get('/overview/owner', async (req, res) => {
   if (!campId) {
     campId = 0;
   }
+
+  let data = await db.ownerLookup(campId);
 
   const mockData = {
     name: 'Anne B.',
@@ -69,6 +65,8 @@ app.get('/overview/pricing', async (req, res) => {
   if (!campId) {
     campId = 0;
   }
+
+  let data = await db.pricingLookup(campId);
 
   const mockData = {
     averagePricePerNight: 165,
