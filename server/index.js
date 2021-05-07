@@ -18,7 +18,7 @@ app.get('/overview', async (req, res) => {
   if (typeof campId !== 'Number') {
     campId = 0;
   }
-  console.log(typeof campId)
+
 
 
   const mockData = { name: 'Twisselman\'s Glamping by the Pond',
