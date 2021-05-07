@@ -2,16 +2,21 @@ const db = require('../database/index.js');
 const express = require('express');
 const app = express();
 const port = 3003;
+const bodyParser = require('body-parser');
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
-
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static('public'))
 app.use('/dist', express.static('dist'))
 
-app.patch('/overview/:campId', async (req, res) => {
-  let campId = req.params.campId;
+app.get('/overview', async (req, res) => {
+  console.log('request query: ', req.query)
+  const campId = parseInt(req.query.campId);
+
+
 
   const mockData = { name: 'Twisselman\'s Glamping by the Pond',
     location: {
