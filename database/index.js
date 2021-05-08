@@ -1,7 +1,7 @@
 const {seed, closeConn} = require('./seeder.js');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/overview');
+mongoose.connect('mongodb://127.0.0.1/overview');
 // mongoose.set('useNewUrlParser', true);
 // mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -22,8 +22,8 @@ const testConnection = async () => {
       if (result.length < 100) {
         console.log('Call seed file. Overview not fully seeded. # of docs:', result.length);
          seed();
-      } else {
-        closeConn();
+      // } else {
+      //   closeConn();
       }
     });
 }
@@ -37,7 +37,7 @@ module.exports = {
     let response = {};
     await Overview.find({campId}).exec()
       .then(query => {
-        console.log('Query returned: ', query)
+        // console.log('general query returned: ', query);
         let info = query[0];
         response = {
           name: info.name,
@@ -64,9 +64,9 @@ module.exports = {
     let response = {};
     await Overview.find({campId}, 'location lodging').exec()
       .then(query => {
-        console.log('Query returned: ', query)
+        // console.log('location query returned: ', query)
         let info = query[0];
-        response.location = {
+        response = {
           name: info.location.name,
           address: info.location.address,
           numberOfSites: info.lodging.numberOfSites
@@ -83,7 +83,7 @@ module.exports = {
     let response = {};
     await Overview.find({campId: campId}, 'owner').exec()
       .then(query => {
-        console.log('Query returned: ', query)
+        // console.log('owner query returned: ', query);
         let info = query[0];
         response = {
           name: info.owner.name,
@@ -101,11 +101,15 @@ module.exports = {
     let response = {};
     await Overview.find({campId}, 'pricing').exec()
       .then(query => {
-        console.log('Query returned: ', query)
+        // console.log('Pricing query returned: ', query);
         let info = query[0];
         response = {
-          name: info.owner.name,
-          address: info.owner.imageUrl,
+          averagePricePerNight: info.pricing.averagePricePerNight,
+          maxGuests: info.pricing.maxGuests,
+          cleaningFee: info.pricing.cleaningFee,
+          monthsOutForBooking: info.pricing.monthsOutForBooking,
+          weeknightDiscount: info.pricing.weeknightDiscount,
+          instantBook: info.pricing.instantBook
         };
       })
       .catch(error => {

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { addresses } = require('./addresses.js');
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-mongoose.connect('mongodb://localhost/overview', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://127.0.0.1/overview', { useNewUrlParser: true, useUnifiedTopology: true });
 db = mongoose.connection;
 try {
   db.on('error', () => {
