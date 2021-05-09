@@ -45,7 +45,7 @@ app.get('/overview/owner', async (req, res) => {
 
   let data = await db.ownerLookup(campId);
 
-  res.send(mockData);
+  res.send(data);
 });
 
 app.get('/overview/pricing', async (req, res) => {
