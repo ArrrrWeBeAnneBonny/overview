@@ -5,7 +5,7 @@ const { addresses } = require('./addresses.js');
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 mongoose.connect('mongodb://127.0.0.1/overview', { useNewUrlParser: true, useUnifiedTopology: true });
-db = mongoose.connection;
+const db = mongoose.connection;
 try {
   db.on('error', () => {
     throw Error('DB Not Connected!')
