@@ -8,7 +8,8 @@
     "node": ">=6.13.0"
   },
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "testEnvironment": "node"
   },
   "scripts": {
     "start": "nodemon ./server/index.js",
