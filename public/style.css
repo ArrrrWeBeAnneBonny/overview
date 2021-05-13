@@ -6,15 +6,20 @@
 }
 
 @font-face {
-  font-family: 'Calibre';
-  src: url('./Calibre/test-calibre-regular.woff') format('woff');
-  font-style: normal;
+  font-family:"Calibre";
+  src:url("CalibreWeb-Regular.eot");
+  src:url("CalibreWeb-Regular.eot?#iefix") format("embedded-opentype"),
+  url("CalibreWeb-Regular.woff") format("woff"),
+  url("CalibreWeb-Regular.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
 }
+
 
 h1 {
   font-family: 'Calibre', Helvetica, Arial, sans-serif;
   font-weight: 500;
-  font-size: 4.2rem;
+  font-size: 42px
   line-height: 1;
   color: #333333;
   background-color: white;
