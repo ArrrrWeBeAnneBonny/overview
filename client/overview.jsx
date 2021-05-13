@@ -6,20 +6,29 @@ class Overview extends React.Component {
   constructor() {
     super();
     this.state = {
-      siteName: 'Twisselman Ranch',
-      campId: 0
+      title: 'Twisselman Ranch'
     }
   }
 
   componentDidMount() {
-    axios.get('/overview', {params: {campId: this.state.campId}})
+    axios.get('/overview', {params: {campId: 14}})
       .then(response => {
-        console.log('Response for get overview', response.data);
-        const overview = response.data;
-        console.log(overview.name)
-        this.setState({
-          siteName: overview.name,
-        });
+        console.log('Response for get overview', response);
+      })
+      .catch(error => {
+        console.log('ERROR in get ', error);
+      })
+
+      axios.get('/overview/?campId=55')
+      .then(response => {
+        console.log('Response for get overview ?', response);
+      })
+      .catch(error => {
+        console.log('ERROR in get ', error);
+      })
+
+      axios.get('/overview/')
+      .then(response => {
       })
       .then(response => {
         console.log('Response for get location', response.data);
@@ -31,9 +40,9 @@ class Overview extends React.Component {
     return (
       <>
       <header>
-        <title>{this.state.siteName}</title>
+        <title>{this.state.title}</title>
       </header>
-      <h1>{this.state.siteName}</h1>
+      <h1>Let's Get Down To Business</h1>
       </>
     )
   }

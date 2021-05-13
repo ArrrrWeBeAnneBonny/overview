@@ -19,9 +19,9 @@ app.get('/overview', async (req, res) => {
   if (typeof campId !== 'number') {
     campId = 0;
   }
+  console.log(typeof campId)
 
   let data = await db.generalLookup(campId);
-
 
   const mockData = { name: 'Twisselman\'s Glamping by the Pond',
     location: {
