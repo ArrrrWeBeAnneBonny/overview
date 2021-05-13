@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { addresses } = require('./addresses.js');
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-mongoose.connect('mongodb://localhost/overview', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://127.0.0.1/overview', { useNewUrlParser: true, useUnifiedTopology: true });
 db = mongoose.connection;
 try {
   db.on('error', () => {
@@ -122,7 +122,7 @@ const terrainSchema = new mongoose.Schema({
 });
 
 const overviewSchema = new mongoose.Schema({
-  campId: Number,
+  campId: { type: Number, unique : true, required : true },
   name: String,
   description: String,
   location: locationSchema,
@@ -165,7 +165,7 @@ const seed = async () => {
         },
         owner: {
           name: 'Anne B.',
-          imageUrl: 'https://krita-artists.org/uploads/default/original/2X/c/cb096de3604544196cb63799a02405a0e32420bf.jpeg'
+          imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
         },
         pricing: {
           averagePricePerNight: 165,
@@ -267,6 +267,7 @@ const seed = async () => {
         });
       continue;
     }
+
     //---LOCATION---
     const locName = faker.animal.dog() + ' ' + faker.address.streetSuffix();
     const locAddress = addresses[Math.floor(Math.random() * addresses.length)];
@@ -470,8 +471,16 @@ const seed = async () => {
         console.log('error creating doc: ', err)
       });
   }
-
-
 };
 
-module.exports = { seed }
+const closeConn = async () => {
+  await db.close()
+    .then(response => {
+      console.log('DB connection closed in seeder ', response)
+    })
+    .catch(err => {
+      console.log('THERE WAS AN ERROR CLOSING THE DB CONNECTION IN SEEDER:');
+      console.log(err);
+    });
+}
+module.exports = { seed, closeConn }

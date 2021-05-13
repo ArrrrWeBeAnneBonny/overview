@@ -5,7 +5,7 @@ const port = 3003;
 const bodyParser = require('body-parser');
 
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server listening at http://127.0.0.1:${port}`);
 });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -13,13 +13,15 @@ app.use(express.static('public'))
 app.use('/dist', express.static('dist'))
 
 app.get('/overview', async (req, res) => {
-  console.log('request query: ', req.query)
+  // console.log('overview request query: ', req.query);
   let campId = parseInt(req.query.campId);
-  if (typeof campId !== 'Number') {
+
+  if (typeof campId !== 'number') {
     campId = 0;
   }
   console.log(typeof campId)
 
+  let data = await db.generalLookup(campId);
 
   const mockData = { name: 'Twisselman\'s Glamping by the Pond',
     location: {
@@ -40,13 +42,9 @@ app.get('/overview/location', async (req, res) => {
     campId = 0;
   }
 
-  const mockData = {
-    name: 'Twisselman Ranch',
-    address: '7645 Cattle Dr, Santa Margarita, CA 93453',
-    numberOfSites: 5
-  };
+  let data = await db.locationLookup(campId);
 
-  res.send(mockData);
+  res.send(data);
 });
 
 app.get('/overview/owner', async (req, res) => {
@@ -55,12 +53,9 @@ app.get('/overview/owner', async (req, res) => {
     campId = 0;
   }
 
-  const mockData = {
-    name: 'Anne B.',
-    imageUrl: 'https://krita-artists.org/uploads/default/original/2X/c/cb096de3604544196cb63799a02405a0e32420bf.jpeg'
-  };
+  let data = await db.ownerLookup(campId);
 
-  res.send(mockData);
+  res.send(data);
 });
 
 app.get('/overview/pricing', async (req, res) => {
@@ -69,14 +64,7 @@ app.get('/overview/pricing', async (req, res) => {
     campId = 0;
   }
 
-  const mockData = {
-    averagePricePerNight: 165,
-    maxGuests: 5,
-    cleaningFee: 15,
-    monthsOutForBooking: 6,
-    weeknightDiscount: .2,
-    instantBook: true
-  };
+  let data = await db.pricingLookup(campId);
 
-  res.send(mockData);
+  res.send(data);
 });
