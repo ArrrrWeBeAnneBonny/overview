@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import axios from 'axios';
+
 class Overview extends React.Component {
   constructor() {
     super();
@@ -7,12 +11,18 @@ class Overview extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/overview', {params: {campId: 0}})
+    axios.get('/overview', {params: {campId: this.state.campId}})
       .then(response => {
-        console.log('Response for get overview', response);
+        console.log('Response for get overview', response.data);
+        const overview = response.data;
+        console.log(overview.name)
+        this.setState({
+          siteName: overview.name,
+        });
       })
-      .catch(error => {
-        console.log('ERROR in get ', error);
+      .then(response => {
+        console.log('Response for get location', response.data);
+        return axios.get('/overview/owner', { params: { campId: this.state.campId } })
       })
   }
 
@@ -20,9 +30,9 @@ class Overview extends React.Component {
     return (
       <>
       <header>
-        <title>{this.state.title}</title>
+        <title>{this.state.siteName}</title>
       </header>
-      <h1>Let's Get Down To Business</h1>
+      <h1>{this.state.siteName}</h1>
       </>
     )
   }

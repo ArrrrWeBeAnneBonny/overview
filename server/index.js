@@ -5,7 +5,7 @@ const port = 3003;
 const bodyParser = require('body-parser');
 
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server listening at http://127.0.0.1:${port}`);
 });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -13,10 +13,16 @@ app.use(express.static('public'))
 app.use('/dist', express.static('dist'))
 
 app.get('/overview', async (req, res) => {
-  console.log('request query: ', req.query)
-  const campId = parseInt(req.query.campId);
+  // console.log('overview request query: ', req.query);
+  let campId = parseInt(req.query.campId);
 
+  if (typeof campId !== 'number') {
+    campId = 0;
+  }
 
+  let data = await db.generalLookup(campId);
+
+>>>>>>> e34a856... Updated so that first API call matches the app and service plan and uses real data that is, data from the db.
 
   const mockData = { name: 'Twisselman\'s Glamping by the Pond',
     location: {
@@ -26,45 +32,40 @@ app.get('/overview', async (req, res) => {
     },
     owner: {
       name: 'Anne B.',
-      imageUrl: 'https://krita-artists.org/uploads/default/original/2X/c/cb096de3604544196cb63799a02405a0e32420bf.jpeg'
+      imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
 }};
-res.send(mockData);
+res.send(data);
 });
 
-app.patch('/overview/:campId/location', async (req, res) => {
-  let campId = req.params.campId;
+app.get('/overview/location', async (req, res) => {
+  let campId = parseInt(req.query.campId);
+  if (!campId) {
+    campId = 0;
+  }
 
-  const mockData = {
-    name: 'Twisselman Ranch',
-    address: '7645 Cattle Dr, Santa Margarita, CA 93453',
-    numberOfSites: 5
-  };
+  let data = await db.locationLookup(campId);
 
-  res.send(mockData);
+  res.send(data);
 });
 
-app.patch('/overview/:campId/owner', async (req, res) => {
-  let campId = req.params.campId;
+app.get('/overview/owner', async (req, res) => {
+  let campId = parseInt(req.query.campId);
+  if (!campId) {
+    campId = 0;
+  }
 
-  const mockData = {
-    name: 'Anne B.',
-    imageUrl: 'https://krita-artists.org/uploads/default/original/2X/c/cb096de3604544196cb63799a02405a0e32420bf.jpeg'
-  };
+  let data = await db.ownerLookup(campId);
 
-  res.send(mockData);
+  res.send(data);
 });
 
-app.patch('/overview/:campId/pricing', async (req, res) => {
-  let campId = req.params.campId;
+app.get('/overview/pricing', async (req, res) => {
+  let campId = parseInt(req.query.campId);
+  if (!campId) {
+    campId = 0;
+  }
 
-  const mockData = {
-    averagePricePerNight: 165,
-    maxGuests: 5,
-    cleaningFee: 15,
-    monthsOutForBooking: 6,
-    weeknightDiscount: .2,
-    instantBook: true
-  };
+  let data = await db.pricingLookup(campId);
 
-  res.send(mockData);
+  res.send(data);
 });
