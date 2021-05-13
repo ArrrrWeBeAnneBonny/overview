@@ -20,8 +20,9 @@ class Overview extends React.Component {
           siteName: overview.name,
         });
       })
-      .catch(error => {
-        console.log('ERROR in get ', error);
+      .then(response => {
+        console.log('Response for get location', response.data);
+        return axios.get('/overview/owner', { params: { campId: this.state.campId } })
       })
   }
 

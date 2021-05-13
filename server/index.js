@@ -21,8 +21,6 @@ app.get('/overview', async (req, res) => {
   }
 
   let data = await db.generalLookup(campId);
-<<<<<<< HEAD
-=======
 
 >>>>>>> e34a856... Updated so that first API call matches the app and service plan and uses real data that is, data from the db.
 
@@ -56,14 +54,7 @@ app.get('/overview/owner', async (req, res) => {
     campId = 0;
   }
 
-<<<<<<< HEAD
   let data = await db.ownerLookup(campId);
-=======
-  const mockData = {
-    name: 'Anne B.',
-    imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
-  };
->>>>>>> e34a856... Updated so that first API call matches the app and service plan and uses real data that is, data from the db.
 
   res.send(data);
 });

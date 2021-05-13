@@ -267,6 +267,7 @@ const seed = async () => {
         });
       continue;
     }
+
     //---LOCATION---
     const locName = faker.animal.dog() + ' ' + faker.address.streetSuffix();
     const locAddress = addresses[Math.floor(Math.random() * addresses.length)];
@@ -470,8 +471,16 @@ const seed = async () => {
         console.log('error creating doc: ', err)
       });
   }
-
-
 };
 
-module.exports = { seed }
+const closeConn = async () => {
+  await db.close()
+    .then(response => {
+      console.log('DB connection closed in seeder ', response)
+    })
+    .catch(err => {
+      console.log('THERE WAS AN ERROR CLOSING THE DB CONNECTION IN SEEDER:');
+      console.log(err);
+    });
+}
+module.exports = { seed, closeConn }
