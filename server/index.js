@@ -22,11 +22,21 @@ app.get('/overview', async (req, res) => {
 
   let data = await db.generalLookup(campId);
 
-  res.send(data);
+
+  const mockData = { name: 'Twisselman\'s Glamping by the Pond',
+    location: {
+      name: 'Twisselman Ranch',
+      address: '7645 Cattle Dr, Santa Margarita, CA 93453',
+      numberOfSites: 5
+    },
+    owner: {
+      name: 'Anne B.',
+      imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
+}};
+res.send(mockData);
 });
 
 app.get('/overview/location', async (req, res) => {
-  // console.log('location request query: ', req.query);
   let campId = parseInt(req.query.campId);
   if (!campId) {
     campId = 0;

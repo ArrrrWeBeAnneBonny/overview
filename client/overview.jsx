@@ -12,7 +12,7 @@ class Overview extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/overview', { params: { campId: this.state.campId } })
+    axios.get('/overview', {params: {campId: this.state.campId}})
       .then(response => {
         console.log('Response for get overview', response.data);
         const overview = response.data;
@@ -20,31 +20,20 @@ class Overview extends React.Component {
         this.setState({
           siteName: overview.name,
         });
-        return axios.get('/overview/location', { params: { campId: this.state.campId } })
       })
       .then(response => {
         console.log('Response for get location', response.data);
         return axios.get('/overview/owner', { params: { campId: this.state.campId } })
       })
-      .then(response => {
-        console.log('Response for get owner', response.data);
-        return axios.get('/overview/pricing', { params: { campId: this.state.campId } })
-      })
-      .then(response => {
-        console.log('Response for get pricing', response.data);
-      })
-      .catch(error => {
-        console.log('ERROR in get ', error);
-      });
   }
 
   render() {
     return (
       <>
-        <header>
-          <title>{this.state.siteName}</title>
-        </header>
-        <h1>{this.state.siteName}</h1>
+      <header>
+        <title>{this.state.siteName}</title>
+      </header>
+      <h1>{this.state.siteName}</h1>
       </>
     )
   }
