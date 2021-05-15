@@ -1,5 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Description from './Components/description.jsx';
 import Lodging from './Components/lodging.jsx';
@@ -12,25 +10,27 @@ class Overview extends React.Component {
     super();
     this.state = {
       campId: 0,
-      title: 'Twisselman Ranch'
+      siteName: 'Twisselman Ranch'
     }
+    this.fetchOverview();
   }
 
   fetchOverview() {
-    return axios.get('/overview', { params: { campId: this.state.campId } })
+    return axios.get('/overview/all', { params: { campId: this.state.campId } })
     .then(response => {
       console.log('Response for get overview', response.data);
       const overview = response.data;
-      console.log(overview.name)
       this.setState({
         siteName: overview.name,
+        owner: overview.owner
       });
-      return overview;
+      console.log(this.state)
     });
   }
 
   componentDidMount() {
-    this.fetchOverview();
+    // this.fetchOverview();
+    console.log('rendered')
   }
 
   render() {
@@ -51,6 +51,6 @@ class Overview extends React.Component {
   }
 }
 
-// ReactDOM.render(<Overview />, document.getElementById('overview'));
+ReactDOM.render(<Overview />, document.getElementById('overview'));
 
 export default Overview;

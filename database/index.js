@@ -57,7 +57,7 @@ module.exports = {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
       });
-      console.log(response)
+      // console.log(response);
       return response;
   },
 
@@ -182,8 +182,8 @@ module.exports = {
               description: info.amenities.picnicTable.description
             },
             wifi: {
-              available: info.amenities.available,
-              description: info.amenities.description
+              available: info.amenities.wifi.available,
+              description: info.amenities.wifi.description
             },
             bins: helper.hasBins(info.amenities.bins)
           }
