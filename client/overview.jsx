@@ -1,17 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Description from './Components/description.jsx';
+import Lodging from './Components/lodging.jsx';
+import Essentials from './Components/essentials.jsx';
+import Amenities from './Components/lodging.jsx';
+import Details from './Components/details.jsx';
 
 class Overview extends React.Component {
   constructor() {
     super();
     this.state = {
+      campId: 0,
       title: 'Twisselman Ranch'
     }
   }
 
   componentDidMount() {
-    axios.get('/overview', {params: {campId: this.state.campId}})
+    axios.get('/overview/all', {params: {campId: this.state.campId}})
       .then(response => {
         console.log('Response for get overview', response.data);
         const overview = response.data;
@@ -20,9 +26,8 @@ class Overview extends React.Component {
           siteName: overview.name,
         });
       })
-      .then(response => {
-        console.log('Response for get location', response.data);
-        return axios.get('/overview/owner', { params: { campId: this.state.campId } })
+      .catch(error => {
+        console.log('Error in the get request :', error);
       })
   }
 
@@ -33,6 +38,12 @@ class Overview extends React.Component {
         <title>{this.state.siteName}</title>
       </header>
       <h1>{this.state.siteName}</h1>
+
+      <Description />
+      <Lodging />
+      <Essentials />
+      <Amenities />
+      <Details />
       </>
     )
   }

@@ -22,19 +22,7 @@ app.get('/overview', async (req, res) => {
 
   let data = await db.generalLookup(campId);
 
->>>>>>> e34a856... Updated so that first API call matches the app and service plan and uses real data that is, data from the db.
-
-  const mockData = { name: 'Twisselman\'s Glamping by the Pond',
-    location: {
-      name: 'Twisselman Ranch',
-      address: '7645 Cattle Dr, Santa Margarita, CA 93453',
-      numberOfSites: 5
-    },
-    owner: {
-      name: 'Anne B.',
-      imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
-}};
-res.send(data);
+  res.send(data);
 });
 
 app.get('/overview/location', async (req, res) => {
@@ -66,6 +54,18 @@ app.get('/overview/pricing', async (req, res) => {
   }
 
   let data = await db.pricingLookup(campId);
+
+  res.send(data);
+});
+
+app.get('/overview/all', async (req, res) => {
+  // console.log('overview request query: ', req.query);
+  let campId = parseInt(req.query.campId);
+  if (typeof campId !== 'number') {
+    campId = 0;
+  }
+
+  let data = await db.generalLookup(campId);
 
   res.send(data);
 });
