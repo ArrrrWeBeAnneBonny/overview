@@ -46,7 +46,7 @@ test('/overview should fetch object with expected properties per app and service
       imageUrl: 'html link here'
     }
   };
-  const response = {data: overview}
+  const response = { data: overview }
   axios.get.mockResolvedValue(response)
   axios.get('/oveview?campId=0')
     .then(resp => expect(resp.data).toEqual(overview));
