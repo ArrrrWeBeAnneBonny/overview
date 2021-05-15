@@ -16,19 +16,21 @@ class Overview extends React.Component {
     }
   }
 
+  fetchOverview() {
+    return axios.get('/overview', { params: { campId: this.state.campId } })
+    .then(response => {
+      console.log('Response for get overview', response.data);
+      const overview = response.data;
+      console.log(overview.name)
+      this.setState({
+        siteName: overview.name,
+      });
+      return overview;
+    });
+  }
+
   componentDidMount() {
-    axios.get('/overview/all', {params: {campId: this.state.campId}})
-      .then(response => {
-        console.log('Response for get overview', response.data);
-        const overview = response.data;
-        console.log(overview)
-        this.setState({
-          siteName: overview.name,
-        });
-      })
-      .catch(error => {
-        console.log('Error in the get request :', error);
-      })
+    this.fetchOverview();
   }
 
   render() {
@@ -49,4 +51,6 @@ class Overview extends React.Component {
   }
 }
 
-ReactDOM.render(<Overview />, document.getElementById('overview'));
+// ReactDOM.render(<Overview />, document.getElementById('overview'));
+
+export default Overview;
