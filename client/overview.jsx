@@ -21,7 +21,7 @@ class Overview extends React.Component {
       .then(response => {
         console.log('Response for get overview', response.data);
         const overview = response.data;
-        console.log(overview.name)
+        console.log(overview)
         this.setState({
           siteName: overview.name,
         });

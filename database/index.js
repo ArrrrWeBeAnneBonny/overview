@@ -1,5 +1,6 @@
 const {seed, closeConn} = require('./seeder.js');
 const mongoose = require('mongoose');
+const helper = require('./helperFuncs.js');
 
 mongoose.connect('mongodb://127.0.0.1/overview');
 // mongoose.set('useNewUrlParser', true);
@@ -56,7 +57,7 @@ module.exports = {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
       });
-      // console.log(response)
+      console.log(response)
       return response;
   },
 
@@ -81,13 +82,17 @@ module.exports = {
 
   ownerLookup: async (campId) => {
     let response = {};
-    await Overview.find({campId: campId}, 'owner').exec()
+    await Overview.find({campId: campId}, 'owner lodging').exec()
       .then(query => {
         // console.log('owner query returned: ', query);
+        if (query.length === 0) {
+          throw new Error('No queries found')
+        }
         let info = query[0];
         response = {
           name: info.owner.name,
-          address: info.owner.imageUrl,
+          imageUrl: info.owner.imageUrl,
+          site: Math.floor(Math.random() * info.pricing.numberOfSites)
         };
       })
       .catch(error => {
@@ -116,6 +121,79 @@ module.exports = {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
       });
+      return response;
+  },
+
+  overviewLookup: async (campId) => {
+    let response = {};
+    await Overview.find({campId}).exec()
+      .then(query => {
+        // console.log('general query returned: ', query);
+        let info = query[0];
+        response = {
+          name: info.name,
+          description: info.description,
+          location: {
+            name: info.location.name,
+            address: info.location.address,
+            numberOfSites: info.lodging.numberOfSites
+          },
+          owner: {
+            name: info.owner.name,
+            imageUrl: info.owner.imageUrl
+          },
+          pricing: {
+            averagePricePerNight: info.pricing.averagePricePerNight,
+            cleaningFee: info.pricing.cleaningFee,
+            monthsOutForBooking: info.pricing.monthsOutForBooking,
+            weeknightDiscount: info.pricing.weeknightDiscount,
+            instantBook: info.pricing.instantBook
+          },
+          details: {
+            checkInTime: helper.timeToStringHour(info.details.checkInTime),
+            checkOutTime: helper.timeToStringHour(info.details.checkOutTime),
+            cancellationPolicy: helper.cancellationMessage(info.details.cancellationPolicy),
+            onArrival: helper.arrivalType(info.details.onArrival),
+            responseTime: info.details.responseTime,
+            responseRate: info.details.responseRate
+          },
+          lodging: {
+            type: helper.lodgingTypes(info.lodging.type),
+            numberOfSites: info.lodging.numberOfSites,
+            maxGuestsPerSite: info.lodging.maxGuestsPerSite,
+            ADAaccess: info.lodging.ADAaccess,
+            parking: info.lodging.parking
+          },
+          essentials: {
+            campfires: info.essentials.campfires,
+            toilet: info.essentials.toilet,
+            pets: info.essentials.maxGuestsPerSite
+          },
+          amenities: {
+            potableWater: {
+              available: info.amenities.potableWater.available,
+              types: helper.potableWaterTypes[info.amenities.potableWater.types],
+              description: info.amenities.potableWater.description
+            },
+            kitchen: helper.hasKitchen(info.amenities.kitchen),
+            shower: helper.hasShower(info.amenities.shower),
+            picnicTable: {
+              available: info.amenities.picnicTable.available,
+              description: info.amenities.picnicTable.description
+            },
+            wifi: {
+              available: info.amenities.available,
+              description: info.amenities.description
+            },
+            bins: helper.hasBins(info.amenities.bins)
+          }
+        };
+      })
+      .catch(error => {
+        console.log('ERROR FINDING CAMPID');
+        console.log(error);
+      });
+
       return response;
   }
 }
