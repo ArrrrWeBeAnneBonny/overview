@@ -2,7 +2,7 @@ const {seed, closeConn} = require('./seeder.js');
 const mongoose = require('mongoose');
 const helper = require('./helperFuncs.js');
 
-mongoose.connect('mongodb://127.0.0.1/overview');
+mongoose.connect('mongodb://127.0.0.1/FEC');
 // mongoose.set('useNewUrlParser', true);
 // mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -167,7 +167,7 @@ module.exports = {
           essentials: {
             campfires: info.essentials.campfires,
             toilet: info.essentials.toilet,
-            pets: info.essentials.maxGuestsPerSite
+            pets: info.essentials.pets
           },
           amenities: {
             potableWater: {
