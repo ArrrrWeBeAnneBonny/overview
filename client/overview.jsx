@@ -25,6 +25,7 @@ class Overview extends React.Component {
       amenities: '',
       header: ''
     }
+    this.fetchOverview();
   }
 
   fetchOverview() {
@@ -50,18 +51,8 @@ class Overview extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/overview/all', {params: {campId: this.state.campId}})
-      .then(response => {
-        console.log('Response for get overview', response.data);
-        const overview = response.data;
-        console.log(overview.name)
-        this.setState({
-          siteName: overview.name,
-        });
-      })
-      .catch(error => {
-        console.log('Error in the get request :', error);
-      })
+    // this.fetchOverview();
+    console.log('rendered')
   }
 
   render() {

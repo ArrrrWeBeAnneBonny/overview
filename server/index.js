@@ -1,8 +1,10 @@
+const axios = require('axios');
+const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 const express = require('express');
+
 const app = express();
 const port = 3003;
-const bodyParser = require('body-parser');
 
 app.listen(port, () => {
   console.log(`Server listening at http://127.0.0.1:${port}`);
@@ -64,8 +66,15 @@ app.get('/overview/all', async (req, res) => {
   if (typeof campId !== 'number') {
     campId = 0;
   }
-
-  let data = await db.generalLookup(campId);
-
+  let data = await db.overviewLookup(campId);
+  await axios.get('http://localhost:3001/reviews', { params: { campId } })
+    .then(response => {
+      // console.log('Review API Call response ', response.data);
+      data.header = { percentRec: response.data.recommendedPer}
+    })
+    .catch(error => {
+      console.log('Error Ocurred ', error);
+    })
+  console.log(data);
   res.send(data);
 });
