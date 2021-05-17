@@ -51,6 +51,4 @@ class Overview extends React.Component {
   }
 }
 
-// ReactDOM.render(<Overview />, document.getElementById('overview'));
-
-export default Overview;
+ReactDOM.render(<Overview />, document.getElementById('overview'));
