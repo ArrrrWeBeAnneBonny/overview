@@ -24,7 +24,7 @@ class Overview extends React.Component {
         siteName: overview.name,
         owner: overview.owner
       });
-      console.log(this.state)
+      // console.log(this.state)
     });
   }
 
@@ -35,7 +35,7 @@ class Overview extends React.Component {
 
   render() {
     return (
-      <>
+      <div>
       <header>
         <title>{this.state.siteName}</title>
       </header>
@@ -46,7 +46,7 @@ class Overview extends React.Component {
       <Essentials />
       <Amenities />
       <Details />
-      </>
+      </div>
     )
   }
 }
