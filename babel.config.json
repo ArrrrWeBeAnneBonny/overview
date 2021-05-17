@@ -1,7 +1,11 @@
 {
   "presets": [
     "@babel/preset-react",
-    ["@babel/preset-env",
-      {"targets": {"node": "current"}, "useBuiltIns": "entry" }]
+    [
+    "@babel/preset-env",
+    {
+      "useBuiltIns": "entry"
+    }
+    ]
   ]
 }

@@ -8,6 +8,7 @@ import Essentials from './Components/essentials.jsx';
 import Amenities from './Components/lodging.jsx';
 import Details from './Components/details.jsx';
 
+
 class Overview extends React.Component {
   constructor() {
     super();
@@ -56,7 +57,6 @@ class Overview extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div id='main'>
         <header>
@@ -66,10 +66,12 @@ class Overview extends React.Component {
         <div className="recommend-percentage" data-placement="bottom" data-toggle="tooltip" title="" data-original-title="This recommendation is based on responses from the Hipcamp community members  who have verified stays at this listing.">
           <span className="icon fa fa-thumbs-up"></span> {Math.trunc(100*this.state.header.percentRec)}% <span className="recommend-text">Recommend</span>
         </div>
-        <Description description={this.state.description} />
+        <Description description={this.state.description} owner={this.state.owner} />
+        <div id='tri-card'>
         <Lodging lodging={this.state.lodging} />
         <Essentials essentials={this.state.essentials} />
         <Amenities amenities={this.state.amenities} />
+        </div>
         <Details details={this.state.details} />
       </div>
     )
