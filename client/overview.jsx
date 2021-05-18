@@ -63,16 +63,21 @@ class Overview extends React.Component {
           <title>{this.state.siteName}</title>
         </header>
         <h1>{this.state.siteName}</h1>
-        <div className="recommend-percentage" data-placement="bottom" data-toggle="tooltip" title="" data-original-title="This recommendation is based on responses from the Hipcamp community members  who have verified stays at this listing.">
-          <span className="icon fa fa-thumbs-up"></span> {Math.trunc(100*this.state.header.percentRec)}% <span className="recommend-text">Recommend</span>
+
+        <div className="recommend-percentage">
+          <span className="icon fa fa-thumbs-up"></span> {Math.trunc(100 * this.state.header.percentRec)}% <span className="recommend-text">Recommend</span>
         </div>
+
         <Description description={this.state.description} owner={this.state.owner} />
+
         <div id='tri-card'>
-        <Lodging lodging={this.state.lodging} />
-        <Essentials essentials={this.state.essentials} />
-        <Amenities amenities={this.state.amenities} />
+          <Lodging lodging={this.state.lodging} />
+          <Essentials essentials={this.state.essentials} />
+          <Amenities amenities={this.state.amenities} />
         </div>
+
         <Details details={this.state.details} />
+
       </div>
     )
   }
