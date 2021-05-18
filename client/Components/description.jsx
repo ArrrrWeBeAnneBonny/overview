@@ -1,3 +1,5 @@
+import React from 'react';
+
 class Description extends React.Component {
   constructor(props) {
     super(props);
@@ -6,7 +8,7 @@ class Description extends React.Component {
   render() {
     return (
       <div id='description'>
-        description go here
+        {this.props.description}
       </div>
     )
   }

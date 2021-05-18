@@ -11,8 +11,8 @@ app.listen(port, () => {
 });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public'))
-app.use('/dist', express.static('dist'))
+// app.use(express.static('public');
+app.use(express.static('dist'))
 
 app.get('/overview', async (req, res) => {
   // console.log('overview request query: ', req.query);

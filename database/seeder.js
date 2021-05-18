@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const { addresses } = require('./addresses.js');
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-mongoose.connect('mongodb://127.0.0.1/overview', { useNewUrlParser: true, useUnifiedTopology: true });
-db = mongoose.connection;
+mongoose.connect('mongodb://127.0.0.1/FEC', { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
 try {
   db.on('error', () => {
     throw Error('DB Not Connected!')
@@ -199,7 +199,7 @@ const seed = async () => {
           potableWater: {
             available: false,
             types: 0,
-            description: null
+            description: ''
           },
           kitchen: {
             available: true,
@@ -217,7 +217,7 @@ const seed = async () => {
           },
           wifi: {
             available: false,
-            description: null
+            description: ''
           },
           bins: {
             available: true,
@@ -349,7 +349,7 @@ const seed = async () => {
     const potableWater = {
       available,
       types: available ? faker.datatype.number({ min: 1, max: 3, precision: 1 }) : 0,
-      description: available ? faker.lorem.sentences() : null
+      description: available ? faker.lorem.sentences() : ''
     };
 
     available = faker.datatype.boolean();
@@ -368,26 +368,26 @@ const seed = async () => {
     const kitchen = {
       available,
       types: kitchenTypes,
-      description: available ? faker.lorem.sentences() : null
+      description: available ? faker.lorem.sentences() : ''
     };
 
     available = faker.datatype.boolean();
     const shower = {
       available,
       types: available ? faker.datatype.number({ min: 1, max: 2, precision: 1 }) : 0,
-      description: available ? faker.lorem.sentences() : null
+      description: available ? faker.lorem.sentences() : ''
     };
 
     available = faker.datatype.boolean();
     const picnicTable = {
       available,
-      description: available ? faker.lorem.sentences() : null
+      description: available ? faker.lorem.sentences() : ''
     };
 
     available = faker.datatype.boolean();
     const wifi = {
       available,
-      description: available ? faker.lorem.sentences() : null
+      description: available ? faker.lorem.sentences() : ''
     };
 
     available = faker.datatype.boolean();
@@ -397,7 +397,7 @@ const seed = async () => {
     const bins = {
       available,
       types: available ? faker.datatype.number({ min: 1, max: 3, precision: 1 }) : 0,
-      description: available ? faker.lorem.sentences() : null
+      description: available ? faker.lorem.sentences() : ''
     };
 
     const newAmenities = {

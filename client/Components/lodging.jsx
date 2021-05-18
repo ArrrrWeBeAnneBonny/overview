@@ -1,3 +1,5 @@
+import React from 'react';
+
 class Lodging extends React.Component {
   constructor(props) {
     super(props);
