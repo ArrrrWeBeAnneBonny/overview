@@ -28,6 +28,7 @@ class Overview extends React.Component {
       fetched: false
     }
     this.fetchOverview();
+
   }
 
   fetchOverview() {
