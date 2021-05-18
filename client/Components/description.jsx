@@ -7,8 +7,19 @@ class Description extends React.Component {
 
   render() {
     return (
-      <div id='description'>
-        {this.props.description}
+      <div className='owner-description'>
+        <div className='owner'>
+          <div className='owner-photo'>
+          <img src={this.props.owner.imageUrl}></img>
+          </div>
+          <div className='owner-name'>
+            <b>Hosted by</b>
+            {this.props.owner.name}
+          </div>
+        </div>
+        <div className='description'>
+          {this.props.description}
+        </div>
       </div>
     )
   }

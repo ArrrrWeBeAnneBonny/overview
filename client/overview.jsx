@@ -14,7 +14,7 @@ class Overview extends React.Component {
     super();
     this.state = {
       campId: 0,
-      siteName: 'Twisselman Ranch',
+      siteName: '',
       owner: '',
       description: '',
       lodging: '',
@@ -24,9 +24,11 @@ class Overview extends React.Component {
       location: '',
       essentials: '',
       amenities: '',
-      header: ''
+      header: '',
+      mounted: false
     }
     this.fetchOverview();
+
   }
 
   fetchOverview() {
@@ -34,52 +36,68 @@ class Overview extends React.Component {
       .then(response => {
         // console.log('Response for get overview', response.data);
         const overview = response.data;
-        this.setState({
-          siteName: overview.name,
-          owner: overview.owner,
-          description: overview.description,
-          lodging: overview.lodging,
-          pricing: overview.pricing,
-          details: overview.details,
-          owner: overview.owner,
-          location: overview.location,
-          essentials: overview.essentials,
-          amenities: overview.amenities,
-          header: overview.header
-        });
-        console.log(this.state)
-      });
+        if (this.state.mounted) {
+          this.setState({
+            siteName: overview.name,
+            owner: overview.owner,
+            description: overview.description,
+            lodging: overview.lodging,
+            pricing: overview.pricing,
+            details: overview.details,
+            owner: overview.owner,
+            location: overview.location,
+            essentials: overview.essentials,
+            amenities: overview.amenities,
+            header: overview.header,
+            fetched: true
+          });
+        }
+      })
+      .catch(error => {
+        console.log('------ERROR IN FETCH OVERVIEW------');
+        console.log(error);
+      })
   }
 
   componentDidMount() {
-    // this.fetchOverview();
-    console.log('rendered')
+    console.log('rendered');
+    this.state.mounted = true;
   }
 
   render() {
-    return (
-      <div id='main'>
-        <header>
-          <title>{this.state.siteName}</title>
-        </header>
-        <h1>{this.state.siteName}</h1>
+    console.log(this.state)
 
-        <div className="recommend-percentage">
-          <span className="icon fa fa-thumbs-up"></span> {Math.trunc(100 * this.state.header.percentRec)}% <span className="recommend-text">Recommend</span>
+    if (this.state.fetched && this.state.mounted) {
+      return (
+        <div id='main'>
+          <header>
+            <title>{this.state.siteName}</title>
+          </header>
+          <h1>{this.state.siteName}</h1>
+
+          <div className="recommend-percentage">
+            <span className="icon fa fa-thumbs-up"></span> {Math.trunc(100 * this.state.header.percentRec)}% <span className="recommend-text">Recommend</span>
+          </div>
+
+          <Description description={this.state.description} owner={this.state.owner} />
+
+          <div id='tri-card'>
+            <Lodging lodging={this.state.lodging} />
+            <Essentials essentials={this.state.essentials} />
+            <Amenities amenities={this.state.amenities} />
+          </div>
+
+          <Details details={this.state.details} />
+
         </div>
-
-        <Description description={this.state.description} owner={this.state.owner} />
-
-        <div id='tri-card'>
-          <Lodging lodging={this.state.lodging} />
-          <Essentials essentials={this.state.essentials} />
-          <Amenities amenities={this.state.amenities} />
+      )
+    } else {
+      return (
+        <div id='loading'>
+          <h1>Loading...</h1>
         </div>
-
-        <Details details={this.state.details} />
-
-      </div>
-    )
+      )
+    }
   }
 }
 
