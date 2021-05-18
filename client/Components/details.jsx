@@ -6,6 +6,8 @@ class Details extends React.Component {
   }
 
   render() {
+    console.log(this.props.details);
+
     return (
       <div id='details'>
         details go here

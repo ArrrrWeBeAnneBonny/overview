@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import Description from './Components/description.jsx';
 import Lodging from './Components/lodging.jsx';
 import Essentials from './Components/essentials.jsx';
-import Amenities from './Components/lodging.jsx';
+import Amenities from './Components/amenities.jsx';
 import Details from './Components/details.jsx';
 
 
@@ -15,16 +15,15 @@ class Overview extends React.Component {
     this.state = {
       campId: 0,
       siteName: '',
-      owner: '',
       description: '',
-      lodging: '',
-      pricing: '',
-      details: '',
-      owner: '',
-      location: '',
-      essentials: '',
-      amenities: '',
-      header: '',
+      owner: {},
+      lodging: {},
+      pricing: {},
+      details: {},
+      location: {},
+      essentials: {},
+      amenities: {},
+      header: {},
       mounted: false
     }
     this.fetchOverview();

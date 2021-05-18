@@ -6,6 +6,8 @@ class Essentials extends React.Component {
   }
 
   render() {
+    console.log(this.props.essentials);
+
     return (
       <div id='essentials'>
         essentials go here

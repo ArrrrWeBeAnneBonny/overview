@@ -6,6 +6,8 @@ class Amenities extends React.Component {
   }
 
   render() {
+    console.log(this.props.amenities);
+
     return (
       <div id='amenities'>
         amenities go here

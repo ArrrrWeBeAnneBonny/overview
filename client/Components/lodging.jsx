@@ -3,11 +3,17 @@ import React from 'react';
 class Lodging extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      type: this.props.lodging.type,
+      numberOfSites: this.props.lodging.numberOfSites,
+      maxGuestsPerSite: this.props.lodging.maxGuestsPerSite,
+      parking: this.props.lodging.parking,
+      ADAaccess: this.props.lodging.ADAaccess
+    }
   }
 
   render() {
-    console.log(this.props.lodging)
-
+    console.log(this.state);
     return (
       <div className='card lodging'>
 
