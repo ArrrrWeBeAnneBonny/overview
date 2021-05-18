@@ -91,5 +91,6 @@ app.get('/overview/all', async (req, res) => {
       data.header = { percentRec: false };
 
     })
-  // console.log(data);
+    // console.log(data);
+    res.send(data);
 });

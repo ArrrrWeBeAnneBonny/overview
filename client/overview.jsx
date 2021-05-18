@@ -13,7 +13,7 @@ class Overview extends React.Component {
   constructor() {
     super();
     this.state = {
-      campId: 0,
+      campId: 5,
       siteName: '',
       description: '',
       owner: {},
@@ -67,29 +67,54 @@ class Overview extends React.Component {
     console.log(this.state)
 
     if (this.state.fetched && this.state.mounted) {
-      return (
-        <div id='main'>
-          <header>
-            <title>{this.state.siteName}</title>
-          </header>
-          <h1>{this.state.siteName}</h1>
+      if (!this.state.header.errorOccured) {
+        console.log('Not Conencted to reviews service')
+        return (
+          <div id='main'>
+            <header>
+              <title>{this.state.siteName}</title>
+            </header>
+            <h1>{this.state.siteName}</h1>
 
-          <div className="recommend-percentage">
-            <span className="icon fa fa-thumbs-up"></span> {Math.trunc(100 * this.state.header.percentRec)}% <span className="recommend-text">Recommend</span>
+            <div className="recommend-percentage">
+              <span className="icon fa fa-thumbs-up"></span> {Math.trunc(100 * this.state.header.percentRec)}% <span className="recommend-text">Recommend</span>
+            </div>
+
+            <Description description={this.state.description} owner={this.state.owner} />
+
+            <div id='tri-card'>
+              <Lodging lodging={this.state.lodging} />
+              <Essentials essentials={this.state.essentials} />
+              <Amenities amenities={this.state.amenities} />
+            </div>
+
+            <Details details={this.state.details} />
+
           </div>
+        )
+      } else {
+        return (
+          <div id='main'>
+            <header>
+              <title>{this.state.siteName}</title>
+            </header>
+            <h1>{this.state.siteName}</h1>
 
-          <Description description={this.state.description} owner={this.state.owner} />
+            <Description description={this.state.description} owner={this.state.owner} />
 
-          <div id='tri-card'>
-            <Lodging lodging={this.state.lodging} />
-            <Essentials essentials={this.state.essentials} />
-            <Amenities amenities={this.state.amenities} />
+            <div id='tri-card'>
+              <Lodging lodging={this.state.lodging} />
+              <Essentials essentials={this.state.essentials} />
+              <Amenities amenities={this.state.amenities} />
+            </div>
+
+            <Details details={this.state.details} />
+
           </div>
+        )
+      }
 
-          <Details details={this.state.details} />
 
-        </div>
-      )
     } else {
       return (
         <div id='loading'>
