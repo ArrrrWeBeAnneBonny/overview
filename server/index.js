@@ -88,10 +88,19 @@ app.get('/overview/all', async (req, res) => {
       data.header = { percentRec: response.data.recommendedPer };
     })
     .catch(error => {
+<<<<<<<
       console.log('Unable to Access Review Service...');
       // console.log(error);
       data.header = { percentRec: false };
 
+=======
+      // console.log('Error Ocurred: ', error);
+      data.header = {
+        errorOccured: true,
+        percentRec: 'error'
+      }
+      // res.send('Please note error occured in the review lookup')      
+>>>>>>>
     })
     // console.log(data);
     res.send(data);
