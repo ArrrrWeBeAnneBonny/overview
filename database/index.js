@@ -57,6 +57,7 @@ module.exports = {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
       });
+    
       // console.log(response);
       return response;
   },
@@ -82,13 +83,17 @@ module.exports = {
 
   ownerLookup: async (campId) => {
     let response = {};
-    await Overview.find({campId: campId}, 'owner').exec()
+    await Overview.find({campId: campId}, 'owner lodging').exec()
       .then(query => {
         // console.log('owner query returned: ', query);
+        if (query.length === 0) {
+          throw new Error('No queries found')
+        }
         let info = query[0];
         response = {
           name: info.owner.name,
-          address: info.owner.imageUrl,
+          imageUrl: info.owner.imageUrl,
+          site: Math.floor(Math.random() * info.pricing.numberOfSites)
         };
       })
       .catch(error => {
