@@ -13,8 +13,7 @@ class Lodging extends React.Component {
   }
 
   render() {
-    console.log(this.props.lodging)
-
+    console.log(this.state);
     return (
       <div className='card lodging'>
         <div className='title'>Lodging provided</div>
