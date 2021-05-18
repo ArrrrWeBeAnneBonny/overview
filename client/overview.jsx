@@ -13,7 +13,7 @@ class Overview extends React.Component {
   constructor() {
     super();
     this.state = {
-      campId: 0,
+      campId: 5,
       siteName: '',
       description: '',
       owner: {},
