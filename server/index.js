@@ -3,14 +3,25 @@ const express = require('express');
 const app = express();
 const port = 3003;
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
 
 app.listen(port, () => {
   console.log(`Server listening at http://127.0.0.1:${port}`);
 });
+
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5500',
+];
+app.use(cors());
+app.use(cors({ origin: allowedOrigins }));
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public'))
-app.use('/dist', express.static('dist'))
+// app.use(express.static('public'))
+app.use(express.static('dist'));
 
 app.get('/overview', async (req, res) => {
   // console.log('overview request query: ', req.query);
@@ -22,9 +33,9 @@ app.get('/overview', async (req, res) => {
 
   let data = await db.generalLookup(campId);
 
->>>>>>> e34a856... Updated so that first API call matches the app and service plan and uses real data that is, data from the db.
 
-  const mockData = { name: 'Twisselman\'s Glamping by the Pond',
+  const mockData = {
+    name: 'Twisselman\'s Glamping by the Pond',
     location: {
       name: 'Twisselman Ranch',
       address: '7645 Cattle Dr, Santa Margarita, CA 93453',
@@ -33,8 +44,9 @@ app.get('/overview', async (req, res) => {
     owner: {
       name: 'Anne B.',
       imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
-}};
-res.send(data);
+    }
+  };
+  res.send(data);
 });
 
 app.get('/overview/location', async (req, res) => {
