@@ -1,12 +1,12 @@
 const axios = require('axios');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const db = require('../database/index.js');
 const express = require('express');
 
 const app = express();
 const port = 3003;
-const bodyParser = require('body-parser');
-const cors = require('cors');
+
 
 
 app.listen(port, () => {
@@ -73,7 +73,7 @@ app.get('/overview/pricing', async (req, res) => {
 });
 
 app.get('/overview/all', async (req, res) => {
-  // console.log('overview request query: ', req.query);
+  console.log('overview request query: ', req.query);
   let campId = parseInt(req.query.campId);
   if (typeof campId !== 'number') {
     campId = 0;
