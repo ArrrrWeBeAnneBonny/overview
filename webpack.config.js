@@ -12,7 +12,7 @@ module.exports = {
     filename: 'overview.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: ''
+    publicPath: 'http://localhost:3003'
   },
   module: {
     rules: [

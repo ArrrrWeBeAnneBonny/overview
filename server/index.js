@@ -82,10 +82,14 @@ app.get('/overview/all', async (req, res) => {
   await axios.get('http://localhost:3001/reviews', { params: { campId } })
     .then(response => {
       // console.log('Review API Call response ', response.data);
-      data.header = { percentRec: response.data.recommendedPer}
+      console.log('Accessed Review Service!!');
+      data.header = { percentRec: response.data.recommendedPer };
     })
     .catch(error => {
-      console.log('Error Ocurred ', error);
+      console.log('Unable to Access Review Service...');
+      // console.log(error);
+      data.header = { percentRec: false };
+
     })
   console.log(data);
   res.send(data);

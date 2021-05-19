@@ -29,7 +29,7 @@ class Overview extends React.Component {
   }
 
   fetchOverview() {
-    return axios.get('/overview/all', { params: { campId: this.state.campId } })
+    return axios.get('http://localhost:3003/overview/all', { params: { campId: this.state.campId } })
       .then(response => {
         // console.log('Response for get overview', response.data);
         const overview = response.data;
