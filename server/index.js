@@ -5,14 +5,26 @@ const express = require('express');
 
 const app = express();
 const port = 3003;
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
 
 app.listen(port, () => {
   console.log(`Server listening at http://127.0.0.1:${port}`);
 });
+
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5500',
+];
+app.use(cors());
+app.use(cors({ origin: allowedOrigins }));
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// app.use(express.static('public');
-app.use(express.static('dist'))
+// app.use(express.static('public'))
+app.use(express.static('dist'));
 
 app.get('/overview', async (req, res) => {
   // console.log('overview request query: ', req.query);
