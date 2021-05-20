@@ -95,9 +95,9 @@ app.get('/overview/all', async (req, res) => {
 
 =======
       // console.log('Error Ocurred: ', error);
+      console.log('Please note error occured in the review lookup')      
       data.header = {
-        errorOccured: true,
-        percentRec: 'error'
+        percentRec: false
       }
       // res.send('Please note error occured in the review lookup')      
 >>>>>>>

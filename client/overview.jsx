@@ -13,7 +13,7 @@ class Overview extends React.Component {
   constructor() {
     super();
     this.state = {
-      campId: 5,
+      campId: 0,
       siteName: '',
       description: '',
       owner: {},
@@ -28,7 +28,6 @@ class Overview extends React.Component {
       fetched: false
     }
     this.fetchOverview();
-
   }
 
   fetchOverview() {
