@@ -8,7 +8,6 @@ const app = express();
 const port = 3003;
 
 
-
 app.listen(port, () => {
   console.log(`Server listening at http://127.0.0.1:${port}`);
 });
@@ -88,19 +87,13 @@ app.get('/overview/all', async (req, res) => {
       data.header = { percentRec: response.data.recommendedPer };
     })
     .catch(error => {
-<<<<<<<
       console.log('Unable to Access Review Service...');
       // console.log(error);
-      data.header = { percentRec: false };
-
-=======
-      // console.log('Error Ocurred: ', error);
-      console.log('Please note error occured in the review lookup')      
+   
       data.header = {
+        errorOccured: true,
         percentRec: false
-      }
-      // res.send('Please note error occured in the review lookup')      
->>>>>>>
+      }   
     })
     // console.log(data);
     res.send(data);
