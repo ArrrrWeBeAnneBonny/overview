@@ -57,7 +57,7 @@ module.exports = {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
       });
-    
+
       // console.log(response);
       return response;
   },
@@ -93,7 +93,7 @@ module.exports = {
         response = {
           name: info.owner.name,
           imageUrl: info.owner.imageUrl,
-          site: Math.floor(Math.random() * info.pricing.numberOfSites)
+          randomSite: Math.floor(Math.random() * info.lodging.numberOfSites)
         };
       })
       .catch(error => {
