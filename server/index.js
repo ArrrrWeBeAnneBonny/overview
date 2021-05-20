@@ -78,6 +78,8 @@ app.get('/overview/all', async (req, res) => {
   if (typeof campId !== 'number') {
     campId = 0;
   }
+  console.log('requested campId = ', campId)
+
   let data = await db.overviewLookup(campId);
   await axios.get('http://localhost:3001/reviews', { params: { campId } })
     .then(response => {

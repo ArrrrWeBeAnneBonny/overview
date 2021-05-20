@@ -13,7 +13,7 @@ class Overview extends React.Component {
   constructor() {
     super();
     this.state = {
-      campId: 5,
+      campId: 0,
       siteName: '',
       description: '',
       owner: {},
@@ -24,10 +24,10 @@ class Overview extends React.Component {
       essentials: {},
       amenities: {},
       header: {},
-      mounted: false
+      mounted: false,
+      fetched: false
     }
     this.fetchOverview();
-
   }
 
   fetchOverview() {
@@ -70,7 +70,7 @@ class Overview extends React.Component {
       if (!this.state.header.errorOccured) {
         console.log('Not Conencted to reviews service')
         return (
-          <div id='main'>
+          <div className='main'>
             <header>
               <title>{this.state.siteName}</title>
             </header>
@@ -82,7 +82,7 @@ class Overview extends React.Component {
 
             <Description description={this.state.description} owner={this.state.owner} />
 
-            <div id='tri-card'>
+            <div className='tri-card'>
               <Lodging lodging={this.state.lodging} />
               <Essentials essentials={this.state.essentials} />
               <Amenities amenities={this.state.amenities} />
@@ -94,7 +94,7 @@ class Overview extends React.Component {
         )
       } else {
         return (
-          <div id='main'>
+          <div className='main'>
             <header>
               <title>{this.state.siteName}</title>
             </header>
@@ -102,7 +102,7 @@ class Overview extends React.Component {
 
             <Description description={this.state.description} owner={this.state.owner} />
 
-            <div id='tri-card'>
+            <div className='tri-card'>
               <Lodging lodging={this.state.lodging} />
               <Essentials essentials={this.state.essentials} />
               <Amenities amenities={this.state.amenities} />
@@ -117,7 +117,7 @@ class Overview extends React.Component {
 
     } else {
       return (
-        <div id='loading'>
+        <div className='loading'>
           <h1>Loading...</h1>
         </div>
       )

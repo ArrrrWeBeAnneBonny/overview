@@ -13,7 +13,7 @@ class Description extends React.Component {
           <img src={this.props.owner.imageUrl}></img>
           </div>
           <div className='owner-name'>
-            <b>Hosted by</b>
+            <div className='medium'>Hosted by </div>
             {this.props.owner.name}
           </div>
         </div>

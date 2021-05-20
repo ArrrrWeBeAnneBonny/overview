@@ -16,7 +16,27 @@ class Lodging extends React.Component {
     console.log(this.state);
     return (
       <div className='card lodging'>
-
+        <div className='title'>Lodging provided</div>
+        <div className='list'>
+          <div className='icon'></div>
+          <div className='list-text'>{this.state.type}</div>
+        </div>
+        <div className='list'>
+          <div className='icon'></div>
+          <div className='list-text'>{this.state.numberOfSites} sites</div>
+        </div>
+        <div className='list'>
+          <div className='icon'></div>
+          <div className='list-text'>Up to {this.state.maxGuestsPerSite} guests per site</div>
+        </div>
+        <div className='list'>
+          <div className='icon'></div>
+          <div className='list-text'>{this.state.parking ? `Park at listing` : `No parking at listing`}</div>
+        </div>
+        <div className='list'>
+          <div className='icon'></div>
+          <div className='list-text'>{this.state.ADAaccess ? `ADA access` : `No ADA access`}</div>
+        </div>
       </div>
     )
   }
