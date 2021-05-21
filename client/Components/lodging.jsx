@@ -18,7 +18,7 @@ class Lodging extends React.Component {
       <div className='card lodging'>
         <div className='title'>Lodging provided</div>
         <div className='list'>
-          <div className='icon'></div>
+          <div className='icon'><span className="hc-awesome-house"></span></div>
           <div className='list-text'>{this.state.type}</div>
         </div>
         <div className='list'>
