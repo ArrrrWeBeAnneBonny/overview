@@ -27,7 +27,7 @@ class Details extends React.Component {
               <b>On arrival: </b> {this.props.details.onArrival}
             </li>
             <li className='details-list-text'>
-              <b>Minimum nights: </b> {this.props.details.checkInTime} night
+              <b>Minimum nights: </b> {this.props.pricing.minimumNights} night
           </li>
             <li className='details-list-text'>
               <b>Accepts bookings: </b> {this.props.pricing.monthsOutForBooking} months out
