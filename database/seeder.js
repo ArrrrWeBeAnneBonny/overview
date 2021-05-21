@@ -33,6 +33,7 @@ const pricingSchema = new mongoose.Schema({
   cleaningFee: Number,
   monthsOutForBooking: Number,
   weeknightDiscount: Number,
+  minimumNights: Number,
   instantBook: Boolean
 });
 
@@ -122,7 +123,7 @@ const terrainSchema = new mongoose.Schema({
 });
 
 const overviewSchema = new mongoose.Schema({
-  campId: { type: Number, unique : true, required : true },
+  campId: { type: Number, unique: true, required: true },
   name: String,
   description: String,
   location: locationSchema,
@@ -171,6 +172,7 @@ const seed = async () => {
           averagePricePerNight: 165,
           cleaningFee: 15,
           monthsOutForBooking: 6,
+          minimumNights: 1,
           weeknightDiscount: .2,
           instantBook: true
         },
@@ -292,12 +294,14 @@ const seed = async () => {
     const monthsOutForBooking = faker.datatype.number({ min: 2, max: 10, precision: 1 });
     const weeknightDiscount = faker.datatype.number({ min: 0, max: .5, precision: .1 });
     const instantBook = faker.datatype.boolean();
+    const minimumNights = faker.datatype.number({ min: 1, max: 4, precision: 1 });
     const newPrice = {
       averagePricePerNight,
       cleaningFee,
       monthsOutForBooking,
       weeknightDiscount,
-      instantBook
+      instantBook,
+      minimumNights
     };
     // console.log('Pricing info: ', newPrice);
 
@@ -391,7 +395,7 @@ const seed = async () => {
     };
 
     available = faker.datatype.boolean();
-    let binTypes = available ? Array.from({length: faker.datatype.number({ min: 1, max: 3, precision: 1 })}, (_, i) => i + 1) : 0;
+    let binTypes = available ? Array.from({ length: faker.datatype.number({ min: 1, max: 3, precision: 1 }) }, (_, i) => i + 1) : 0;
     // console.log('bin types: ', binTypes);
 
     const bins = {
@@ -471,6 +475,11 @@ const seed = async () => {
         console.log('error creating doc: ', err)
       });
   }
+
+  await Overview.find().exec()
+    .then(result => {
+      console.log('Number of files seeded: ', result.length)
+    })
 };
 
 const closeConn = async () => {
