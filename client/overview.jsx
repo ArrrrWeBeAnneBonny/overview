@@ -2,6 +2,8 @@ import './style.css';
 import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import Header from './Components/header.jsx'
 import Description from './Components/description.jsx';
 import Lodging from './Components/lodging.jsx';
 import Essentials from './Components/essentials.jsx';
@@ -67,54 +69,27 @@ class Overview extends React.Component {
     console.log(this.state)
 
     if (this.state.fetched && this.state.mounted) {
-      if (!this.state.header.errorOccured) {
-        console.log('Not Conencted to reviews service')
-        return (
-          <div className='main'>
-            <header>
-              <title>{this.state.siteName}</title>
-            </header>
-            <h1>{this.state.siteName}</h1>
+      return (
+        <div className='main'>
+          <header>
+            <title>{this.state.siteName}</title>
+          </header>
+          <h1>{this.state.siteName}</h1>
+          <Header header={this.state.header} />
 
-            <div className="recommend-percentage">
-              <span className="icon fa fa-thumbs-up"></span> {Math.trunc(100 * this.state.header.percentRec)}% <span className="recommend-text">Recommend</span>
-            </div>
+          <Description description={this.state.description} owner={this.state.owner} />
 
-            <Description description={this.state.description} owner={this.state.owner} />
-
-            <div className='tri-card'>
-              <Lodging lodging={this.state.lodging} />
-              <Essentials essentials={this.state.essentials} />
-              <Amenities amenities={this.state.amenities} />
-            </div>
-
-            <Details details={this.state.details} />
-
+          <div className='tri-card'>
+            <Lodging lodging={this.state.lodging} />
+            <Essentials essentials={this.state.essentials} />
+            <Amenities amenities={this.state.amenities} />
           </div>
-        )
-      } else {
-        return (
-          <div className='main'>
-            <header>
-              <title>{this.state.siteName}</title>
-            </header>
-            <h1>{this.state.siteName}</h1>
-
-            <Description description={this.state.description} owner={this.state.owner} />
-
-            <div className='tri-card'>
-              <Lodging lodging={this.state.lodging} />
-              <Essentials essentials={this.state.essentials} />
-              <Amenities amenities={this.state.amenities} />
-            </div>
-
-            <Details details={this.state.details} />
-
+          <div className='contact-host'>
+            <b>Have a question? </b><a className='contact-host-link'>Send {this.state.owner.name} a message!</a>
           </div>
-        )
-      }
-
-
+          <Details details={this.state.details} pricing={this.state.pricing} />
+        </div>
+      )
     } else {
       return (
         <div className='loading'>
@@ -125,4 +100,4 @@ class Overview extends React.Component {
   }
 }
 
-ReactDOM.render(<Overview />, document.getElementById('overview'));
+ReactDOM.render(<Overview />, document.getElementById('overview'));1
