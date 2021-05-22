@@ -27,7 +27,6 @@ describe('database functions', () => {
         })
       })
     );
-
   });
 
   test('checks database owner look up function', async () => {
@@ -38,9 +37,21 @@ describe('database functions', () => {
         randomSite: expect.any(Number)
       })
     );
-
   });
 
+  test('makes sure database pricing object has the correct variables', async () => {
+    expect(await database.pricingLookup(5)).toStrictEqual(
+      expect.objectContaining({
+        averagePricePerNight: expect.any(Number),
+        cleaningFee: expect.any(Number),
+        monthsOutForBooking: expect.any(Number),
+        weeknightDiscount: expect.any(Number),
+        minimumNights: expect.any(Number),
+        instantBook: expect.any(Boolean)
+      })
+    );
+
+  });
 })
 
 jest.mock('axios');
