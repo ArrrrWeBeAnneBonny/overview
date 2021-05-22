@@ -21,7 +21,7 @@ const testConnection = async () => {
   await Overview.find().exec()
     .then(result => {
       if (result.length < 100) {
-        console.log('Call seed file. Overview not fully seeded. # of docs:', result.length);
+        console.log('Call seed file. # of docs currently:', result.length);
          seed();
       // } else {
       //   closeConn();
@@ -115,7 +115,8 @@ module.exports = {
           cleaningFee: info.pricing.cleaningFee,
           monthsOutForBooking: info.pricing.monthsOutForBooking,
           weeknightDiscount: info.pricing.weeknightDiscount,
-          instantBook: info.pricing.instantBook
+          instantBook: info.pricing.instantBook,
+          minimumNights: info.pricing.minimumNights
         };
       })
       .catch(error => {
@@ -148,7 +149,8 @@ module.exports = {
             cleaningFee: info.pricing.cleaningFee,
             monthsOutForBooking: info.pricing.monthsOutForBooking,
             weeknightDiscount: info.pricing.weeknightDiscount,
-            instantBook: info.pricing.instantBook
+            instantBook: info.pricing.instantBook,
+            minimumNights: info.pricing.minimumNights
           },
           details: {
             checkInTime: helper.timeToStringHour(info.details.checkInTime),
