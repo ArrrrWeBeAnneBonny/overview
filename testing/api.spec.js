@@ -1,6 +1,7 @@
 const database = require('../database/index.js');
 const axios = require('axios');
 const mongoose = require('mongoose');
+const regeneratorRuntime = require("regenerator-runtime");
 
 describe('database functions', () => {
   beforeAll(async () => {
