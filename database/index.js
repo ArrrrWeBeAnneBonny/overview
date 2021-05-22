@@ -195,6 +195,7 @@ module.exports = {
       .catch(error => {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
+        response.err = error;
       });
 
       return response;

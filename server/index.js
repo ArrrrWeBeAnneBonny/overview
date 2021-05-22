@@ -8,7 +8,6 @@ const app = express();
 const port = 3003;
 
 
-
 app.listen(port, () => {
   console.log(`Server listening at http://127.0.0.1:${port}`);
 });
@@ -78,6 +77,8 @@ app.get('/overview/all', async (req, res) => {
   if (typeof campId !== 'number') {
     campId = 0;
   }
+  console.log('requested campId = ', campId)
+
   let data = await db.overviewLookup(campId);
   await axios.get('http://localhost:3001/reviews', { params: { campId } })
     .then(response => {
@@ -88,9 +89,12 @@ app.get('/overview/all', async (req, res) => {
     .catch(error => {
       console.log('Unable to Access Review Service...');
       // console.log(error);
-      data.header = { percentRec: false };
-
+   
+      data.header = {
+        errorOccured: true,
+        percentRec: false
+      }   
     })
-  console.log(data);
-  res.send(data);
+    // console.log(data);
+    res.send(data);
 });

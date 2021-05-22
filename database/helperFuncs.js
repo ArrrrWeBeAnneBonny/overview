@@ -1,4 +1,3 @@
-
 module.exports = {
   timeToStringHour: function(twentyFourFormat) {
     if (twentyFourFormat < 12) {
