@@ -68,7 +68,7 @@ app.get('/overview/pricing', async (req, res) => {
   }
 
   let data = await db.pricingLookup(campId);
-
+  console.log(data)
   res.send(data);
 });
 

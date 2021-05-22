@@ -105,13 +105,13 @@ module.exports = {
 
   pricingLookup: async (campId) => {
     let response = {};
-    await Overview.find({campId}, 'pricing').exec()
+    await Overview.find({campId}, 'pricing lodging').exec()
       .then(query => {
         // console.log('Pricing query returned: ', query);
         let info = query[0];
         response = {
           averagePricePerNight: info.pricing.averagePricePerNight,
-          maxGuests: info.pricing.maxGuests,
+          maxGuests: info.lodging.maxGuestsPerSite,
           cleaningFee: info.pricing.cleaningFee,
           monthsOutForBooking: info.pricing.monthsOutForBooking,
           weeknightDiscount: info.pricing.weeknightDiscount,

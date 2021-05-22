@@ -75,6 +75,21 @@ describe('API calls', () => {
       .then(resp => expect(resp.data).toEqual(overview));
   });
 
+  test('/overview/pricing should fetch object with expected properties per app and service plan', async () => {
+    const pricing = {
+      averagePricePerNight: 165,
+      maxGuests: 5,
+      cleaningFee: 15,
+      monthsOutForBooking: 6,
+      weeknightDiscount: 0.2,
+      instantBook: true
+    };
+    const response = { data: pricing }
+    axios.get.mockResolvedValue(response)
+    axios.get('/oveview/pricing?campId=0')
+      .then(resp => expect(resp.data).toEqual(pricing));
+  });
+
   test('/overview/all should fetch object with expected properties per app and service plan', async () => {
     expect.assertions(2);
     const overview = {
