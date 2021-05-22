@@ -2,10 +2,6 @@ import './style.css';
 import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  useLocation
-} from "react-router-dom";
-import { generatePath } from "react-router";
 
 import Header from './Components/header.jsx'
 import Description from './Components/description.jsx';
@@ -13,8 +9,6 @@ import Lodging from './Components/lodging.jsx';
 import Essentials from './Components/essentials.jsx';
 import Amenities from './Components/amenities.jsx';
 import Details from './Components/details.jsx';
-
-
 
 class Overview extends React.Component {
   constructor(props) {
