@@ -2,6 +2,10 @@ import './style.css';
 import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  useLocation
+} from "react-router-dom";
+import { generatePath } from "react-router";
 
 import Header from './Components/header.jsx'
 import Description from './Components/description.jsx';
@@ -11,11 +15,13 @@ import Amenities from './Components/amenities.jsx';
 import Details from './Components/details.jsx';
 
 
+
 class Overview extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    let query = new URLSearchParams(document.location.search);
     this.state = {
-      campId: 0,
+      campId: query.get('campId') ? query.get('campId') : 0,
       siteName: '',
       description: '',
       owner: {},
@@ -31,6 +37,7 @@ class Overview extends React.Component {
     }
     this.fetchOverview();
   }
+
 
   fetchOverview() {
     return axios.get('http://localhost:3003/overview/all', { params: { campId: this.state.campId } })
@@ -53,6 +60,7 @@ class Overview extends React.Component {
             fetched: true
           });
         }
+
       })
       .catch(error => {
         console.log('------ERROR IN FETCH OVERVIEW------');
@@ -100,4 +108,4 @@ class Overview extends React.Component {
   }
 }
 
-ReactDOM.render(<Overview />, document.getElementById('overview'));1
+ReactDOM.render(<Overview />, document.getElementById('overview')); 1
