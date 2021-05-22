@@ -69,10 +69,10 @@ class Details extends React.Component {
           <div className='detail-responses'>
             <ul className='details-list col-1'>
               <li className='details-list-text'>
-                <b>Response time: </b>Within {this.props.details.resonseTime} hours
+                <b>Response time: </b>Within {this.props.details.responseTime} hours
               </li>
               <li className='details-list-text'>
-                <b>Response rate: </b> {100*this.props.details.resonseRate}%
+                <b>Response rate: </b> {100*this.props.details.responseRate}%
               </li>
             </ul>
           </div>
