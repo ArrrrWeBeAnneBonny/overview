@@ -43,7 +43,99 @@
   font-style:normal;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 0){@font-face{font-family:"hc-awesome";src:url(//djqvcbmmgpti5.cloudfront.net/assets/hc-awesome-fbbf734a44424df5243f6d200c1fc95834f80876a2dab186f760a3e2ae8548f1.svg#hc-awesome) format("svg")}}[data-icon]:before{content:attr(data-icon)}[data-icon]:before,.hc-awesome-accommodation-rv:before,.hc-awesome-accommodation-structure:before,.hc-awesome-accommodation-tent:before,.hc-awesome-beach:before,.hc-awesome-bell:before,.hc-awesome-biking:before,.hc-awesome-boating:before,.hc-awesome-bolt:before,.hc-awesome-bolt-filled:before,.hc-awesome-cave:before,.hc-awesome-check:before,.hc-awesome-climbing:before,.hc-awesome-coastal:before,.hc-awesome-desert:before,.hc-awesome-driveway:before,.hc-awesome-eggs:before,.hc-awesome-experience:before,.hc-awesome-facebook-messenger:before,.hc-awesome-farm:before,.hc-awesome-field:before,.hc-awesome-fire:before,.hc-awesome-fishing:before,.hc-awesome-foraging:before,.hc-awesome-forests:before,.hc-awesome-good:before,.hc-awesome-hiking:before,.hc-awesome-horseback-riding:before,.hc-awesome-hot-spring:before,.hc-awesome-house:before,.hc-awesome-kayaking:before,.hc-awesome-kitchen:before,.hc-awesome-lake:before,.hc-awesome-laundry:before,.hc-awesome-leaves:before,.hc-awesome-lock-circle:before,.hc-awesome-mesa:before,.hc-awesome-mountainous:before,.hc-awesome-ohv:before,.hc-awesome-parking:before,.hc-awesome-person:before,.hc-awesome-pets:before,.hc-awesome-picnic-table:before,.hc-awesome-pin:before,.hc-awesome-ranch:before,.hc-awesome-redwoods:before,.hc-awesome-rental:before,.hc-awesome-river:before,.hc-awesome-rule:before,.hc-awesome-rv:before,.hc-awesome-rv-details:before,.hc-awesome-rv-electricity:before,.hc-awesome-rv-generator:before,.hc-awesome-rv-hookups:before,.hc-awesome-rv-length:before,.hc-awesome-rv-sewage:before,.hc-awesome-rv-surface:before,.hc-awesome-rv-television:before,.hc-awesome-rv-water:before,.hc-awesome-share-apple:before,.hc-awesome-shower:before,.hc-awesome-signs-left-right:before,.hc-awesome-snowsports:before,.hc-awesome-surfing:before,.hc-awesome-swimming:before,.hc-awesome-tent:before,.hc-awesome-terrain-lake:before,.hc-awesome-times:before,.hc-awesome-toilet:before,.hc-awesome-trash:before,.hc-awesome-urban:before,.hc-awesome-walk:before,.hc-awesome-water:before,.hc-awesome-waterfall:before,.hc-awesome-wetland:before,.hc-awesome-wheelchair:before,.hc-awesome-whitewater-rafting:before,.hc-awesome-wifi:before,.hc-awesome-wildlife-watching:before,.hc-awesome-windsurfing:before,.hc-awesome-wine-beer-tasting:before{display:inline-block;font-family:"hc-awesome";font-style:normal;font-weight:normal;font-variant:normal;line-height:1;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}.hc-awesome-accommodation-rv:before{content:"\f149"}.hc-awesome-accommodation-structure:before{content:"\f14a"}.hc-awesome-accommodation-tent:before{content:"\f14b"}.hc-awesome-beach:before{content:"\f100"}.hc-awesome-bell:before{content:"\f101"}.hc-awesome-biking:before{content:"\f102"}.hc-awesome-boating:before{content:"\f103"}.hc-awesome-bolt:before{content:"\f104"}.hc-awesome-bolt-filled:before{content:"\f105"}.hc-awesome-cave:before{content:"\f106"}.hc-awesome-check:before{content:"\f107"}.hc-awesome-climbing:before{content:"\f108"}.hc-awesome-coastal:before{content:"\f109"}.hc-awesome-desert:before{content:"\f10a"}.hc-awesome-driveway:before{content:"\f10b"}.hc-awesome-eggs:before{content:"\f14f"}.hc-awesome-experience:before{content:"\f14c"}.hc-awesome-facebook-messenger:before{content:"\f10c"}.hc-awesome-farm:before{content:"\f10d"}.hc-awesome-field:before{content:"\f10e"}.hc-awesome-fire:before{content:"\f10f"}.hc-awesome-fishing:before{content:"\f110"}.hc-awesome-foraging:before{content:"\f111"}.hc-awesome-forests:before{content:"\f112"}.hc-awesome-good:before{content:"\f14d"}.hc-awesome-hiking:before{content:"\f113"}.hc-awesome-horseback-riding:before{content:"\f114"}.hc-awesome-hot-spring:before{content:"\f115"}.hc-awesome-house:before{content:"\f116"}.hc-awesome-kayaking:before{content:"\f117"}.hc-awesome-kitchen:before{content:"\f118"}.hc-awesome-lake:before{content:"\f119"}.hc-awesome-laundry:before{content:"\f11a"}.hc-awesome-leaves:before{content:"\f11b"}.hc-awesome-lock-circle:before{content:"\f11c"}.hc-awesome-mesa:before{content:"\f11d"}.hc-awesome-mountainous:before{content:"\f11e"}.hc-awesome-ohv:before{content:"\f11f"}.hc-awesome-parking:before{content:"\f120"}.hc-awesome-person:before{content:"\f121"}.hc-awesome-pets:before{content:"\f122"}.hc-awesome-picnic-table:before{content:"\f123"}.hc-awesome-pin:before{content:"\f124"}.hc-awesome-ranch:before{content:"\f125"}.hc-awesome-redwoods:before{content:"\f126"}.hc-awesome-rental:before{content:"\f14e"}.hc-awesome-river:before{content:"\f127"}.hc-awesome-rule:before{content:"\f128"}.hc-awesome-rv:before{content:"\f129"}.hc-awesome-rv-details:before{content:"\f12a"}.hc-awesome-rv-electricity:before{content:"\f12b"}.hc-awesome-rv-generator:before{content:"\f12c"}.hc-awesome-rv-hookups:before{content:"\f12d"}.hc-awesome-rv-length:before{content:"\f12e"}.hc-awesome-rv-sewage:before{content:"\f12f"}.hc-awesome-rv-surface:before{content:"\f130"}.hc-awesome-rv-television:before{content:"\f131"}.hc-awesome-rv-water:before{content:"\f132"}.hc-awesome-share-apple:before{content:"\f133"}.hc-awesome-shower:before{content:"\f134"}.hc-awesome-signs-left-right:before{content:"\f135"}.hc-awesome-snowsports:before{content:"\f136"}.hc-awesome-surfing:before{content:"\f137"}.hc-awesome-swimming:before{content:"\f138"}.hc-awesome-tent:before{content:"\f139"}.hc-awesome-terrain-lake:before{content:"\f13a"}.hc-awesome-times:before{content:"\f13b"}.hc-awesome-toilet:before{content:"\f13c"}.hc-awesome-trash:before{content:"\f13d"}.hc-awesome-urban:before{content:"\f13e"}.hc-awesome-walk:before{content:"\f13f"}.hc-awesome-water:before{content:"\f140"}.hc-awesome-waterfall:before{content:"\f141"}.hc-awesome-wetland:before{content:"\f142"}.hc-awesome-wheelchair:before{content:"\f143"}.hc-awesome-whitewater-rafting:before{content:"\f144"}.hc-awesome-wifi:before{content:"\f145"}.hc-awesome-wildlife-watching:before{content:"\f146"}.hc-awesome-windsurfing:before{content:"\f147"}.hc-awesome-wine-beer-tasting:before{content:"\f148"}
+@media screen and (-webkit-min-device-pixel-ratio: 0){@font-face{font-family:"hc-awesome";src:url("./asset/hc-awesome.svg") format("svg")}}[data-icon]:before{content:attr(data-icon)}[data-icon]:before,.hc-awesome-accommodation-rv:before,.hc-awesome-accommodation-structure:before,.hc-awesome-accommodation-tent:before,.hc-awesome-beach:before,.hc-awesome-bell:before,.hc-awesome-biking:before,.hc-awesome-boating:before,.hc-awesome-bolt:before,.hc-awesome-bolt-filled:before,.hc-awesome-cave:before,.hc-awesome-check:before,.hc-awesome-climbing:before,.hc-awesome-coastal:before,.hc-awesome-desert:before,.hc-awesome-driveway:before,.hc-awesome-eggs:before,.hc-awesome-experience:before,.hc-awesome-facebook-messenger:before,.hc-awesome-farm:before,.hc-awesome-field:before,.hc-awesome-fire:before,.hc-awesome-fishing:before,.hc-awesome-foraging:before,.hc-awesome-forests:before,.hc-awesome-good:before,.hc-awesome-hiking:before,.hc-awesome-horseback-riding:before,.hc-awesome-hot-spring:before,.hc-awesome-house:before,.hc-awesome-kayaking:before,.hc-awesome-kitchen:before,.hc-awesome-lake:before,.hc-awesome-laundry:before,.hc-awesome-leaves:before,.hc-awesome-lock-circle:before,.hc-awesome-mesa:before,.hc-awesome-mountainous:before,.hc-awesome-ohv:before,.hc-awesome-parking:before,.hc-awesome-person:before,.hc-awesome-pets:before,.hc-awesome-picnic-table:before,.hc-awesome-pin:before,.hc-awesome-ranch:before,.hc-awesome-redwoods:before,.hc-awesome-rental:before,.hc-awesome-river:before,.hc-awesome-rule:before,.hc-awesome-rv:before,.hc-awesome-rv-details:before,.hc-awesome-rv-electricity:before,.hc-awesome-rv-generator:before,.hc-awesome-rv-hookups:before,.hc-awesome-rv-length:before,.hc-awesome-rv-sewage:before,.hc-awesome-rv-surface:before,.hc-awesome-rv-television:before,.hc-awesome-rv-water:before,.hc-awesome-share-apple:before,.hc-awesome-shower:before,.hc-awesome-signs-left-right:before,.hc-awesome-snowsports:before,.hc-awesome-surfing:before,.hc-awesome-swimming:before,.hc-awesome-tent:before,.hc-awesome-terrain-lake:before,.hc-awesome-times:before,.hc-awesome-toilet:before,.hc-awesome-trash:before,.hc-awesome-urban:before,.hc-awesome-walk:before,.hc-awesome-water:before,.hc-awesome-waterfall:before,.hc-awesome-wetland:before,.hc-awesome-wheelchair:before,.hc-awesome-whitewater-rafting:before,.hc-awesome-wifi:before,.hc-awesome-wildlife-watching:before,.hc-awesome-windsurfing:before,.hc-awesome-wine-beer-tasting:before {
+  display:inline-block;
+  font-family:"hc-awesome";
+  font-style:normal;
+  font-weight:normal;
+  font-variant:normal;
+  line-height:1;
+  text-decoration:inherit;
+  text-rendering:optimizeLegibility;
+  text-transform:none;
+  -moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;
+}
+
+.hc-awesome-accommodation-rv:before{content:"\f149"}
+.hc-awesome-accommodation-structure:before{content:"\f14a"}
+.hc-awesome-accommodation-tent:before{content:"\f14b"}
+.hc-awesome-beach:before{content:"\f100"}
+.hc-awesome-bell:before{content:"\f101"}
+.hc-awesome-biking:before{content:"\f102"}
+.hc-awesome-boating:before{content:"\f103"}
+.hc-awesome-bolt:before{content:"\f104"}
+.hc-awesome-bolt-filled:before{content:"\f105"}
+.hc-awesome-cave:before{content:"\f106"}
+.hc-awesome-check:before{content:"\f107"}
+.hc-awesome-climbing:before{content:"\f108"}
+.hc-awesome-coastal:before{content:"\f109"}
+.hc-awesome-desert:before{content:"\f10a"}
+.hc-awesome-driveway:before{content:"\f10b"}
+.hc-awesome-eggs:before{content:"\f14f"}
+.hc-awesome-experience:before{content:"\f14c"}
+.hc-awesome-facebook-messenger:before{content:"\f10c"}
+.hc-awesome-farm:before{content:"\f10d"}
+.hc-awesome-field:before{content:"\f10e"}
+.hc-awesome-fire:before{content:"\f10f"}
+.hc-awesome-fishing:before{content:"\f110"}
+.hc-awesome-foraging:before{content:"\f111"}
+.hc-awesome-forests:before{content:"\f112"}
+.hc-awesome-good:before{content:"\f14d"}
+.hc-awesome-hiking:before{content:"\f113"}
+.hc-awesome-horseback-riding:before{content:"\f114"}
+.hc-awesome-hot-spring:before{content:"\f115"}
+.hc-awesome-house:before{content:"\f116"}
+.hc-awesome-kayaking:before{content:"\f117"}
+.hc-awesome-kitchen:before{content:"\f118"}
+.hc-awesome-lake:before{content:"\f119"}
+.hc-awesome-laundry:before{content:"\f11a"}
+.hc-awesome-leaves:before{content:"\f11b"}
+.hc-awesome-lock-circle:before{content:"\f11c"}
+.hc-awesome-mesa:before{content:"\f11d"}
+.hc-awesome-mountainous:before{content:"\f11e"}
+.hc-awesome-ohv:before{content:"\f11f"}
+.hc-awesome-parking:before{content:"\f120"}
+.hc-awesome-person:before{content:"\f121"}
+.hc-awesome-pets:before{content:"\f122"}
+.hc-awesome-picnic-table:before{content:"\f123"}
+.hc-awesome-pin:before{content:"\f124"}
+.hc-awesome-ranch:before{content:"\f125"}
+.hc-awesome-redwoods:before{content:"\f126"}
+.hc-awesome-rental:before{content:"\f14e"}
+.hc-awesome-river:before{content:"\f127"}
+.hc-awesome-rule:before{content:"\f128"}
+.hc-awesome-rv:before{content:"\f129"}
+.hc-awesome-rv-details:before{content:"\f12a"}
+.hc-awesome-rv-electricity:before{content:"\f12b"}
+.hc-awesome-rv-generator:before{content:"\f12c"}
+.hc-awesome-rv-hookups:before{content:"\f12d"}
+.hc-awesome-rv-length:before{content:"\f12e"}
+.hc-awesome-rv-sewage:before{content:"\f12f"}
+.hc-awesome-rv-surface:before{content:"\f130"}
+.hc-awesome-rv-television:before{content:"\f131"}
+.hc-awesome-rv-water:before{content:"\f132"}
+.hc-awesome-share-apple:before{content:"\f133"}
+.hc-awesome-shower:before{content:"\f134"}
+.hc-awesome-signs-left-right:before{content:"\f135"}
+.hc-awesome-snowsports:before{content:"\f136"}
+.hc-awesome-surfing:before{content:"\f137"}
+.hc-awesome-swimming:before{content:"\f138"}
+.hc-awesome-tent:before{content:"\f139"}
+.hc-awesome-terrain-lake:before{content:"\f13a"}
+.hc-awesome-times:before{content:"\f13b"}
+.hc-awesome-toilet:before{content:"\f13c"}
+.hc-awesome-trash:before{content:"\f13d"}
+.hc-awesome-urban:before{content:"\f13e"}
+.hc-awesome-walk:before{content:"\f13f"}
+.hc-awesome-water:before{content:"\f140"}
+.hc-awesome-waterfall:before{content:"\f141"}
+.hc-awesome-wetland:before{content:"\f142"}
+.hc-awesome-wheelchair:before{content:"\f143"}
+.hc-awesome-whitewater-rafting:before{content:"\f144"}
+.hc-awesome-wifi:before{content:"\f145"}
+.hc-awesome-wildlife-watching:before{content:"\f146"}
+.hc-awesome-windsurfing:before{content:"\f147"}
+.hc-awesome-wine-beer-tasting:before{content:"\f148"}
 
 h1 {
   font-family: 'Calibre', Helvetica, Arial, sans-serif;
@@ -56,10 +148,126 @@ h1 {
   margin-bottom: 10px;
 }
 
+.main h1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  /* font-size: 4.2rem; */
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+div {
+    display: block;
+}
 body {
-  font-family: 'Calibre', Helvetica, Arial, sans-serif;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  font-weight: 400;
+  min-height: 100vh;
+  height: 100%;
+}
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.overview:before, .overview:after {
+  content: " ";
+  display: table;
+}
+
+.overview {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+body {
+  font-family: "Calibre", Helvetica, Arial, sans-serif;
   font-weight: 200;
   color: #333333;
+  background-color: white;
   font-size: 16px;
   line-height: 1.42;
+}
+
+body #overview {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.two-thirds {
+  width: 66.66666667%;
+  position: relative;
+  min-height: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* font-size: 87%; */
+}
+
+.tri-card {
+  margin-left: -10px;
+  margin-right: -10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tri-card .card {
+  margin: 0 10px 20px 10px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  padding: 15px 5px 15px 15px;
+  flex-wrap: wrap;
+  width: 220px;
+  height: 340px;
+  line-height: 1,4;
+}
+.tri-card .card .title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-left: 4px;
+}
+.tri-card .card .list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  position: relative;
+}
+.tri-card .card .list .list-text {
+  font-size: 1rem;
+  /* line-height: 2rem; */
+}
+.tri-card .card .list .icon {
+  position: relative;
+  margin-right: 10px;
+}
+.tri-card .card .list .icon span {
+  font-size: 1.2rem;
+}
+
+.tri-card .card .list .absent {
+  color: #757575;
+}
+
+.crossout {
+  border-bottom: 1px solid #757575;
+  position: absolute;
+  left: 3px;
+  top: -2px;
+  width: 25px;
+  height: 16px;
+  transform: rotate(45deg);
+  box-sizing: border-box;
+  line-height: 1.4;
 }

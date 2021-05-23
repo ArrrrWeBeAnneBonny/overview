@@ -7,8 +7,7 @@ class Essentials extends React.Component {
   }
 
   render() {
-    console.log(this.props.essentials);
-
+    // console.log(this.props.essentials);
     return (
       <div className='card essentials'>
         <div className='title'>Essentials</div>

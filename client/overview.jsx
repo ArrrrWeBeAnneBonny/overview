@@ -1,4 +1,4 @@
-import './style.css';
+import css from './style.css';
 import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -10,6 +10,7 @@ import Essentials from './Components/essentials.jsx';
 import Amenities from './Components/amenities.jsx';
 import Details from './Components/details.jsx';
 
+console.log(css)
 class Overview extends React.Component {
   constructor(props) {
     super(props);
@@ -78,18 +79,20 @@ class Overview extends React.Component {
           </header>
           <h1>{this.state.siteName}</h1>
           <Header header={this.state.header} />
+          <div className='two-thirds'>
 
-          <Description description={this.state.description} owner={this.state.owner} />
+            <Description description={this.state.description} owner={this.state.owner} />
 
-          <div className='tri-card'>
-            <Lodging lodging={this.state.lodging} />
-            <Essentials essentials={this.state.essentials} />
-            <Amenities amenities={this.state.amenities} />
+            <div className='tri-card'>
+              <Lodging lodging={this.state.lodging} />
+              <Essentials essentials={this.state.essentials} />
+              <Amenities amenities={this.state.amenities} />
+            </div>
+            <div className='contact-host'>
+              <b>Have a question? </b><a className='contact-host-link'>Send {this.state.owner.name} a message!</a>
+            </div>
+            <Details details={this.state.details} pricing={this.state.pricing} />
           </div>
-          <div className='contact-host'>
-            <b>Have a question? </b><a className='contact-host-link'>Send {this.state.owner.name} a message!</a>
-          </div>
-          <Details details={this.state.details} pricing={this.state.pricing} />
         </div>
       )
     } else {

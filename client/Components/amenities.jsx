@@ -6,8 +6,7 @@ class Amenities extends React.Component {
   }
 
   render() {
-    console.log(this.props.amenities);
-
+    // console.log(this.props.amenities);
     return (
       <div className='card amenities'>
         <div className='title'>Amenities</div>

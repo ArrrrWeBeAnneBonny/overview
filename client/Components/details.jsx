@@ -6,7 +6,7 @@ class Details extends React.Component {
   }
 
   render() {
-    console.log(this.props.details, this.props.pricing);
+    // console.log(this.props.details, this.props.pricing);
     if (this.props.pricing.instantBook) {
       return (
         <div className='details' >

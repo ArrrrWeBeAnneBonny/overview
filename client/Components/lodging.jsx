@@ -13,7 +13,7 @@ class Lodging extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className='card lodging'>
         <div className='title'>Lodging provided</div>
@@ -26,18 +26,26 @@ class Lodging extends React.Component {
           <div className='list-text'>{this.state.numberOfSites} sites</div>
         </div>
         <div className='list'>
-          <div className='icon'></div>
+          <div className='icon'>
+
+          </div>
           <div className='list-text'>Up to {this.state.maxGuestsPerSite} guests per site</div>
+          </div>
+          <div className='list'>
+            <div className='icon'>
+              {this.state.parking ? <div /> : <div className='crossout' />}
+              <span className={this.state.parking ? `hc-awesome-parking` : `absent hc-awesome-parking`} />
+            </div>
+            <div className={this.state.parking ? `list-text` : `absent list-text`}>{this.state.parking ? `Park at listing` : `No parking at listing`}</div>
+          </div>
+          <div className='list'>
+            <div className='icon'>
+              {this.state.ADAaccess ? <div /> : <div className='crossout' />}
+              <span className={this.state.ADAaccess ? `hc-awesome-wheelchair` : `absent hc-awesome-wheelchair`}/>
+              </div>
+            <div className={this.state.ADAaccess ? `list-text` : `absent list-text`}>{this.state.ADAaccess ? `ADA access` : `No ADA access`}</div>
+          </div>
         </div>
-        <div className='list'>
-          <div className='icon'></div>
-          <div className='list-text'>{this.state.parking ? `Park at listing` : `No parking at listing`}</div>
-        </div>
-        <div className='list'>
-          <div className='icon'></div>
-          <div className='list-text'>{this.state.ADAaccess ? `ADA access` : `No ADA access`}</div>
-        </div>
-      </div>
     )
   }
 }

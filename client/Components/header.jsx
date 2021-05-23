@@ -7,7 +7,6 @@ class Header extends React.Component {
 
   render() {
     if (!this.props.header.errorOccured) {
-      console.log('Not connected to reviews service');
       return (
         <div className='header'>
           <div className="recommend-percentage">
@@ -19,6 +18,7 @@ class Header extends React.Component {
         </div>
       )
     } else {
+      console.log('Not connected to reviews service');
       return;
     }
   }
