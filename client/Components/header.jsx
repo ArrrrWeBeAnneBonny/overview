@@ -12,9 +12,13 @@ class Header extends React.Component {
           <div className="recommend-percentage">
             <span className="icon fa fa-thumbs-up"></span> {Math.trunc(100 * this.props.header.percentRec)}% <span className="recommend-text">Recommend</span>
           </div>
-          <a className='button upload-photo'>Upload </a>
-          <a className='button save-listing'>Save to list </a>
-          <a className='button share'>(share icon) </a>
+          <div className='header-buttons'>
+            <div className='upload'>
+              <a className='button upload-photo'><span className='icon fa fa-camera'></span>Upload </a>
+            </div>
+            <a className='button save-listing'>Save to list<i class="fas fa-chevron-down chevron"></i></a>
+            <a className='button share'><span className='icon hc-awesome-share-apple'/></a>
+          </div>
         </div>
       )
     } else {

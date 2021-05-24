@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Description extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Description extends React.Component {
           <div className='owner-photo'>
           <img src={this.props.owner.imageUrl}></img>
           </div>
+          <span className="star-host-badge" ><i className="fa fa-star"></i></span>
           <div className='owner-name'>
             <div className='medium'>Hosted by </div>
             {this.props.owner.name}

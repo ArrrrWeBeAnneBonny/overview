@@ -1,4 +1,4 @@
-import css from './style.css';
+import './style.css';
 import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -10,7 +10,6 @@ import Essentials from './Components/essentials.jsx';
 import Amenities from './Components/amenities.jsx';
 import Details from './Components/details.jsx';
 
-console.log(css)
 class Overview extends React.Component {
   constructor(props) {
     super(props);
