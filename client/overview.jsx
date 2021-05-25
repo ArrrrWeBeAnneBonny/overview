@@ -76,12 +76,12 @@ class Overview extends React.Component {
           <header>
             <title>{this.state.siteName}</title>
           </header>
-          <h1>{this.state.siteName}</h1>
-          <Header header={this.state.header} />
           <div className='two-thirds'>
-
+            <h1>{this.state.siteName}</h1>
+            <Header header={this.state.header} />
+          </div>
+          <div className='two-thirds'>
             <Description description={this.state.description} owner={this.state.owner} />
-
             <div className='tri-card'>
               <Lodging lodging={this.state.lodging} />
               <Essentials essentials={this.state.essentials} />

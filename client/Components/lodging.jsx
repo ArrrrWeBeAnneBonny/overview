@@ -38,6 +38,7 @@ class Lodging extends React.Component {
           </div>
           <div className={this.props.lodging.ADAaccess ? `list-text` : `absent list-text`}>{this.props.lodging.ADAaccess ? `ADA access` : `No ADA access`}</div>
         </div>
+        <div class="more-details"><a data-toggle="modal" data-target="#modal-info-card-lodging-provided" href="#">More details</a></div>
       </div>
     )
   }
