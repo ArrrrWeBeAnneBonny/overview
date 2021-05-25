@@ -32,7 +32,7 @@ class Description extends React.Component {
       )
     } else {
       return (
-        <div className='owner-description'>
+        <section className='owner-description'>
           <div className='owner'>
             <div className='owner-photo'>
               <img src={this.props.owner.imageUrl}></img>
@@ -48,7 +48,7 @@ class Description extends React.Component {
             {this.props.description}
 
           </div>
-        </div>
+        </section>
       )
     }
   }
