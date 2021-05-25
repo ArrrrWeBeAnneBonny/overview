@@ -230,7 +230,7 @@ a {
 .header-buttons .button {
   color: #333333;
   background-color: transparent;
-  border-bottom: 1px solid #ebebeb;
+  border: 1px solid #ebebeb;
   display: inline-block;
   margin-bottom: 0;
   font-weight: 500;
