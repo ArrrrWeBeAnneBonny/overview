@@ -138,11 +138,13 @@ module.exports = {
           location: {
             name: info.location.name,
             address: info.location.address,
-            numberOfSites: info.lodging.numberOfSites
+            numberOfSites: info.lodging.numberOfSites,
+            verified: info.location.verified
           },
           owner: {
             name: info.owner.name,
-            imageUrl: info.owner.imageUrl
+            imageUrl: info.owner.imageUrl,
+            verified: info.owner.verified
           },
           pricing: {
             averagePricePerNight: info.pricing.averagePricePerNight,

@@ -99,11 +99,13 @@ describe('API calls', () => {
       location: {
         name: 'Twisselman Ranch',
         address: '7645 Cattle Dr, Santa Margarita, CA 93453',
-        numberOfSites: 5
+        numberOfSites: 5,
+        verified: true
       },
       owner: {
         name: 'Anne B.',
-        imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
+        imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg',
+        verified: true
       },
       pricing: {
         averagePricePerNight: 165,
@@ -165,11 +167,13 @@ describe('API calls', () => {
           location: expect.objectContaining({
             name: expect.any(String),
             address: expect.any(String),
-            numberOfSites: expect.any(Number)
+            numberOfSites: expect.any(Number),
+            verified: expect.any(Boolean)
           }),
           owner: expect.objectContaining({
             name: expect.any(String),
-            imageUrl: expect.any(String)
+            imageUrl: expect.any(String),
+            verified: expect.any(Boolean)
           }),
           pricing: expect.objectContaining({
             averagePricePerNight: expect.any(Number),

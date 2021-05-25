@@ -20,12 +20,14 @@ try {
 // ----- SCHEMAS -----
 const locationSchema = new mongoose.Schema({
   name: String,
-  address: String
+  address: String,
+  verified: Boolean
 });
 
 const ownerSchema = new mongoose.Schema({
   name: String,
-  imageUrl: String
+  imageUrl: String,
+  verified: Boolean
 });
 
 const pricingSchema = new mongoose.Schema({
@@ -162,11 +164,13 @@ const seed = async () => {
         description: 'Voted BEST HIPCAMP Glamping in the United States!! Come Glamping & experience our Rural Retreat here at Twisselman Ranch. Come glamp next to our pond under breathtaking stars located in beautiful Carrisa Plains, California.',
         location: {
           name: 'Twisselman Ranch',
-          address: '7645 Cattle Dr, Santa Margarita, CA 93453'
+          address: '7645 Cattle Dr, Santa Margarita, CA 93453',
+          verified: true
         },
         owner: {
           name: 'Anne B.',
-          imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg'
+          imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg',
+          verified: true
         },
         pricing: {
           averagePricePerNight: 165,
@@ -265,7 +269,7 @@ const seed = async () => {
           console.log('Twisselman Saved');
         })
         .catch(err => {
-          console.log('error creating doc: ', err)
+          console.log('error creating Twisselman doc: ', err)
         });
       continue;
     }
@@ -273,18 +277,22 @@ const seed = async () => {
     //---LOCATION---
     const locName = faker.animal.dog() + ' ' + faker.address.streetSuffix();
     const locAddress = addresses[Math.floor(Math.random() * addresses.length)];
+    const verified = faker.datatype.boolean();
     const newLocation = {
       name: locName,
-      address: locAddress
+      address: locAddress,
+      verified
     };
     // console.log('Location info: ', newLocation);
 
     //---OWNER---
     const ownerImageUrl = faker.image.avatar();
     const ownerName = faker.name.firstName() + ' ' + alphabet[Math.floor(Math.random() * alphabet.length)] + '.';
+    const ownerVerified = faker.datatype.boolean();
     const newOwner = {
       name: ownerName,
-      imageUrl: ownerImageUrl
+      imageUrl: ownerImageUrl,
+      verified: ownerVerified
     };
     // console.log('owner info: ', newOwner);
 
