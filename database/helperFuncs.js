@@ -1,4 +1,11 @@
+const stateAbbrev = require('./stateAbbrev.js');
 module.exports = {
+  stateLookup: function (address) {
+    const twoLetterIndex = address.indexOf(', ') + 2;
+    const twoLetter = address.slice(twoLetterIndex, twoLetterIndex + 2);
+    return stateAbbrev.states[twoLetter];
+  },
+
   timeToStringHour: function(twentyFourFormat) {
     if (twentyFourFormat < 12) {
       return twentyFourFormat.toString() + 'AM';
