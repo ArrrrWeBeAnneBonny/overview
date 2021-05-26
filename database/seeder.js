@@ -1,3 +1,4 @@
+const axios = require('axios');
 const faker = require('faker');
 const mongoose = require('mongoose');
 
@@ -169,7 +170,7 @@ const seed = async () => {
         },
         owner: {
           name: 'Anne B.',
-          imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/cartoonAB.jpeg',
+          imageUrl: 'https://fec-overview.s3-us-west-2.amazonaws.com/ownerPics/cartoonAB.jpeg',
           verified: true
         },
         pricing: {
@@ -269,7 +270,7 @@ const seed = async () => {
           console.log('Twisselman Saved');
         })
         .catch(err => {
-          console.log('error creating Twisselman doc: ', err)
+          console.log('Error creating Twisselman doc: ', err)
         });
       continue;
     }
@@ -286,7 +287,7 @@ const seed = async () => {
     // console.log('Location info: ', newLocation);
 
     //---OWNER---
-    const ownerImageUrl = faker.image.avatar();
+    const ownerImageUrl = `https://fec-overview.s3-us-west-2.amazonaws.com/ownerPics/${i}.jpg`;
     const ownerName = faker.name.firstName() + ' ' + alphabet[Math.floor(Math.random() * alphabet.length)] + '.';
     const ownerVerified = faker.datatype.boolean();
     const newOwner = {
