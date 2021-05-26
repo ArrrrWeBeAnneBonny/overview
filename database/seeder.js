@@ -165,7 +165,7 @@ const seed = async () => {
         description: 'Voted BEST HIPCAMP Glamping in the United States!! Come Glamping & experience our Rural Retreat here at Twisselman Ranch. Come glamp next to our pond under breathtaking stars located in beautiful Carrisa Plains, California.',
         location: {
           name: 'Twisselman Ranch',
-          address: '7645 Cattle Dr, Santa Margarita, CA 93453',
+          address: '7645 Cattle Dr Santa Margarita, CA 93453',
           verified: true
         },
         owner: {

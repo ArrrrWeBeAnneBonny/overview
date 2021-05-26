@@ -138,6 +138,8 @@ module.exports = {
           location: {
             name: info.location.name,
             address: info.location.address,
+            state: helper.stateLookup(info.location.address),
+            country: 'United States',
             numberOfSites: info.lodging.numberOfSites,
             verified: info.location.verified
           },

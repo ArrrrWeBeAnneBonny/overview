@@ -99,6 +99,8 @@ describe('API calls', () => {
       location: {
         name: 'Twisselman Ranch',
         address: '7645 Cattle Dr, Santa Margarita, CA 93453',
+        state: 'California',
+        country: 'United States',
         numberOfSites: 5,
         verified: true
       },
@@ -167,6 +169,8 @@ describe('API calls', () => {
           location: expect.objectContaining({
             name: expect.any(String),
             address: expect.any(String),
+            state: expect.any(String),
+            country: expect.any(String),
             numberOfSites: expect.any(Number),
             verified: expect.any(Boolean)
           }),
