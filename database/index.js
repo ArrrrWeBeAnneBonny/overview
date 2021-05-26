@@ -165,7 +165,8 @@ module.exports = {
             responseRate: info.details.responseRate
           },
           lodging: {
-            type: helper.lodgingTypes(info.lodging.type),
+            type: info.lodging.type,
+            housing: helper.lodgingTypes(info.lodging.type),
             numberOfSites: info.lodging.numberOfSites,
             maxGuestsPerSite: info.lodging.maxGuestsPerSite,
             ADAaccess: info.lodging.ADAaccess,

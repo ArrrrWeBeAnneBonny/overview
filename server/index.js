@@ -15,6 +15,7 @@ app.listen(port, () => {
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5500',
+  'https://fec-overview.s3-us-west-2.amazonaws.com'
 ];
 app.use(cors());
 app.use(cors({ origin: allowedOrigins }));
