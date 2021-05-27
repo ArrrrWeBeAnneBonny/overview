@@ -25,6 +25,9 @@ class Header extends React.Component {
       console.log('Not connected to reviews service');
       return (
         <div className='header'>
+          <div className="recommend-percentage not-connected-review">
+
+          </div>
           <div className='header-buttons'>
             <div className='upload'>
               <a className='button upload-photo'><span className='icon fa fa-camera'></span> Upload</a>
