@@ -43,7 +43,16 @@
   font-style:normal;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 0){@font-face{font-family:"hc-awesome";src:url("https://fec-overview.s3-us-west-2.amazonaws.com/calibre/hc-awesome.svg") format("svg")}}[data-icon]:before{content:attr(data-icon)}[data-icon]:before,.hc-awesome-accommodation-rv:before,.hc-awesome-accommodation-structure:before,.hc-awesome-accommodation-tent:before,.hc-awesome-beach:before,.hc-awesome-bell:before,.hc-awesome-biking:before,.hc-awesome-boating:before,.hc-awesome-bolt:before,.hc-awesome-bolt-filled:before,.hc-awesome-cave:before,.hc-awesome-check:before,.hc-awesome-climbing:before,.hc-awesome-coastal:before,.hc-awesome-desert:before,.hc-awesome-driveway:before,.hc-awesome-eggs:before,.hc-awesome-experience:before,.hc-awesome-facebook-messenger:before,.hc-awesome-farm:before,.hc-awesome-field:before,.hc-awesome-fire:before,.hc-awesome-fishing:before,.hc-awesome-foraging:before,.hc-awesome-forests:before,.hc-awesome-good:before,.hc-awesome-hiking:before,.hc-awesome-horseback-riding:before,.hc-awesome-hot-spring:before,.hc-awesome-house:before,.hc-awesome-kayaking:before,.hc-awesome-kitchen:before,.hc-awesome-lake:before,.hc-awesome-laundry:before,.hc-awesome-leaves:before,.hc-awesome-lock-circle:before,.hc-awesome-mesa:before,.hc-awesome-mountainous:before,.hc-awesome-ohv:before,.hc-awesome-parking:before,.hc-awesome-person:before,.hc-awesome-pets:before,.hc-awesome-picnic-table:before,.hc-awesome-pin:before,.hc-awesome-ranch:before,.hc-awesome-redwoods:before,.hc-awesome-rental:before,.hc-awesome-river:before,.hc-awesome-rule:before,.hc-awesome-rv:before,.hc-awesome-rv-details:before,.hc-awesome-rv-electricity:before,.hc-awesome-rv-generator:before,.hc-awesome-rv-hookups:before,.hc-awesome-rv-length:before,.hc-awesome-rv-sewage:before,.hc-awesome-rv-surface:before,.hc-awesome-rv-television:before,.hc-awesome-rv-water:before,.hc-awesome-share-apple:before,.hc-awesome-shower:before,.hc-awesome-signs-left-right:before,.hc-awesome-snowsports:before,.hc-awesome-surfing:before,.hc-awesome-swimming:before,.hc-awesome-tent:before,.hc-awesome-terrain-lake:before,.hc-awesome-times:before,.hc-awesome-toilet:before,.hc-awesome-trash:before,.hc-awesome-urban:before,.hc-awesome-walk:before,.hc-awesome-water:before,.hc-awesome-waterfall:before,.hc-awesome-wetland:before,.hc-awesome-wheelchair:before,.hc-awesome-whitewater-rafting:before,.hc-awesome-wifi:before,.hc-awesome-wildlife-watching:before,.hc-awesome-windsurfing:before,.hc-awesome-wine-beer-tasting:before {
+@media screen {
+  @font-face {
+    font-family:"hc-awesome";
+    src:url("https://fec-overview.s3-us-west-2.amazonaws.com/calibre/hc-awesome.svg") format("svg")
+  }
+}
+[data-icon]:before {
+  content:attr(data-icon)
+}
+[data-icon]:before, .hc-awesome-accommodation-rv:before, .hc-awesome-accommodation-structure:before, .hc-awesome-accommodation-tent:before, .hc-awesome-beach:before, .hc-awesome-bell:before, .hc-awesome-biking:before, .hc-awesome-boating:before, .hc-awesome-bolt:before, .hc-awesome-bolt-filled:before, .hc-awesome-cave:before, .hc-awesome-check:before, .hc-awesome-climbing:before, .hc-awesome-coastal:before, .hc-awesome-desert:before, .hc-awesome-driveway:before, .hc-awesome-eggs:before, .hc-awesome-experience:before, .hc-awesome-facebook-messenger:before, .hc-awesome-farm:before, .hc-awesome-field:before, .hc-awesome-fire:before, .hc-awesome-fishing:before, .hc-awesome-foraging:before, .hc-awesome-forests:before, .hc-awesome-good:before, .hc-awesome-hiking:before, .hc-awesome-horseback-riding:before, .hc-awesome-hot-spring:before, .hc-awesome-house:before, .hc-awesome-kayaking:before, .hc-awesome-kitchen:before, .hc-awesome-lake:before, .hc-awesome-laundry:before, .hc-awesome-leaves:before, .hc-awesome-lock-circle:before, .hc-awesome-mesa:before, .hc-awesome-mountainous:before, .hc-awesome-ohv:before, .hc-awesome-parking:before, .hc-awesome-person:before, .hc-awesome-pets:before, .hc-awesome-picnic-table:before, .hc-awesome-pin:before, .hc-awesome-ranch:before, .hc-awesome-redwoods:before, .hc-awesome-rental:before, .hc-awesome-river:before, .hc-awesome-rule:before, .hc-awesome-rv:before, .hc-awesome-rv-details:before, .hc-awesome-rv-electricity:before, .hc-awesome-rv-generator:before, .hc-awesome-rv-hookups:before, .hc-awesome-rv-length:before, .hc-awesome-rv-sewage:before, .hc-awesome-rv-surface:before, .hc-awesome-rv-television:before, .hc-awesome-rv-water:before, .hc-awesome-share-apple:before, .hc-awesome-shower:before, .hc-awesome-signs-left-right:before, .hc-awesome-snowsports:before, .hc-awesome-surfing:before, .hc-awesome-swimming:before, .hc-awesome-tent:before, .hc-awesome-terrain-lake:before, .hc-awesome-times:before, .hc-awesome-toilet:before, .hc-awesome-trash:before, .hc-awesome-urban:before, .hc-awesome-walk:before, .hc-awesome-water:before, .hc-awesome-waterfall:before, .hc-awesome-wetland:before, .hc-awesome-wheelchair:before, .hc-awesome-whitewater-rafting:before, .hc-awesome-wifi:before, .hc-awesome-wildlife-watching:before, .hc-awesome-windsurfing:before, .hc-awesome-wine-beer-tasting:before {
   display:inline-block;
   font-family:"hc-awesome";
   font-style:normal;
@@ -53,10 +62,9 @@
   text-decoration:inherit;
   text-rendering:optimizeLegibility;
   text-transform:none;
-  -moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;
 }
 
-.hc-awesome-accommodation-rv:before{content:"\f149"}
+ .hc-awesome-accommodation-rv:before{content:"\f149"}
 .hc-awesome-accommodation-structure:before{content:"\f14a"}
 .hc-awesome-accommodation-tent:before{content:"\f14b"}
 .hc-awesome-beach:before{content:"\f100"}
@@ -178,19 +186,33 @@ div #overview {
       width: 1080px;
   }
 }
-
+.main {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-font-smoothing: antialiased;
+}
 .two-thirds {
   position: relative;
   min-height: 1px;
   padding-left: 10px;
   padding-right: 10px;
 }
-
+p {
+  margin: 0 0 11px;
+  font-size: 18px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
 #overview {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
 }
 .main h1 {
   font-family: 'Calibre', Helvetica, Arial, sans-serif;
@@ -205,18 +227,23 @@ div #overview {
 .main a {
   color: inherit;
   text-decoration: none;
+  transition: all 0.25s ease 0s;
 }
 .main section {
   margin: 30px 0;
   padding-top: 16px;
   border-top: 1px solid #ebebeb;
 }
-.main h1 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-weight: 500;
-  /* font-size: 4.2rem; */
+a.underlined {
+  border-bottom: 1px solid #ebebeb;
 }
+a:hover.underlined {
+  border-color: #333333;
+}
+a:hover {
+  cursor: pointer;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -232,13 +259,63 @@ body {
   line-height: 1.42;
 }
 
+.header-bar {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.header-bar:before, .header-bar:after {
+  content: " ";
+  display: table;
+}
+.last-word-check {
+  white-space: nowrap;
+}
+.breadcrumb {
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 0;
+  list-style: none;
+}
+div.breadcrumb>li {
+  display: inline-block;
+}
+div.breadcrumb>li+li:before {
+  content: "\f105";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  font-size: 13px;
+  vertical-align: middle;
+  padding: 0 9px;
+  color: #757575;
+}
+
+.nearby {
+  margin: 10px 0;
+  font-size: 18px;
+}
+.nearby-strong {
+  font-weight: 500;
+}
+
 .header {
-    white-space: nowrap;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: -20px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: -20px;
 }
 .header .recommend-percentage {
   height: 48px;
@@ -341,18 +418,24 @@ body {
   line-height: 26px;
   display: block;
 }
+.verified-site {
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%) !important;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 11px;
+  border: 2px solid #fff;
+  vertical-align: top;
+  color: #fff;
+  background-color: #4199ff;
+}
+
+
 body {
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-direction: column;
   flex-direction: column;
   font-weight: 400;
   min-height: 100vh;
   height: 100%;
-}
-html, body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .overview:before, .overview:after {
@@ -517,6 +600,10 @@ html, body {
 .main .contact-host a.contact-host-link {
   color: #40d9ac;
   border-bottom: 1px solid #d7f3f0;
+}
+.main .contact-host a:hover, .main .contact-host a:active {
+  color: #40d9ac;
+  border-color: #40d9ac;
 }
 
 .details .details-title {

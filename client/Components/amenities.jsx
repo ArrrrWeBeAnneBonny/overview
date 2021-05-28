@@ -46,7 +46,7 @@ class Amenities extends React.Component {
           </div>
           <div className='list-text'>{this.props.amenities.kitchen.available ? `Kitchen available` : `No kitchen`}</div>
         </div>
-        <div className="more-details"><a data-toggle="modal" data-target="#modal-info-card-lodging-provided" href="#">More details</a></div>
+        <div className="more-details"><a data-toggle="modal" data-target="#modal-info-card-lodging-provided" href="#">Expand</a></div>
       </div>
     )
   }
