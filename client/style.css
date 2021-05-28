@@ -159,16 +159,16 @@ div #overview {
 }
 
 @media (min-width: 768px) {
-  #overview {
+  .main, .overview {
     width: 740px;
   }
   .two-thirds {
-    width: 66.58.333333333%;
+    width: 58.333333333%;
     float: left;
   }
 }
 @media (min-width: 992px) {
-  #overview {
+  .main, .overview {
     width: 960px;
   }
   .two-thirds {
@@ -177,20 +177,26 @@ div #overview {
   }
 }
 @media (min-width: 1199px) {
-  #overview {
+  .main, .overview {
       width: 920px;
+  }
+  .two-thirds {
+    width: 66.66666667%;
+    float: left;
   }
 }
 @media (min-width: 1299px) {
-  #overview {
+  .main, .overview {
       width: 1080px;
   }
+  .two-thirds {
+    width: 66.66666667%;
+    float: left;
+  }
 }
-.main {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 10px;
-  padding-right: 10px;
+.main, .overview {
+  margin-left: -10px;
+  margin-right: -10px;
   -webkit-font-smoothing: antialiased;
 }
 .two-thirds {
@@ -452,13 +458,6 @@ body {
   content: " ";
   display: table;
 }
-
-.overview {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-}
 .owner {
   display: flex;
   align-items: center;
@@ -553,6 +552,7 @@ body {
   width: 220px;
   height: 340px;
   line-height: 1.4;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%) !important;
 }
 .tri-card .card .title {
   font-size: 24px;

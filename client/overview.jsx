@@ -79,19 +79,22 @@ class Overview extends React.Component {
           </header>
 
           <div className='header-bar'>
-              <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location}/>
+            <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} />
           </div>
-          <div className='two-thirds'>
-            <Description description={this.state.description} owner={this.state.owner} />
-            <div className='tri-card'>
-              <Lodging lodging={this.state.lodging} />
-              <Essentials essentials={this.state.essentials} />
-              <Amenities amenities={this.state.amenities} />
+          <div className='overview'>
+
+            <div className='two-thirds'>
+              <Description description={this.state.description} owner={this.state.owner} />
+              <div className='tri-card'>
+                <Lodging lodging={this.state.lodging} />
+                <Essentials essentials={this.state.essentials} />
+                <Amenities amenities={this.state.amenities} />
+              </div>
+              <div className='contact-host'>
+                <b>Have a question? </b><a className='contact-host-link'>Send {this.state.owner.name} a message!</a>
+              </div>
+              <Details details={this.state.details} pricing={this.state.pricing} />
             </div>
-            <div className='contact-host'>
-              <b>Have a question? </b><a className='contact-host-link'>Send {this.state.owner.name} a message!</a>
-            </div>
-            <Details details={this.state.details} pricing={this.state.pricing} />
           </div>
         </div>
       )

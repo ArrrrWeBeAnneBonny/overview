@@ -73,7 +73,7 @@ class Description extends React.Component {
           {this.state.readMore
             ? this.showShort()
             : <div className='long'>
-              {this.props.description}</div>
+              {this.parseDescription(this.props.description)}</div>
 
           }
         </div>
