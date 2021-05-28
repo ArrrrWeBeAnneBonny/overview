@@ -243,6 +243,16 @@ a:hover.underlined {
 a:hover {
   cursor: pointer;
 }
+div.underlined {
+  border-bottom: 1px solid #ebebeb;
+  display: inline-block;
+}
+div:hover.underlined {
+  border-color: #333333;
+}
+div:hover {
+  cursor: pointer;
+}
 
 * {
     box-sizing: border-box;
@@ -456,8 +466,6 @@ body {
   padding-right: 15px;
   position: relative;
   box-sizing: border-box;
-/* }
-.owner-photo { */
   width: 33.33333333%;
   float: left;
 }
@@ -498,11 +506,15 @@ body {
 }
 
 .description {
-  /* width: 66.66666667%; */
+  margin-bottom: 40px;
+  font-size: 18px;
   padding-left: 0;
   padding-right: 0;
   position: relative;
   min-height: 1px;
+}
+.description .shortened .bold {
+  font-weight: 500;
 }
 .covid-guidelines {
   border-radius: 4px;

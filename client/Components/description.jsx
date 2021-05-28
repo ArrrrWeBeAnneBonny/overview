@@ -7,8 +7,7 @@ class Description extends React.Component {
       readMore: false,
       fullDescription: '',
       shortDescription: ''
-    }
-    this.showMore = this.showMore.bind(this);
+    };
   }
   componentDidMount() {
     this.setDescription();
@@ -29,33 +28,36 @@ class Description extends React.Component {
     let paragraphs = description.split('\n');
 
     return (
-      <div>
-        {paragraphs.map((para, key) =>
-          <p key={key}>{para}</p>
-        )}
-      </div>
+        <span>
+          {paragraphs.map((para, key) =>{
+            if(key === paragraphs.length - 1) {
+            return para + ' ';
+            }
+            return (<p key={key}>{para}</p>)
+          })}
+        </span>
     )
+  }
+
+  showMore() {
+      console.log('clicked!');
+      this.setState({
+        readMore: false
+      })
   }
 
   showShort() {
     return (
       <div className='shortened'>
-          {this.parseDescription(this.state.shortDescription)}
-        <a className="underlined" onClick={this.showMore}><strong>Read more...</strong></a>
+          {this.parseDescription(this.state.shortDescription)}<a className="underlined bold" onClick={this.showMore}> Read more...</a>
       </div>
     )
   }
 
-  showMore() {
-    console.log('clicked!')
-    this.setState({
-      readMore: false
-    })
-  }
 
   render() {
     return (
-      <div className='owner-description'>
+      <section className='owner-description'>
         <div className='owner'>
           <div className='owner-photo'>
             <img src={this.props.owner.imageUrl}></img>
@@ -75,7 +77,7 @@ class Description extends React.Component {
 
           }
         </div>
-      </div>
+      </section>
     )
   }
 }
