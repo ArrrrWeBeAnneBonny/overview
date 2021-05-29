@@ -249,16 +249,6 @@ a:hover.underlined {
 a:hover {
   cursor: pointer;
 }
-div.underlined {
-  border-bottom: 1px solid #ebebeb;
-  display: inline-block;
-}
-div:hover.underlined {
-  border-color: #333333;
-}
-div:hover {
-  cursor: pointer;
-}
 
 * {
     box-sizing: border-box;
@@ -570,6 +560,9 @@ body {
 .tri-card .card .list .list-text {
   font-size: 18px;
   line-height: 20px;
+}
+.tri-card .card .list .list-text.available::first-letter{
+  text-transform: uppercase;
 }
 .tri-card .card .list .icon {
   position: relative;

@@ -11,8 +11,8 @@ import Amenities from './Components/amenities.jsx';
 import Details from './Components/details.jsx';
 
 class Overview extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     let query = new URLSearchParams(document.location.search);
     this.state = {
       campId: query.get('campId') ? query.get('campId') : 0,
@@ -77,12 +77,10 @@ class Overview extends React.Component {
             <title>{this.state.siteName}</title>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
           </header>
-
           <div className='header-bar'>
             <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} />
           </div>
           <div className='overview'>
-
             <div className='two-thirds'>
               <Description description={this.state.description} owner={this.state.owner} />
               <div className='tri-card'>
@@ -108,4 +106,4 @@ class Overview extends React.Component {
   }
 }
 
-ReactDOM.render(<Overview />, document.getElementById('overview')); 1
+ReactDOM.render(<Overview />, document.getElementById('overview'));

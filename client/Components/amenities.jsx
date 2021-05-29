@@ -1,51 +1,65 @@
 import React from 'react';
 
+const amenityIcon = {
+    potableWater: `hc-awesome-water`,
+    kitchen: `hc-awesome-kitchen`,
+    shower: `hc-awesome-shower`,
+    picnicTable: `hc-awesome-picnic-table`,
+    wifi: `hc-awesome-wifi`,
+    bins: `hc-awesome-trash`
+};
+
+const amenityText = {
+  potableWater: `potable water`,
+  kitchen: `kitchen`,
+  shower: `showers`,
+  picnicTable: `picnic table`,
+  wifi: `wifi`,
+  bins: `bins`
+};
+
 class Amenities extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      available: [],
+      unavailable: []
+    }
+    this.initialize();
   }
 
+  initialize() {
+    for (let key in this.props.amenities) {
+      this.props.amenities[key].available
+      ? this.state.available.push(key)
+      : this.state.unavailable.push(key)
+    }
+    // console.log(this.state)
+  }
   render() {
-    console.log(this.props.amenities);
+    // console.log(this.props.amenities);
     return (
       <div className='card amenities'>
         <div className='title'>Amenities</div>
-        <div className='list'>
+
+        {this.state.available.map((item, key) => {
+          return (<div className='list' key={key}>
           <div className='icon'>
-            {this.props.amenities.potableWater.available ? <div /> : <div className='crossout' />}<span className={this.props.amenities.potableWater.available ? `hc-awesome-water` : `absent hc-awesome-water`} />
+            <span className={`${amenityIcon[item]}`} />
           </div>
-          <div className='list-text'>{this.props.amenities.potableWater.available ? `Potable water available` : `No potable water`}</div>
+          <div className='list-text available'>{`${amenityText[item]} allowed`}</div>
         </div>
-        <div className='list'>
+        )})}
+
+        {this.state.unavailable.map((item, key) => {
+          return (<div className='list' key={key + this.state.available.length}>
           <div className='icon'>
-            {this.props.amenities.picnicTable.available ? <div /> : <div className='crossout' />}<span className={this.props.amenities.picnicTable.available ? `hc-awesome-picnic-table` : `absent hc-awesome-picnic-table`} />
+            <div className='crossout' /><span className={`absent ${amenityIcon[item]}`} />
           </div>
-          <div className='list-text'>{this.props.amenities.picnicTable.available ? `Picnic table available` : `No picnic table`}</div>
+          <div className='list-text absent'>{`No ${amenityText[item]}`}</div>
         </div>
-        <div className='list'>
-          <div className='icon'>
-            {this.props.amenities.bins.available ? <div /> : <div className='crossout' />}<span className={this.props.amenities.bins.available ? `hc-awesome-trash` : `absent hc-awesome-trash`} />
-          </div>
-          <div className='list-text'>{this.props.amenities.bins.available ? `Bins available` : `No bins`}</div>
-        </div>
-        <div className='list'>
-          <div className='icon'>
-            {this.props.amenities.shower.available ? <div /> : <div className='crossout' />}<span className={this.props.amenities.shower.available ? `hc-awesome-shower` : `absent hc-awesome-shower`} />
-          </div>
-          <div className='list-text'>{this.props.amenities.shower.available ? `Showers available` : `No showers`}</div>
-        </div>
-        <div className='list'>
-          <div className='icon'>
-            {this.props.amenities.wifi.available ? <div /> : <div className='crossout' />}<span className={this.props.amenities.wifi.available ? `hc-awesome-wifi` : `absent hc-awesome-wifi`} />
-          </div>
-          <div className='list-text'>{this.props.amenities.wifi.available ? `Wifi available` : `No wifi`}</div>
-        </div>
-        <div className='list'>
-          <div className='icon'>
-            {this.props.amenities.kitchen.available ? <div /> : <div className='crossout' />}<span className={this.props.amenities.kitchen.available ? `hc-awesome-kitchen` : `absent hc-awesome-kitchen`} />
-          </div>
-          <div className='list-text'>{this.props.amenities.kitchen.available ? `Kitchen available` : `No kitchen`}</div>
-        </div>
+        )})}
+
         <div className="more-details"><a data-toggle="modal" data-target="#modal-info-card-lodging-provided" href="#">Expand</a></div>
       </div>
     )

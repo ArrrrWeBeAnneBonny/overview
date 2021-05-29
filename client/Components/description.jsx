@@ -8,7 +8,10 @@ class Description extends React.Component {
       fullDescription: '',
       shortDescription: ''
     };
+
+    this.showMore = this.showMore.bind(this);
   }
+
   componentDidMount() {
     this.setDescription();
   }
@@ -43,16 +46,8 @@ class Description extends React.Component {
       console.log('clicked!');
       this.setState({
         readMore: false
-      })
-  }
-
-  showShort() {
-    return (
-      <div className='shortened'>
-          {this.parseDescription(this.state.shortDescription)}<a className="underlined bold" onClick={this.showMore}> Read more...</a>
-      </div>
-    )
-  }
+      });
+  };
 
 
   render() {
@@ -71,11 +66,9 @@ class Description extends React.Component {
         <div className='two-thirds description'>
           <div className="covid-guidelines"><span className="icon fa fa-check"></span> {this.props.owner.name} has self-certified that Hipcamp’s COVID-19 Safety Standards have been  implemented at this listing. See what’s being done <a target="_blank" href="https://support.hipcamp.com/hc/en-us/articles/360043415632">here</a>. </div>
           {this.state.readMore
-            ? this.showShort()
+            ? <div className='shortened'>{this.parseDescription(this.state.shortDescription)}<a className="underlined bold" onClick={this.showMore}> Read more...</a></div>
             : <div className='long'>
-              {this.parseDescription(this.props.description)}</div>
-
-          }
+              {this.parseDescription(this.props.description)}</div>}
         </div>
       </section>
     )

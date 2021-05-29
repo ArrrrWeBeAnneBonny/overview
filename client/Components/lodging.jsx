@@ -1,10 +1,38 @@
 import React from 'react';
 
-const types = ['hc-awesome-tent', 'hc-awesome-house', 'hc-awesome-tent', 'hc-awesome-tent', 'hc-awesome-cabin', 'hc-awesome-rv']
+const types = ['hc-awesome-tent', 'hc-awesome-house', 'hc-awesome-tent', 'hc-awesome-tent', 'hc-awesome-cabin', 'hc-awesome-rv'];
+
+const lodgingIcon = {
+  parking: `hc-awesome-parking`,
+  ADAaccess: `hc-awesome-wheelchair`
+};
+const lodgingTextTrue = {
+  parking: `Park at listing`,
+  ADAaccess: `ADA access`
+}
+const lodgingTextFalse = {
+  parking: `No parking`,
+  ADAaccess: `No ADA access`
+}
 
 class Lodging extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      available: [],
+      unavailable: []
+    }
+    this.initialize();
+  }
+
+  initialize() {
+    for (let key in this.props.lodging) {
+      typeof this.props.lodging[key] === 'boolean'
+        && (this.props.lodging[key]
+        ? this.state.available.push(key)
+        : this.state.unavailable.push(key))
+    }
+    // console.log(this.state);
   }
 
   render() {
@@ -24,20 +52,27 @@ class Lodging extends React.Component {
           <div className='icon'><span className="hc-awesome-person"></span></div>
           <div className='list-text'>Up to {this.props.lodging.maxGuestsPerSite} guests per site</div>
         </div>
-        <div className='list'>
-          <div className='icon'>
-            {this.props.lodging.parking ? <div /> : <div className='crossout' />}
-            <span className={this.props.lodging.parking ? `hc-awesome-parking` : `absent hc-awesome-parking`} />
+
+        {this.state.available.map((item, key) => {
+          return (<div className='list' key={key}>
+            <div className='icon'>
+              <span className={`${lodgingIcon[item]}`} />
+            </div>
+            <div className='list-text available'>{lodgingTextTrue[item]}</div>
           </div>
-          <div className={this.props.lodging.parking ? `list-text` : `absent list-text`}>{this.props.lodging.parking ? `Park at listing` : `No parking at listing`}</div>
-        </div>
-        <div className='list'>
-          <div className='icon'>
-            {this.props.lodging.ADAaccess ? <div /> : <div className='crossout' />}
-            <span className={this.props.lodging.ADAaccess ? `hc-awesome-wheelchair` : `absent hc-awesome-wheelchair`} />
+          )
+        })}
+
+        {this.state.unavailable.map((item, key) => {
+          return (<div className='list' key={key + this.state.available.length}>
+            <div className='icon'>
+              <div className='crossout' /><span className={`absent ${lodgingIcon[item]}`} />
+            </div>
+            <div className='list-text absent'>{lodgingTextFalse[item]}</div>
           </div>
-          <div className={this.props.lodging.ADAaccess ? `list-text` : `absent list-text`}>{this.props.lodging.ADAaccess ? `ADA access` : `No ADA access`}</div>
-        </div>
+          )
+        })}
+
         <div className="more-details"><a data-toggle="modal" data-target="#modal-info-card-lodging-provided" href="#">Expand</a></div>
       </div>
     )
