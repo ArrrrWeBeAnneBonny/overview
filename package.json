@@ -12,8 +12,10 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "start": "nodemon ./server/index.js",
+    "start": "node ./server/index.js",
+    "watch": "nodemon ./server/index.js",
     "build-dev": "npx webpack --mode=development --watch",
+    "build-prod": "npx webpack --mode=production --watch",
     "test": "jest"
   },
   "dependencies": {

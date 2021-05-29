@@ -9,7 +9,7 @@ const port = 3003;
 
 
 app.listen(port, () => {
-  console.log(`Server listening at http://127.0.0.1:${port}`);
+  console.log(`Server listening at http://localhost:${port}`);
 });
 
 const allowedOrigins = [
@@ -34,7 +34,7 @@ app.get('/overview', async (req, res) => {
     campId = 0;
   }
 
-  let data = await db.generalLookup(campId);
+  let data = await db.generalLookup(campId)
 
   res.send(data);
 });
