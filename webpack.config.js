@@ -11,7 +11,7 @@ module.exports = {
   output: {
     filename: 'overview.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true,
+    // clean: true,
     publicPath: 'http://localhost:3003'
   },
   module: {
@@ -19,7 +19,23 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-          use: 'babel-loader',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              "@babel/preset-react",
+              [
+                "@babel/preset-env",
+                {
+                  "targets": {
+                    "node": "current"
+                  },
+                  "useBuiltIns": "entry",
+                  "modules": false
+                }
+              ]]
+          }
+        }
       },
       {
         test: /\.css$/i,
