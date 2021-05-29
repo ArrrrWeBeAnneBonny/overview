@@ -1,6 +1,6 @@
 import React from 'react';
 
-const types = ['hc-awesome-tent', 'hc-awesome-house', 'hc-awesome-tent', 'hc-awesome-tent', 'hc-awesome-cabin', 'hc-awesome-rv'];
+const types = ['hc-awesome-tent', 'hc-awesome-house', 'hc-awesome-tent', 'hc-awesome-tent', 'hc-awesome-house', 'hc-awesome-rv'];
 
 const lodgingIcon = {
   parking: `hc-awesome-parking`,
