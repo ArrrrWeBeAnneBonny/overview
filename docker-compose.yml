@@ -1,18 +1,19 @@
-version: "3.9"  # optional since v1.27.0
+version: "3"
 services:
-  web:
-    image: node:14.15.5
+  app:
+    container_name: nodejs
+    restart: always
+    build: .
     ports:
       - "3003:3003"
+    links:
+       - mongo
     depends_on:
-    - mongo
-
+      - mongo
   mongo:
+    container_name: mongo
     image: mongo
+    volumes:
+      - ./data/db
     ports:
-      - 27017:27017
-
-  mongo-express:
-    image: mongo-express
-    ports:
-      - 8081:8081
+      - "27017:27017"
