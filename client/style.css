@@ -146,7 +146,19 @@
 .hc-awesome-wine-beer-tasting:before{content:"\f148"}
 .fa, .fas { font-weight: 900; }
 
-div #overview {
+html {
+  min-height: 100%;
+  position: relative;
+  overscroll-behavior: none;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  min-height: 100vh;
+  height: 100%;
+}
+div#overview {
   display: flex;
   flex-direction: column;
   font-weight: 400;
@@ -157,6 +169,7 @@ div #overview {
   padding-left: 10px;
   padding-right: 10px;
 }
+
 
 @media (min-width: 768px) {
   .main, .overview {
@@ -439,15 +452,6 @@ div.breadcrumb>li+li:before {
   background-color: #4199ff;
 }
 
-
-body {
-  display: flex;
-  flex-direction: column;
-  font-weight: 400;
-  min-height: 100vh;
-  height: 100%;
-}
-
 .overview:before, .overview:after {
   content: " ";
   display: table;
@@ -653,15 +657,11 @@ body {
   float: left;
 }
 
-.modal .modal-open  {
-  overflow-x: hidden;
-  overflow-y: auto;
-  display: block;
-}
-.modal-dialog {
-  position: relative;
-  width: auto;
-  margin: 10px;
+.modal-open  {
+  overflow: hidden;
+  padding-right: 15px;
+  background-color: white;
+  height: 100%;
 }
 .fade {
   opacity: 0;
@@ -695,6 +695,7 @@ body {
   padding-bottom: 0;
   height: auto;
   border-bottom: none;
+  transition: transform 0.3s ease-out;
 }
 .modal-content {
   border: 1px solid #ebebeb;
@@ -707,20 +708,49 @@ body {
 }
 .modal-dialog .modal-content .modal-title {
   font-weight: 500;
-  font-size: 3.2rem;
+  font-size: 32px;
   text-align: left;
   margin-left: 0px;
   margin-bottom: 15px;
 }
-.modal-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.modal-close:hover,
-.modal-close:focus {
-  color: black;
-  text-decoration: none;
+button.modal-close {
+  padding: 0;
   cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+.modal-header .modal-close {
+  margin-top: -2px;
+}
+.modal-close {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+button{overflow:visible}
+button.modal-close {
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+.modal .modal-close {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 0.5;
+  z-index: 1;
+  transition: opacity 0.25s ease 0s;
+}
+.modal-dialog .modal-content .modal-close {
+  font-size: 40px;
+  font-weight: 400;
+  opacity: 1;
+  float: none;
 }

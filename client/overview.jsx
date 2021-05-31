@@ -75,9 +75,9 @@ class Overview extends React.Component {
   clickModal(e) {
     e.preventDefault();
     console.log('modal clicked');
-    this.setState({
-      showModal: true
-    });
+    this.setState(prev => ({
+      showModal: !prev.showModal
+    }));
 
   }
 
@@ -86,7 +86,7 @@ class Overview extends React.Component {
 
     if (this.state.fetched && this.state.mounted) {
       return (
-        <div className='main'>
+        <div className={this.state.showModal ? `main modal-open` : `main`}>
           <header>
             <title>{this.state.siteName}</title>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
@@ -109,8 +109,8 @@ class Overview extends React.Component {
             </div>
           </div>
           {this.state.showModal
-              ?<div className='modal fade in' style={{display: 'block'}}><ProModal /> </div>
-              : <div className='modal fade' style={{display: 'none'}}><ProModal /> </div>
+              ?<div className='modal fade in' style={{display: 'block'}}><ProModal clickModal={this.clickModal}/> </div>
+              : <div className='modal fade' style={{display: 'none'}}><ProModal clickModal={this.clickModal}/> </div>
             }
 
         </div>
