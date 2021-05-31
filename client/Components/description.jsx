@@ -18,7 +18,7 @@ class Description extends React.Component {
 
   setDescription() {
     if (this.props.description.length > 500) {
-      let shortened = this.props.description.slice(0, 367);
+      let shortened = this.props.description.slice(0, 365);
       this.setState({
         shortDescription: shortened,
         fullDescription: this.props.description,

@@ -9,6 +9,7 @@ import Lodging from './Components/lodging.jsx';
 import Essentials from './Components/essentials.jsx';
 import Amenities from './Components/amenities.jsx';
 import Details from './Components/details.jsx';
+import ProModal from './Components/promodal.jsx';
 
 class Overview extends React.Component {
   constructor() {
@@ -27,9 +28,11 @@ class Overview extends React.Component {
       amenities: {},
       header: {},
       mounted: false,
-      fetched: false
+      fetched: false,
+      showModal: false
     }
     this.fetchOverview();
+    this.clickModal = this.clickModal.bind(this);
   }
 
 
@@ -64,7 +67,18 @@ class Overview extends React.Component {
 
   componentDidMount() {
     console.log('rendered');
-    this.state.mounted = true;
+    this.setState({
+      mounted: true
+    });
+  }
+
+  clickModal(e) {
+    e.preventDefault();
+    console.log('modal clicked');
+    this.setState({
+      showModal: true
+    });
+
   }
 
   render() {
@@ -89,11 +103,16 @@ class Overview extends React.Component {
                 <Amenities amenities={this.state.amenities} />
               </div>
               <div className='contact-host'>
-                <b>Have a question? </b><a className='contact-host-link'>Send {this.state.owner.name} a message!</a>
+                <b>Have a question? </b><a className='contact-host-link' onClick={this.clickModal}>Send {this.state.owner.name} a message!</a>
               </div>
               <Details details={this.state.details} pricing={this.state.pricing} />
             </div>
           </div>
+          {this.state.showModal
+              ?<div className='modal fade in' style={{display: 'block'}}><ProModal /> </div>
+              : <div className='modal fade' style={{display: 'none'}}><ProModal /> </div>
+            }
+
         </div>
       )
     } else {
