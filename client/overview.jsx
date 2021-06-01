@@ -97,20 +97,20 @@ class Overview extends React.Component {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
           </header>
           <div className='header-bar'>
-            <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} />
+            <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} />
           </div>
           <div className='overview'>
             <div className='two-thirds'>
-              <Description description={this.state.description} owner={this.state.owner} />
+              <Description description={this.state.description} owner={this.state.owner} clickModal={this.clickModal} />
               <div className='tri-card'>
-                <Lodging lodging={this.state.lodging} />
-                <Essentials essentials={this.state.essentials} />
-                <Amenities amenities={this.state.amenities} />
+                <Lodging lodging={this.state.lodging} clickModal={this.clickModal} />
+                <Essentials essentials={this.state.essentials} clickModal={this.clickModal} />
+                <Amenities amenities={this.state.amenities} clickModal={this.clickModal} />
               </div>
               <div className='contact-host'>
                 <b>Have a question? </b><a className='contact-host-link' onClick={this.clickModal}>Send {this.state.owner.name} a message!</a>
               </div>
-              <Details details={this.state.details} pricing={this.state.pricing} />
+              <Details details={this.state.details} pricing={this.state.pricing} clickModal={this.clickModal} />
             </div>
           </div>
           {this.state.showModal
