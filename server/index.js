@@ -9,11 +9,10 @@ const app = express();
 const port = 3003;
 
 let configURL = {};
-if (process.env.NODE_ENV === "development") {
-  configURL = config.dev;
-}
 if (process.env.NODE_ENV === "production") {
   configURL = config.production;
+} else {
+  configURL = config.dev;
 }
 console.log('config file: ', configURL);
 
@@ -90,7 +89,7 @@ app.get('/overview/all', async (req, res) => {
   console.log('requested campId = ', campId)
 
   let data = await db.overviewLookup(campId);
-  await axios.get(module.exports.config.reviews, { params: { campId } })
+  await axios.get(configURL.reviews, { params: { campId } })
     .then(response => {
       // console.log('Review API Call response ', response.data);
       console.log('Accessed Review Service!!');
@@ -108,3 +107,5 @@ app.get('/overview/all', async (req, res) => {
     // console.log(data);
     res.send(data);
 });
+
+module.exports.configURL = configURL;
