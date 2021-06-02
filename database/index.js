@@ -1,8 +1,9 @@
-const {seed, closeConn} = require('./seeder.js');
+const {seed, closeConn, dbURL} = require('./seeder.js');
 const mongoose = require('mongoose');
 const helper = require('./helperFuncs.js');
+const { twisselman } = require('./twisselman.js')
 
-mongoose.connect('mongodb://127.0.0.1/FEC');
+mongoose.connect(dbURL);
 // mongoose.set('useNewUrlParser', true);
 // mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -56,6 +57,18 @@ module.exports = {
       .catch(error => {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
+        response = {
+          name: twisselman.name,
+          location: {
+            name: twisselman.location.name,
+            address: twisselman.location.address,
+            numberOfSites: twisselman.lodging.numberOfSites
+          },
+          owner: {
+            name: twisselman.owner.name,
+            imageUrl: twisselman.owner.imageUrl
+          }
+        }
       });
 
       // console.log(response);
@@ -77,6 +90,11 @@ module.exports = {
       .catch(error => {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
+        response = {
+          name: twisselman.location.name,
+          address: twisselman.location.address,
+          numberOfSites: twisselman.lodging.numberOfSites
+        };
       });
       return response;
   },
@@ -99,6 +117,11 @@ module.exports = {
       .catch(error => {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
+        response = {
+          name: twisselman.owner.name,
+          imageUrl: twisselman.owner.imageUrl,
+          randomSite: Math.floor(Math.random() * twisselman.lodging.numberOfSites)
+        };
       });
       return response;
   },
@@ -122,6 +145,15 @@ module.exports = {
       .catch(error => {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
+        response = {
+          averagePricePerNight: twisselman.pricing.averagePricePerNight,
+          maxGuests: twisselman.lodging.maxGuestsPerSite,
+          cleaningFee: twisselman.pricing.cleaningFee,
+          monthsOutForBooking: twisselman.pricing.monthsOutForBooking,
+          weeknightDiscount: twisselman.pricing.weeknightDiscount,
+          instantBook: twisselman.pricing.instantBook,
+          minimumNights: twisselman.pricing.minimumNights
+        };
       });
       return response;
   },
@@ -201,6 +233,70 @@ module.exports = {
         console.log('ERROR FINDING CAMPID');
         console.log(error);
         response.err = error;
+        response = {
+          name: twisselman.name,
+          description: twisselman.description,
+          location: {
+            name: twisselman.location.name,
+            address: twisselman.location.address,
+            state: helper.stateLookup(twisselman.location.address),
+            country: 'United States',
+            numberOfSites: twisselman.lodging.numberOfSites,
+            verified: twisselman.location.verified
+          },
+          owner: {
+            name: twisselman.owner.name,
+            imageUrl: twisselman.owner.imageUrl,
+            verified: twisselman.owner.verified
+          },
+          pricing: {
+            averagePricePerNight: twisselman.pricing.averagePricePerNight,
+            cleaningFee: twisselman.pricing.cleaningFee,
+            monthsOutForBooking: twisselman.pricing.monthsOutForBooking,
+            weeknightDiscount: twisselman.pricing.weeknightDiscount,
+            instantBook: twisselman.pricing.instantBook,
+            minimumNights: twisselman.pricing.minimumNights
+          },
+          details: {
+            checkInTime: helper.timeToStringHour(twisselman.details.checkInTime),
+            checkOutTime: helper.timeToStringHour(twisselman.details.checkOutTime),
+            cancellationPolicy: helper.cancellationMessage(twisselman.details.cancellationPolicy),
+            onArrival: helper.arrivalType(twisselman.details.onArrival),
+            responseTime: twisselman.details.responseTime,
+            responseRate: twisselman.details.responseRate
+          },
+          lodging: {
+            type: twisselman.lodging.type,
+            housing: helper.lodgingTypes(twisselman.lodging.type),
+            numberOfSites: twisselman.lodging.numberOfSites,
+            maxGuestsPerSite: twisselman.lodging.maxGuestsPerSite,
+            ADAaccess: twisselman.lodging.ADAaccess,
+            parking: twisselman.lodging.parking
+          },
+          essentials: {
+            campfires: twisselman.essentials.campfires,
+            toilet: twisselman.essentials.toilet,
+            pets: twisselman.essentials.pets
+          },
+          amenities: {
+            potableWater: {
+              available: twisselman.amenities.potableWater.available,
+              types: helper.potableWaterTypes[twisselman.amenities.potableWater.types],
+              description: twisselman.amenities.potableWater.description
+            },
+            kitchen: helper.hasKitchen(twisselman.amenities.kitchen),
+            shower: helper.hasShower(twisselman.amenities.shower),
+            picnicTable: {
+              available: twisselman.amenities.picnicTable.available,
+              description: twisselman.amenities.picnicTable.description
+            },
+            wifi: {
+              available: twisselman.amenities.wifi.available,
+              description: twisselman.amenities.wifi.description
+            },
+            bins: helper.hasBins(twisselman.amenities.bins)
+          }
+        };
       });
 
       return response;

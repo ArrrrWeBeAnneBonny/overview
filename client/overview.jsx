@@ -37,7 +37,13 @@ class Overview extends React.Component {
 
 
   fetchOverview() {
-    return axios.get('http://localhost:3003/overview/all', { params: { campId: this.state.campId } })
+    const url = {}
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+
+    } else {
+
+    }
+    return axios.get(`http://${process.env.NODE_ENV === 'production' ? `34.220.195.161` : `localhost:3003`}/overview/all`, { params: { campId: this.state.campId } })
       .then(response => {
         // console.log('Response for get overview', response.data);
         const overview = response.data;
