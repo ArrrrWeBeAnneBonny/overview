@@ -15,7 +15,7 @@
     "start": "NODE_ENV=production node ./server/index.js",
     "watch": "NODE_ENV=development nodemon ./server/index.js",
     "build-dev": "npx webpack --mode=development --watch",
-    "build-prod": "npx webpack --mode=production --watch",
+    "build-prod": "npx webpack --mode=production",
     "test": "jest"
   },
   "dependencies": {

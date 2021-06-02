@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { addresses } = require('./addresses.js');
 const { twisselman } = require('./twisselman.js')
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const dbURL = process.env.NODE_ENV === "production" ? 'mongodb://mongo:27017/FEC' : 'mongodb://localhost:27017/FEC';
+const dbURL = process.env.NODE_ENV === "production" ? 'mongodb://0.0.0.0:27017/FEC' : 'mongodb://localhost:27017/FEC';
 
 console.log('DB URL: ', dbURL);
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true });

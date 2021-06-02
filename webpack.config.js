@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+let config = {
   entry: './client/overview.jsx',
   plugins: [
     new HtmlWebpackPlugin({
@@ -12,7 +12,6 @@ module.exports = {
     filename: 'overview.js',
     path: path.resolve(__dirname, 'dist'),
     // clean: true,
-    publicPath: 'http://localhost:3003'
   },
   module: {
     rules: [
@@ -57,4 +56,16 @@ module.exports = {
       '.jsx'
     ]
   }
+};
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.output.publicPath = 'http://localhost:3003';
+  }
+
+  if (argv.mode === 'production') {
+    config.output.publicPath = 'http://ec2-34-220-195-161.us-west-2.compute.amazonaws.com/';
+  }
+
+  return config;
 };

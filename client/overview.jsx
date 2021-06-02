@@ -2,6 +2,7 @@ import './style.css';
 import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import config from '../server/config.js';
 
 import Header from './Components/header.jsx'
 import Description from './Components/description.jsx';
@@ -37,13 +38,15 @@ class Overview extends React.Component {
 
 
   fetchOverview() {
-    const url = {}
+    let url = {}
     if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-
+      url = config.dev;
     } else {
-
+      url = config.production;
     }
-    return axios.get(`http://${process.env.NODE_ENV === 'production' ? `34.220.195.161` : `localhost:3003`}/overview/all`, { params: { campId: this.state.campId } })
+    console.log('node env ', process.env.NODE_ENV);
+    console.log('urls for get ', url);
+    return axios.get(`${url.overview}overview/all`, { params: { campId: this.state.campId } })
       .then(response => {
         // console.log('Response for get overview', response.data);
         const overview = response.data;
