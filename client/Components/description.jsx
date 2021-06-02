@@ -10,6 +10,7 @@ class Description extends React.Component {
     };
 
     this.showMore = this.showMore.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
 
   componentDidMount() {
@@ -18,7 +19,7 @@ class Description extends React.Component {
 
   setDescription() {
     if (this.props.description.length > 500) {
-      let shortened = this.props.description.slice(0, 367);
+      let shortened = this.props.description.slice(0, 365);
       this.setState({
         shortDescription: shortened,
         fullDescription: this.props.description,
@@ -49,6 +50,10 @@ class Description extends React.Component {
       });
   };
 
+  openModal(e) {
+    e.preventDefault();
+    this.props.clickModal(e);
+  }
 
   render() {
     return (
@@ -60,7 +65,7 @@ class Description extends React.Component {
           </div>
           <div className='owner-name'>
             <div className='medium'>Hosted by </div>
-            {this.props.owner.name}
+            <a target="_blank" className="underlined" onClick={this.openModal}>{this.props.owner.name}</a>
           </div>
         </div>
         <div className='two-thirds description'>

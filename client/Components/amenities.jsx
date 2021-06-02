@@ -26,6 +26,7 @@ class Amenities extends React.Component {
       unavailable: []
     }
     this.initialize();
+    this.openModal = this.openModal.bind(this);
   }
 
   initialize() {
@@ -36,6 +37,12 @@ class Amenities extends React.Component {
     }
     // console.log(this.state)
   }
+
+  openModal(e) {
+    e.preventDefault();
+    this.props.clickModal(e);
+  }
+
   render() {
     // console.log(this.props.amenities);
     return (
@@ -60,7 +67,7 @@ class Amenities extends React.Component {
         </div>
         )})}
 
-        <div className="more-details"><a data-toggle="modal" data-target="#modal-info-card-lodging-provided" href="#">Expand</a></div>
+        <div className="more-details"><a data-toggle="modal" data-target="#modal-info-card-lodging-provided" onClick={this.openModal}>Expand</a></div>
       </div>
     )
   }

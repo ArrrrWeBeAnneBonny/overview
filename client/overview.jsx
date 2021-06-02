@@ -9,6 +9,7 @@ import Lodging from './Components/lodging.jsx';
 import Essentials from './Components/essentials.jsx';
 import Amenities from './Components/amenities.jsx';
 import Details from './Components/details.jsx';
+import ProModal from './Components/promodal.jsx';
 
 class Overview extends React.Component {
   constructor() {
@@ -27,9 +28,11 @@ class Overview extends React.Component {
       amenities: {},
       header: {},
       mounted: false,
-      fetched: false
+      fetched: false,
+      showModal: false
     }
     this.fetchOverview();
+    this.clickModal = this.clickModal.bind(this);
   }
 
 
@@ -64,7 +67,23 @@ class Overview extends React.Component {
 
   componentDidMount() {
     console.log('rendered');
-    this.state.mounted = true;
+    this.setState({
+      mounted: true
+    });
+  }
+
+  clickModal(e) {
+    e.preventDefault();
+    console.log('modal clicked');
+    if (this.state.showModal) {
+      document.body.classList.remove('modal-open');
+    } else {
+      document.body.classList.add('modal-open');
+    }
+    this.setState(prev => ({
+      showModal: !prev.showModal
+    }));
+
   }
 
   render() {
@@ -72,28 +91,33 @@ class Overview extends React.Component {
 
     if (this.state.fetched && this.state.mounted) {
       return (
-        <div className='main'>
+        <div className={`main`}>
           <header>
             <title>{this.state.siteName}</title>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
           </header>
           <div className='header-bar'>
-            <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} />
+            <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} />
           </div>
           <div className='overview'>
             <div className='two-thirds'>
-              <Description description={this.state.description} owner={this.state.owner} />
+              <Description description={this.state.description} owner={this.state.owner} clickModal={this.clickModal} />
               <div className='tri-card'>
-                <Lodging lodging={this.state.lodging} />
-                <Essentials essentials={this.state.essentials} />
-                <Amenities amenities={this.state.amenities} />
+                <Lodging lodging={this.state.lodging} clickModal={this.clickModal} />
+                <Essentials essentials={this.state.essentials} clickModal={this.clickModal} />
+                <Amenities amenities={this.state.amenities} clickModal={this.clickModal} />
               </div>
               <div className='contact-host'>
-                <b>Have a question? </b><a className='contact-host-link'>Send {this.state.owner.name} a message!</a>
+                <b>Have a question? </b><a className='contact-host-link' onClick={this.clickModal}>Send {this.state.owner.name} a message!</a>
               </div>
-              <Details details={this.state.details} pricing={this.state.pricing} />
+              <Details details={this.state.details} pricing={this.state.pricing} clickModal={this.clickModal} />
             </div>
           </div>
+          {this.state.showModal
+            ? <div className='modal fade in' style={{ display: 'block' }}><ProModal clickModal={this.clickModal} /> </div>
+            : <div className='modal fade' style={{ display: 'none' }}><ProModal clickModal={this.clickModal} /> </div>
+          }
+          {this.state.showModal && <div className="modal-backdrop fade in" />}
         </div>
       )
     } else {

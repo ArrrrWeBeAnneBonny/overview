@@ -3,6 +3,13 @@ import React from 'react';
 class Details extends React.Component {
   constructor(props) {
     super(props);
+
+    this.openModal = this.openModal.bind(this);
+  }
+
+  openModal(e) {
+    e.preventDefault();
+    this.props.clickModal(e);
   }
 
   render() {
