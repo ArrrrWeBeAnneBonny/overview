@@ -452,6 +452,14 @@ div.breadcrumb>li+li:before {
   background-color: #4199ff;
 }
 
+.sticky-header  h2.name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+
+
 .overview:before, .overview:after {
   content: " ";
   display: table;
