@@ -158,7 +158,7 @@ body {
   min-height: 100vh;
   height: 100%;
 }
-#overview {
+#sticky-overview, #overview {
   display: flex;
   flex-direction: column;
   font-weight: 400;
@@ -231,12 +231,7 @@ p {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
-#overview {
-  margin-right: auto;
-  margin-left: auto;
-  /* padding-left: 10px;
-  padding-right: 10px; */
-}
+
 .main h1 {
   font-family: 'Calibre', Helvetica, Arial, sans-serif;
   font-weight: 500;
@@ -452,12 +447,50 @@ div.breadcrumb>li+li:before {
   background-color: #4199ff;
 }
 
+.sticky-header {
+  border-bottom: 1px solid;
+  border-bottom-color: #ebebeb !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: white;
+  height: 100px;
+  width: 100%;
+  white-space: nowrap;
+}
+.sticky-header.main {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.sticky-header .two-thirds {
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+  padding-bottom: 5.75px;
+}
+.sticky--show {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
+.sticky--hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
 .sticky-header  h2.name {
   margin: 0;
   font-size: 24px;
   font-weight: 500;
 }
-
+.sticky-header h2.name .verified-site {
+  margin-left: 2px;
+  font-size: 0.9rem;
+  padding: 2px;
+}
 
 
 .overview:before, .overview:after {

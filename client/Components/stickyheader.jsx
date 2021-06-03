@@ -19,17 +19,6 @@ class StickyHeader extends React.Component {
     )
   }
 
-  verifiedSite() {
-    let words = this.props.siteName.split(' ');
-    const lastWord = words.pop();
-    const nameSansLastWord = words.join(' ');
-    return (
-      <h2 className='name'>
-        {nameSansLastWord + ' '}
-        <span className='last-word-check'>{lastWord}<span className='verified-site fa fa-check' /></span>
-      </h2>
-    )
-  }
 
   showNearby() {
     return (
@@ -42,13 +31,11 @@ class StickyHeader extends React.Component {
   render() {
     // console.log(this.props)
     return (
-      <div className='sticky-header hide'>
+      <div id='sticky-overview' className='sticky-header sticky--show main'>
         <div className='two-thirds'>
-          {this.props.location.verified ? this.verifiedSite() : <h2 className='name'>{this.props.siteName}</h2>}
+          <h2 className='name'>{this.props.siteName}{this.props.location.verified && <span className='verified-site fa fa-check' />}</h2>
 
-
-
-          <div className='sticky-header-buttom'>
+          <div className='sticky-header-button'>
             {// checking error in accessing review service
               !this.props.header.errorOccured
                 ? this.showRecommendation()
@@ -62,6 +49,11 @@ class StickyHeader extends React.Component {
               <a className='button save-listing' onClick={this.openModal}>Save to list<i className="fas fa-chevron-down chevron"></i></a>
               <a className='button share' onClick={this.openModal}><span className='icon hc-awesome-share-apple' /></a>
             </div>
+          </div>
+        </div>
+        <div className='two-thirds'>
+          <div className='sticky-header-nav-bar'>
+
           </div>
         </div>
       </div>
