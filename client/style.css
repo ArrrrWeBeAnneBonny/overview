@@ -446,7 +446,6 @@ div.breadcrumb>li+li:before {
   background-color: #4199ff;
 }
 
-
 .sticky-header {
   border-bottom: 1px solid;
   border-bottom-color: #ebebeb !important;
@@ -469,7 +468,6 @@ div.breadcrumb>li+li:before {
   padding-left: 10px;
   padding-right: 10px;
 }
-
 .sticky--show {
   visibility: visible;
   opacity: 1;
@@ -490,7 +488,21 @@ div.breadcrumb>li+li:before {
   font-size: 0.9rem;
   padding: 2px;
 }
-
+.sticky-header .main .info {
+  display: flex;
+  flex-direction: column;
+}
+.sticky-header .main .info .sticky-header-recs {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+}
+.sticky-header .main .sticky-header-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 32%;
+}
 
 .overview:before, .overview:after {
   content: " ";
