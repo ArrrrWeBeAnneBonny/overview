@@ -3,7 +3,8 @@ import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Header from './Components/header.jsx'
+import Header from './Components/header.jsx';
+import StickyHeader from './Components/stickyheader.jsx';
 import Description from './Components/description.jsx';
 import Lodging from './Components/lodging.jsx';
 import Essentials from './Components/essentials.jsx';
@@ -104,6 +105,7 @@ class Overview extends React.Component {
           </header>
           <div className='header-bar'>
             <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} />
+            <StickyHeader header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} />
           </div>
           <div className='overview'>
             <div className='two-thirds'>
