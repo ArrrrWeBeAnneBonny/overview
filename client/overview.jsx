@@ -109,8 +109,8 @@ class Overview extends React.Component {
           <div className='header-bar'>
             <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} />
           </div>
+          <StickyHeader header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} />
           <div className='overview'>
-            <StickyHeader header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} />
             <div className='two-thirds'>
               <Description description={this.state.description} owner={this.state.owner} clickModal={this.clickModal} />
               <div className='tri-card'>

@@ -158,7 +158,7 @@ body {
   min-height: 100vh;
   height: 100%;
 }
-#sticky-overview, #overview {
+#overview {
   display: flex;
   flex-direction: column;
   font-weight: 400;
@@ -170,9 +170,8 @@ body {
   padding-right: 10px;
 }
 
-
 @media (min-width: 768px) {
-  .main, .overview {
+  .main, .overview, #sticky-overview {
     width: 740px;
   }
   .two-thirds {
@@ -185,29 +184,29 @@ body {
 }
 }
 @media (min-width: 992px) {
-  .main, .overview {
+  .main, .overview, #sticky-overview {
     width: 960px;
   }
   .two-thirds {
-    width: 66.66666667%;
+    width: 66.66666666666667%;
     float: left;
   }
 }
-@media (min-width: 1199px) {
-  .main, .overview {
-      width: 920px;
+@media (min-width: 1200px) {
+  .main, .overview, #sticky-overview {
+    width: 920px;
   }
   .two-thirds {
-    width: 66.66666667%;
+    width: 66.66666666666667%;
     float: left;
   }
 }
-@media (min-width: 1299px) {
-  .main, .overview {
-      width: 1080px;
+@media (min-width: 1300px) {
+  .main, .overview, #sticky-overview {
+    width: 1080px;
   }
   .two-thirds {
-    width: 66.66666667%;
+    width: 720px;
     float: left;
   }
 }
@@ -447,6 +446,7 @@ div.breadcrumb>li+li:before {
   background-color: #4199ff;
 }
 
+
 .sticky-header {
   border-bottom: 1px solid;
   border-bottom-color: #ebebeb !important;
@@ -459,18 +459,17 @@ div.breadcrumb>li+li:before {
   width: 100%;
   white-space: nowrap;
 }
-.sticky-header.main {
+.sticky-header .main {
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+  padding-bottom: 5.75px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 10px;
   padding-right: 10px;
 }
-.sticky-header .two-thirds {
-  display: flex;
-  align-items: center;
-  padding-top: 8px;
-  padding-bottom: 5.75px;
-}
+
 .sticky--show {
   visibility: visible;
   opacity: 1;
