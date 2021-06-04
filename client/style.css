@@ -555,6 +555,14 @@ div.breadcrumb>li+li:before {
   background-color: #333333;
   font-size: 20px;
 }
+.sticky-header .main .sticky-header-buttons .fab.fa-pinterest {
+  background-color: #cb2027;
+  line-height: 33px;
+}
+.sticky-header .main .sticky-header-buttons .hc-awesome-facebook-messenger {
+  background-color: #1880ff;
+  padding-left: 2px;
+}
 .sticky-header-buttons .button {
   color: #333333;
   background-color: transparent;

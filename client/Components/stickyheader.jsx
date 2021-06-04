@@ -3,13 +3,13 @@ import React from 'react';
 class StickyHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.openModal = this.openModal.bind(this);
+    // this.openModal = this.openModal.bind(this);
   }
 
-  openModal(e) {
-    e.preventDefault();
-    this.props.clickModal(e);
-  }
+  // openModal(e) {
+  //   e.preventDefault();
+  //   this.props.clickModal(e);
+  // }
 
   showRecommendation() {
     return (
@@ -45,11 +45,11 @@ class StickyHeader extends React.Component {
             </div>
           </div>
           <div className='sticky-header-buttons'>
-            <a className='share' onClick={this.openModal}><span className='fab hc-awesome-share-apple' /></a>
-            <a className='share' onClick={this.openModal}><span className='fab hc-awesome-share-apple' /></a>
-            <a className='share' onClick={this.openModal}><span className='fab hc-awesome-share-apple' /></a>
+            <a className='share' onClick={this.props.clickModal}><span className='fab hc-awesome-facebook-messenger' /></a>
+            <a className='share' onClick={this.props.clickModal}><span className='fab fa-pinterest' /></a>
+            <a className='share' onClick={this.props.clickModal}><span className='fab hc-awesome-share-apple' /></a>
 
-            <div className='button save-listing' onClick={this.openModal}>Save to list<i className="fas fa-chevron-down chevron"></i></div>
+            <div className='button save-listing' onClick={this.props.clickModal}>Save to list<i className="fas fa-chevron-down chevron"></i></div>
           </div>
           <div className='two-thirds'>
             <div className='sticky-header-nav-bar'>
