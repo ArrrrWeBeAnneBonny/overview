@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const urls = require('./server/config.js');
 
 let config = {
   entry: './client/overview.jsx',
@@ -60,11 +61,11 @@ let config = {
 
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {
-    config.output.publicPath = 'http://localhost:3003';
+    config.output.publicPath = urls.dev.overview;
   }
 
   if (argv.mode === 'production') {
-    config.output.publicPath = 'http://ec2-34-220-195-161.us-west-2.compute.amazonaws.com/';
+    config.output.publicPath = urls.production.overview;
   }
 
   return config;
