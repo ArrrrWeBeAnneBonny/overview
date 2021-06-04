@@ -150,6 +150,7 @@ html {
   min-height: 100%;
   position: relative;
   overscroll-behavior: none;
+  text-size-adjust: 100%;
 }
 body {
   display: flex;
@@ -174,7 +175,7 @@ body {
   .main, .overview, #sticky-overview {
     width: 740px;
   }
-  .two-thirds {
+  .two-thirds, .sticky-header .main .info {
     width: 58.333333333%;
     float: left;
   }
@@ -187,7 +188,7 @@ body {
   .main, .overview, #sticky-overview {
     width: 960px;
   }
-  .two-thirds {
+  .two-thirds, .sticky-header .main .info {
     width: 66.66666666666667%;
     float: left;
   }
@@ -196,7 +197,7 @@ body {
   .main, .overview, #sticky-overview {
     width: 920px;
   }
-  .two-thirds {
+  .two-thirds, .sticky-header .main .info {
     width: 66.66666666666667%;
     float: left;
   }
@@ -205,7 +206,7 @@ body {
   .main, .overview, #sticky-overview {
     width: 1080px;
   }
-  .two-thirds {
+  .two-thirds, .sticky-header .main .info {
     width: 720px;
     float: left;
   }
@@ -478,24 +479,50 @@ div.breadcrumb>li+li:before {
   opacity: 0;
   transition: visibility 0s linear 300ms, opacity 300ms;
 }
-.sticky-header  h2.name {
+.sticky-header h2 {
   margin: 0;
   font-size: 24px;
   font-weight: 500;
+  line-height: 1;
 }
 .sticky-header h2.name .verified-site {
   margin-left: 2px;
-  font-size: 0.9rem;
+  font-size: 9px;
   padding: 2px;
 }
 .sticky-header .main .info {
   display: flex;
   flex-direction: column;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .sticky-header .main .info .sticky-header-recs {
   display: flex;
   align-items: center;
   margin-top: 2px;
+  height: 26px;
+}
+.sticky-header .main .info .sticky-header-recs .recommend-percentage {
+  margin-right: 5px;
+}
+.sticky-header .recommend-percentage {
+  color: #40d9ac;
+  font-size: 16px;
+  font-weight: 500;
+  align-items: center;
+}
+.sticky-header .recommend-percentage .icon .fa {
+  font-size: 10px;
+  font-weight: 900;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  color: #40d9ac;
+}
+.sticky-header .recommend-percentage .recommend-text {
+  color: #333333;
 }
 .sticky-header .main .sticky-header-buttons {
   display: flex;
@@ -503,6 +530,77 @@ div.breadcrumb>li+li:before {
   margin-left: auto;
   margin-right: 32%;
 }
+.sticky-header .main .sticky-header-buttons  a {
+  margin-right: 5px;
+}
+.sticky-header .main .sticky-header-buttons .fab {
+  background-color: #ebebeb;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  height: 35px;
+  line-height: 33px;
+  margin: auto 0px;
+  width: 35px;
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%) !important;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+}
+.sticky-header .main .sticky-header-buttons .hc-awesome-share-apple {
+  background-color: #333333;
+  font-size: 20px;
+}
+.sticky-header-buttons .button {
+  color: #333333;
+  background-color: transparent;
+  border: 1px solid #ebebeb;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid ebebeb;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+  height: 100%;
+  line-height: 2.1;
+  border-radius: 2px;
+  transition: background-color 0.3s ease 0s, border-color 0.4s ease 0s, color 0.4s ease 0s;
+  margin-right: 10px;
+  display: inline-block;
+  text-rendering: auto;
+  text-size-adjust: 100%;
+}
+.sticky-header-buttons .save-listing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #ec6e67;
+  font-size: 16px;
+  height: 48px;
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 7px;
+  font-weight: 500;
+}
+.sticky-header-buttons .save-listing .chevron {
+  margin-left: 3px;
+  margin-top: -2px;
+  font-size: 10px;
+  line-height: 22.72px;
+}
+
 
 .overview:before, .overview:after {
   content: " ";
