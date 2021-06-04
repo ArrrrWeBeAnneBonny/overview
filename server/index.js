@@ -89,7 +89,7 @@ app.get('/overview/all', async (req, res) => {
   console.log('requested campId = ', campId)
 
   let data = await db.overviewLookup(campId);
-  await axios.get(configURL.reviews, { params: { campId } })
+  await axios.get(`${configURL.reviews}/reviews`, { params: { campId } })
     .then(response => {
       // console.log('Review API Call response ', response.data);
       console.log('Accessed Review Service!!');

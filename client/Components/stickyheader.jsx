@@ -33,7 +33,7 @@ class StickyHeader extends React.Component {
     return (
       <div className='sticky-header sticky--show'>
         <div className='main'>
-          <div className='two-thirds info'>
+          <div className='info'>
             <h2 className='name'>{this.props.siteName}{this.props.location.verified && <span className='verified-site fa fa-check' />}</h2>
 
             <div className='sticky-header-recs'>
@@ -45,8 +45,11 @@ class StickyHeader extends React.Component {
             </div>
           </div>
           <div className='sticky-header-buttons'>
-            <a className='button save-listing' onClick={this.openModal}>Save to list<i className="fas fa-chevron-down chevron"></i></a>
-            <a className='button share' onClick={this.openModal}><span className='icon hc-awesome-share-apple' /></a>
+            <a className='share' onClick={this.openModal}><span className='fab hc-awesome-share-apple' /></a>
+            <a className='share' onClick={this.openModal}><span className='fab hc-awesome-share-apple' /></a>
+            <a className='share' onClick={this.openModal}><span className='fab hc-awesome-share-apple' /></a>
+
+            <div className='button save-listing' onClick={this.openModal}>Save to list<i className="fas fa-chevron-down chevron"></i></div>
           </div>
           <div className='two-thirds'>
             <div className='sticky-header-nav-bar'>
