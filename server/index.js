@@ -17,14 +17,10 @@ if (process.env.NODE_ENV === "production") {
 console.log('config file: ', configURL);
 
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server listening at ${configURL.overview}`);
 });
 
-const allowedOrigins = [
-  'http://localhost:3000',
-  'http://localhost:5500',
-  'https://fec-overview.s3-us-west-2.amazonaws.com'
-];
+const allowedOrigins = config.allowedOrigins;
 app.use(cors());
 app.use(cors({ origin: allowedOrigins }));
 

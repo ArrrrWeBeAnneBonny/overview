@@ -2,18 +2,19 @@ version: "3"
 services:
   app:
     container_name: overview
+    image: kimberlyjk/overview
     restart: always
     build: .
     ports:
-      - "3003:3003"
+      - "80:3003"
     links:
-       - mongo
+       - mango_fec
     depends_on:
-      - mongo
-  mongo:
-    container_name: mongo
+      - mango_fec
+  mango_fec:
+    container_name: mango_fec
     image: mongo
     volumes:
-      - ./data/db
+      - /dockerApp/data/db
     ports:
       - "27017:27017"
