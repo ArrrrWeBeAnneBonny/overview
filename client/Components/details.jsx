@@ -51,7 +51,7 @@ class Details extends React.Component {
         <section className='details' >
           <div className='details-title'>Details</div>
           <div className='details-list'>
-            <ul className='details-list col-1'>
+            <ul className='col-1'>
               <li className='details-list-text'>
                 <b>Check in: </b> After {this.props.details.checkInTime}
               </li>
@@ -62,22 +62,22 @@ class Details extends React.Component {
                 <b>Cancellation policy: </b> {this.props.details.cancellationPolicy}
               </li>
             </ul>
-            <ul className='details-list col-2'>
+            <ul className='col-2'>
               <li className='details-list-text'>
                 <b>On arrival: </b> {this.props.details.onArrival}
               </li>
               <li className='details-list-text'>
                 <b>Minimum nights: </b> {this.props.details.checkInTime} night
-        </li>
+              </li>
               <li className='details-list-text'>
                 <b>Accepts bookings: </b> {this.props.pricing.monthsOutForBooking} months out
-        </li>
+              </li>
               <li className='details-list-text'>
                 <b>Weeknight discount: </b> {this.props.pricing.weeknightDiscount * 100}% off
-        </li>
+              </li>
             </ul>
             <div className='detail-responses'>
-              <ul className='details-list col-1'>
+              <ul className='col-1'>
                 <li className='details-list-text'>
                   <b>Response time: </b>Within {this.props.details.responseTime} hours
               </li>
