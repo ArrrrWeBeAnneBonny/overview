@@ -6,7 +6,7 @@ services:
     restart: always
     build: .
     ports:
-      - "3003:3003"
+      - "80:3003"
     links:
        - mango_fec
     depends_on:
