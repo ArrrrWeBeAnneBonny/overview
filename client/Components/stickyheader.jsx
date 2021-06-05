@@ -24,7 +24,7 @@ class StickyHeader extends React.Component {
   render() {
     // console.log(this.props)
     return (
-      <div className='sticky-header sticky--show'>
+      <div className='sticky-header sticky--hide'>
         <div className='main'>
           <div className='info'>
             <h2 className='name'>{this.props.siteName}{this.props.location.verified && <span className='verified-site fa fa-check' />}</h2>

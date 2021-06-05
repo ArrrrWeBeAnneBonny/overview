@@ -207,7 +207,12 @@ body {
     width: 1080px;
   }
   .two-thirds, .sticky-header .main .info {
-    width: 720px;
+    width: 66.66666666666667%;
+    /* width: 720px; */
+    float: left;
+  }
+  .two-thirds.description {
+    width: 66.66666666666667%;
     float: left;
   }
 }
