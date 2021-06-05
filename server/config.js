@@ -6,7 +6,7 @@ module.exports = {
     photogallery: 'http://localhost:3004'
   },
   production: {
-    overview: 'http://ec2-54-191-115-120.us-west-2.compute.amazonaws.com/',
+    overview: 'http://ec2-35-163-3-32.us-west-2.compute.amazonaws.com/',
     reviews: 'http://localhost:3001',
     booking: 'http://localhost:3002',
     photogallery: 'http://localhost:3004'
@@ -15,10 +15,10 @@ module.exports = {
     'http://localhost:3000',
     'http://localhost:5500',
     'https://fec-overview.s3-us-west-2.amazonaws.com',
-    'http://ec2-54-191-115-120.us-west-2.compute.amazonaws.com/',
-    'http://54.191.115.120:3000/',
-    'http://54.191.115.120:80/',
-    'http://54.191.115.120/'
+    'http://ec2-35-163-3-32.us-west-2.compute.amazonaws.com/',
+    'http://35.163.3.32:3000/',
+    'http://35.163.3.32:80/',
+    'http://35.163.3.32/'
   ],
   mongoUri: {
     dev: 'mongodb://localhost:27017/FEC',
