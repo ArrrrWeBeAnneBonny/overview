@@ -19,7 +19,7 @@ class Description extends React.Component {
 
   setDescription() {
     if (this.props.description.length > 500) {
-      let shortened = this.props.description.slice(0, 365);
+      let shortened = this.props.description.slice(0, 367);
       this.setState({
         shortDescription: shortened,
         fullDescription: this.props.description,
@@ -65,7 +65,7 @@ class Description extends React.Component {
           </div>
           <div className='owner-name'>
             <div className='medium'>Hosted by </div>
-            <a target="_blank" className="underlined" onClick={this.openModal}>{this.props.owner.name}</a>
+            <a target="_blank" className="underlined" onClick={this.props.clickModal}>{this.props.owner.name}</a>
           </div>
         </div>
         <div className='two-thirds description'>
