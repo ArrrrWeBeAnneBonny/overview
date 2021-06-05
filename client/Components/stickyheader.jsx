@@ -3,13 +3,7 @@ import React from 'react';
 class StickyHeader extends React.Component {
   constructor(props) {
     super(props);
-    // this.openModal = this.openModal.bind(this);
   }
-
-  // openModal(e) {
-  //   e.preventDefault();
-  //   this.props.clickModal(e);
-  // }
 
   showRecommendation() {
     return (
@@ -18,7 +12,6 @@ class StickyHeader extends React.Component {
       </div>
     )
   }
-
 
   showNearby() {
     return (
@@ -51,12 +44,15 @@ class StickyHeader extends React.Component {
 
             <div className='button save-listing' onClick={this.props.clickModal}>Save to list<i className="fas fa-chevron-down chevron"></i></div>
           </div>
-          <div className='two-thirds'>
-            <div className='sticky-header-nav-bar'>
-
-            </div>
-          </div>
         </div>
+          <div className='main'>
+            <ul className='sticky-header-nav-bar'>
+              <li className="sticky-nav" onClick={this.props.clickModal}><span>Overview </span></li>
+              <li className="sticky-nav" onClick={this.props.clickModal}><span>Reviews </span></li>
+              <li className="sticky-nav" onClick={this.props.clickModal}><span>Location </span></li>
+              <li className="sticky-nav" onClick={this.props.clickModal}><span>Campers also viewed </span></li>
+            </ul>
+          </div>
       </div>
     )
   }

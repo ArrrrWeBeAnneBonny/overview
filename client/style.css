@@ -608,7 +608,36 @@ div.breadcrumb>li+li:before {
   font-size: 10px;
   line-height: 22.72px;
 }
-
+ul.sticky-header-nav-bar {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  border-bottom-width: 0px;
+}
+ul.sticky-header-nav-bar li:hover {
+  border-bottom-color: #333333;
+}
+ul.sticky-header-nav-bar li:hover, ul.sticky-header-nav-bar li.selected {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+ul.sticky-header-nav-bar  li {
+  margin-right: 10px;
+}
+ul.sticky-header-nav-bar span {
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0px 5px;
+}
+li.sticky-nav {
+  float: left;
+  margin-bottom: -1px;
+}
+.sticky-header-nav-bar>li {
+  position: relative;
+  display: block;
+}
 
 .overview:before, .overview:after {
   content: " ";
