@@ -4,7 +4,27 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.openModal = this.openModal.bind(this);
+    this.isInView = this.isInView.bind(this);
   }
+
+  componentDidMount() {
+    document.addEventListener("scroll", this.isInView);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("scroll", this.isInView);
+  }
+
+  isInView() {
+    //get how much pixels left to scrolling our ReactElement
+    // console.log(this.viewHeader)
+    // const top = this.viewHeader.getBoundingClientRect().top;
+    const bottom = this.viewHeader.getBoundingClientRect().bottom;
+    // console.log("top in viewport: ", top);
+    // console.log("bottom in viewport: ", bottom);
+    // console.log("header in view? ", bottom >= 0);
+    this.props.setHeaderStatus(bottom >= 0);
+  };
 
   openModal(e) {
     e.preventDefault();
@@ -34,15 +54,18 @@ class Header extends React.Component {
   showNearby() {
     return (
       <div className='nearby'>
-
       </div>
     )
   }
 
   render() {
     // console.log(this.props)
+    let setHeaderRef =  header => {
+      this.viewHeader = header;
+    }
+
     return (
-      <div className='two-thirds'>
+      <div className='two-thirds' ref={setHeaderRef}>
         <div className="breadcrumb">
           <li>
             <a className="underlined" href="https://www.hipcamp.com/en-US/discover/united-states">{this.props.location.country}</a>

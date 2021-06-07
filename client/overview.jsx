@@ -31,12 +31,19 @@ class Overview extends React.Component {
       header: {},
       mounted: false,
       fetched: false,
-      showModal: false
+      showModal: false,
+      headerInView: true
     }
     this.fetchOverview();
     this.clickModal = this.clickModal.bind(this);
+    this.headerState = this.headerState.bind(this);
   }
 
+  headerState(headerInView) {
+    this.setState({
+      headerInView
+    });
+  };
 
   fetchOverview() {
     let url = {}
@@ -67,12 +74,12 @@ class Overview extends React.Component {
             fetched: true
           });
         }
-
+        console.log(this.state);
       })
       .catch(error => {
         console.log('------ERROR IN FETCH OVERVIEW------');
         console.log(error);
-      })
+      });
   }
 
   componentDidMount() {
@@ -97,7 +104,6 @@ class Overview extends React.Component {
   }
 
   render() {
-    console.log(this.state)
 
     if (this.state.fetched && this.state.mounted) {
       return (
@@ -107,9 +113,9 @@ class Overview extends React.Component {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
           </header>
           <div className='header-bar'>
-            <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} />
+            <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} setHeaderStatus={this.headerState} />
           </div>
-          <StickyHeader header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} />
+          <StickyHeader header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} hide={this.state.headerInView} />
           <div className='overview'>
             <div className='two-thirds'>
               <Description description={this.state.description} owner={this.state.owner} clickModal={this.clickModal} />

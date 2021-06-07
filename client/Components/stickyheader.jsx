@@ -3,6 +3,8 @@ import React from 'react';
 class StickyHeader extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+    }
   }
 
   showRecommendation() {
@@ -13,18 +15,10 @@ class StickyHeader extends React.Component {
     )
   }
 
-  showNearby() {
-    return (
-      <div className='nearby'>
-
-      </div>
-    )
-  }
-
   render() {
     // console.log(this.props)
     return (
-      <div className='sticky-header sticky--hide'>
+      <div className={this.props.hide ? `sticky-header sticky--hide` : `sticky-header sticky--show`}>
         <div className='main'>
           <div className='info'>
             <h2 className='name'>{this.props.siteName}{this.props.location.verified && <span className='verified-site fa fa-check' />}</h2>
