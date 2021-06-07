@@ -11,16 +11,11 @@ class Header extends React.Component {
     document.addEventListener("scroll", this.isInView);
   }
 
-  componentWillUnmount() {
-    document.removeEventListener("scroll", this.isInView);
-  }
-
   isInView() {
-    //get how much pixels left to scrolling our ReactElement
-    // console.log(this.viewHeader)
+    // get how much pixels left to scrolling the header element
     // const top = this.viewHeader.getBoundingClientRect().top;
     const bottom = this.viewHeader.getBoundingClientRect().bottom;
-    // console.log("top in viewport: ", top);
+
     // console.log("bottom in viewport: ", bottom);
     // console.log("header in view? ", bottom >= 0);
     this.props.setHeaderStatus(bottom >= 0);
