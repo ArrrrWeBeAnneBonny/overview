@@ -15,4 +15,5 @@ jobs:
       script:
         - docker build -t localoverview .
         - docker tag localoverview:latest kimberlyjk/overview
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker push kimberlyjk/overview
