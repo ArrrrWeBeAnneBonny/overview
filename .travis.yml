@@ -9,10 +9,9 @@ services:
   - docker
 jobs:
   include:
-    - stage: build production webpack
-      script: npm run build-prod
-    - stage: build docker image
+    - stage: build and push to docker
       script:
+        - npm run build-prod
         - docker build -t localoverview .
         - docker tag localoverview:latest kimberlyjk/overview
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
