@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - 14.15.5
+services:
+  - docker
+before_install:
+  - npm install
+jobs:
+  include:
+    - stage: build production webpack
+      script: npm run build-prod
+    - stage: build docker image
+      script:
+        - docker build -t localoverview .
+        - docker tag localoverview kimberlyjk/overview
+        - docker push kimberlyjk/overview

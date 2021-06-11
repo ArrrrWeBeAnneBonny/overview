@@ -1,7 +1,7 @@
 import './style.css';
 import axios from 'axios';
-import React from 'react';
-import ReactDOM from 'react-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 import config from '../server/config.js';
 
 import Header from './Components/header.jsx';
