@@ -10,6 +10,7 @@ services:
 before_install:
 - openssl aes-256-cbc -K $encrypted_bd553dd48ffb_key -iv $encrypted_bd553dd48ffb_iv
   -in mbp_fec.pem.enc -out mbp_fec.pem -d
+- chmod 400 mbp_fec.pem
 addons:
   ssh_known_hosts:
   - ec2-35-163-3-32.us-west-2.compute.amazonaws.com
