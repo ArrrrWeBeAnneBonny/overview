@@ -25,5 +25,4 @@ jobs:
       - docker-compose down
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - docker pull kimberlyjk/overview
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - docker-compose up -d
