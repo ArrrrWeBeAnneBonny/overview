@@ -3,8 +3,8 @@ node_js:
   - 14.15.5
 services:
   - docker
-before_install:
-  - npm install
+# before_install:
+#   - npm install
 jobs:
   include:
     - stage: build production webpack
