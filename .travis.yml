@@ -7,7 +7,6 @@ node_js:
   - 14.15.5
 services:
   - docker
-secure: "TQzaq8VdvodtYsqBMyyw84azX1Ph7UPD9BxllGevKYxc6+nUmch6GjsYtbTOtop6+GPO5qiWwPzlZI19SoX3QOnvwdJ5Ej+1X0ELNhTJcLEYD10P13Niro/O++xESudJS0qaCBKF07SbSU8qEtYjQeAL3vc8uyQoUhbFRZL5h1ReTh4bNqqghUv4ui3WYDB+E2c6Ys06MUhrFBN4sZctQibmXNF8t1Ces7cHRFmkd9uzN+WuwUDUTe86L7Gwl//LVI6vyjoKiFrmaTCGC13d65jL0mEkFnzmBhDGNWPVtOJKt0tjRe2TJ/WoXuD/SYa8Tp2PZ7XnHHGopNEFZTb7lNRFpoYAqu+PRhYEkYolVL5DOQ17AL3thcPnh1fFWL31A+PM9Tr0OUcGLUGGAwi1oCLVKWBisclJaArlZg8jxxdxRtWfyeKtc2YlVYdMuCsidOpO+du3CDUWdnWivGFMbplryNVtmS4w+84JA0u4hJkYFkz3oIWIPJnA6dz0DLqdF7jyULGhhisCpeiYc2uhu0tO5A4DFJIJyt862oqrml/l1sVuwUnLBGzwUH8gCcfFzOPae6iYi5wfP74k01tBnc24T77zqDY397GdFwyIJuU9tob54Kf08h7kuG1T5Y+wVFmsezP+MK4GKc39WkrTjtYfPURpzX02xHyhdKOh8wg="
 jobs:
   include:
     - stage: build production webpack
@@ -15,5 +14,5 @@ jobs:
     - stage: build docker image
       script:
         - docker build -t localoverview .
-        - docker tag localoverview kimberlyjk/overview
+        - docker tag localoverview:latest kimberlyjk/overview
         - docker push kimberlyjk/overview
