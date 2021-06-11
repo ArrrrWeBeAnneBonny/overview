@@ -21,8 +21,8 @@ jobs:
     - docker push kimberlyjk/overview
   - stage: EC2
     script:
-      - ssh -i "mbp_fec.pem" ec2-user@ec2-35-163-3-32.us-west-2.compute.amazonaws.com
-      - docker-compose down
-      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker pull kimberlyjk/overview
-      - docker-compose up -d
+    - ssh -i "mbp_fec.pem" ec2-user@ec2-35-163-3-32.us-west-2.compute.amazonaws.com
+    - docker-compose down
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker pull kimberlyjk/overview
+    - docker-compose up -d
