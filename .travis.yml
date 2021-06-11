@@ -4,15 +4,26 @@ branches:
   - performanceboosts
 language: node_js
 node_js:
-  - 14.15.5
+- 14.15.5
 services:
-  - docker
+- docker
+before_install:
+- openssl aes-256-cbc -K $encrypted_bd553dd48ffb_key -iv $encrypted_bd553dd48ffb_iv
+  -in mbp_fec.pem.enc -out mbp_fec.pem -d
 jobs:
   include:
-    - stage: build and push to docker
-      script:
-        - npm run build-prod
-        - docker build -t localoverview .
-        - docker tag localoverview:latest kimberlyjk/overview
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker push kimberlyjk/overview
+  - stage: build and push to docker
+    script:
+    - npm run build-prod
+    - docker build -t localoverview .
+    - docker tag localoverview:latest kimberlyjk/overview
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker push kimberlyjk/overview
+  - stage: EC2
+    script:
+      - ssh -i "mbp_fec.pem" ec2-user@ec2-35-163-3-32.us-west-2.compute.amazonaws.com
+      - docker-compose down
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker pull kimberlyjk/overview
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker-compose up -d
