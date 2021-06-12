@@ -877,20 +877,20 @@ li.sticky-nav {
   z-index: 10;
   opacity: 1;
 }
-.modal-dialog .modal-content {
+.modal-dialog .modal-content-overview {
   padding: 25px;
 }
 .modal-header {
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
 }
-.modal-dialog .modal-content .modal-header {
+.modal-dialog .modal-content-overview .modal-header {
   padding-bottom: 0;
   height: auto;
   border-bottom: none;
   transition: transform 0.3s ease-out;
 }
-.modal-content {
+.modal-content-overview {
   border: 1px solid #ebebeb;
   box-shadow: 0 5px 15px rgb(0 0 0 / 20%);
   border-radius: 0px;
@@ -899,7 +899,7 @@ li.sticky-nav {
   background-clip: padding-box;
   outline: 0;
 }
-.modal-dialog .modal-content .modal-title {
+.modal-dialog .modal-content-overview .modal-title {
   font-weight: 500;
   font-size: 32px;
   text-align: left;
@@ -940,7 +940,7 @@ button.modal-close {
   z-index: 1200;
   transition: opacity 0.25s ease 0s;
 }
-.modal-dialog .modal-content .modal-close {
+.modal-dialog .modal-content-overview .modal-close {
   font-size: 40px;
   font-weight: 400;
   opacity: 1;

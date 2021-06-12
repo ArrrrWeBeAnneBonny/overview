@@ -15,7 +15,7 @@ class ProModal extends React.Component {
   render() {
     return (
       <div className='modal-dialog'>
-        <div className='modal-content'>
+        <div className='modal-content-overview'>
 
           <div className='modal-header'>
             <button className='modal-close' onClick={this.closeModal}>
