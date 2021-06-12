@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 const types = ['hc-awesome-tent', 'hc-awesome-house', 'hc-awesome-tent', 'hc-awesome-tent', 'hc-awesome-house', 'hc-awesome-rv'];
 
