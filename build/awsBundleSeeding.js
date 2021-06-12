@@ -32,7 +32,29 @@ const bundleToS3 = (bundle) => {
       console.log('Success! bundle loaded at: ', result);
     })
     .catch(error => {
-      console.log('Error in Seeding!');
+      console.log('Error in Bundle Loading!');
+      console.log(error);
+    })
+};
+
+const CSSToS3 = (CSS) => {
+  const pathName = 'css/overview-style.css';
+  const data = {
+    Key: pathName,
+    Body: CSS,
+    ContentType: 'text/css',
+    ACL: 'public-read'
+  };
+  return new Promise((resolve, reject) => {
+    s3Bucket.putObject(data, err => {
+      err ? reject(err) : resolve(s3Url + pathName)
+    })
+  })
+    .then(result => {
+      console.log('Success! CSS loaded at: ', result);
+    })
+    .catch(error => {
+      console.log('Error in CSS Loading!');
       console.log(error);
     })
 };
@@ -41,3 +63,8 @@ const pathToBundle = path.resolve('./dist/overview.js');
 console.log('path: ', pathToBundle)
 const bundle = fs.readFileSync(pathToBundle);
 bundleToS3(bundle);
+
+const pathToCSS = path.resolve('./client/style.css');
+console.log('path: ', pathToCSS)
+const CSS = fs.readFileSync(pathToCSS);
+CSSToS3(CSS);

@@ -227,7 +227,7 @@ body {
   padding-left: 10px;
   padding-right: 10px;
 }
-p {
+section.owner-description .description span p {
   margin: 0 0 11px;
   font-size: 18px;
   display: block;
