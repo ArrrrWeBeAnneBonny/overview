@@ -64,7 +64,7 @@ class Lodging extends React.Component {
             <div className='icon'>
               <span className={`${lodgingIcon[item]}`} />
             </div>
-            <div className='list-text available'>{lodgingTextTrue[item]}</div>
+            <div className='list-text overview-available'>{lodgingTextTrue[item]}</div>
           </div>
           )
         })}

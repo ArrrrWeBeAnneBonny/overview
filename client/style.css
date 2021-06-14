@@ -760,7 +760,7 @@ li.sticky-nav {
   font-size: 18px;
   line-height: 20px;
 }
-.tri-card .card .list .list-text.available::first-letter{
+.tri-card .card .list .list-text.overview-available::first-letter{
   text-transform: uppercase;
 }
 .tri-card .card .list .icon {

@@ -54,7 +54,7 @@ class Amenities extends React.Component {
           <div className='icon'>
             <span className={`${amenityIcon[item]}`} />
           </div>
-          <div className='list-text available'>{`${amenityText[item]} allowed`}</div>
+          <div className='list-text overview-available'>{`${amenityText[item]} allowed`}</div>
         </div>
         )})}
 

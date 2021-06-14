@@ -42,7 +42,7 @@ class Essentials extends React.Component {
           <div className='icon'>
             <span className={`${essentialIcon[item]}`} />
           </div>
-          <div className='list-text available'>{`${item} allowed`}</div>
+          <div className='list-text overview-available'>{`${item} allowed`}</div>
         </div>
         )})}
 
