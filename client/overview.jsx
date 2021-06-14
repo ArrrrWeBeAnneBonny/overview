@@ -40,6 +40,7 @@ class Overview extends React.Component {
   }
 
   headerState(headerInView) {
+    console.log(`sticky header ${this.state.headerInView? 'showing' : 'hiding'}`)
     this.setState({
       headerInView
     });
@@ -110,10 +111,9 @@ class Overview extends React.Component {
         <div className={`main`}>
           <header>
             <title>{this.state.siteName}</title>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
           </header>
           <div className='header-bar'>
-            <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} setHeaderStatus={this.headerState} />
+            <Header header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} setHeaderStatus={this.headerState} hide={this.state.headerInView} />
           </div>
           <StickyHeader header={this.state.header} siteName={this.state.siteName} location={this.state.location} clickModal={this.clickModal} hide={this.state.headerInView} />
           <div className='overview'>

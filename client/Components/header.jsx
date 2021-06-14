@@ -3,6 +3,7 @@
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.viewHeader = React.createRef();
     this.openModal = this.openModal.bind(this);
     this.isInView = this.isInView.bind(this);
   }
@@ -14,11 +15,14 @@ class Header extends React.Component {
   isInView() {
     // get how much pixels left to scrolling the header element
     // const top = this.viewHeader.getBoundingClientRect().top;
-    const bottom = this.viewHeader.getBoundingClientRect().bottom;
-
+    const bottom = this.viewHeader.current.getBoundingClientRect().bottom;
+    const stickyShouldHide = bottom >= 0;
     // console.log("bottom in viewport: ", bottom);
     // console.log("header in view? ", bottom >= 0);
-    this.props.setHeaderStatus(bottom >= 0);
+    if (stickyShouldHide !== this.props.hide) {
+      console.log('call set header status: ', stickyShouldHide, this.props.hide)
+      this.props.setHeaderStatus(stickyShouldHide);
+    }
   };
 
   openModal(e) {
@@ -55,12 +59,8 @@ class Header extends React.Component {
 
   render() {
     // console.log(this.props)
-    let setHeaderRef =  header => {
-      this.viewHeader = header;
-    }
-
     return (
-      <div className='two-thirds' ref={setHeaderRef}>
+      <div className='two-thirds' ref={this.viewHeader}>
         <div className="breadcrumb">
           <li>
             <a className="underlined" href="https://www.hipcamp.com/en-US/discover/united-states">{this.props.location.country}</a>

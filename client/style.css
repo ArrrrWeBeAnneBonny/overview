@@ -207,7 +207,7 @@ body {
   }
   .two-thirds, .sticky-header .main .info {
     width: 66.66666666666667%;
-    width: 720px;
+    /* width: 720px; */
     float: left;
   }
   .two-thirds.description {
