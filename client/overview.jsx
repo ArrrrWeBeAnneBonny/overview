@@ -90,11 +90,11 @@ class Overview extends React.Component {
 
   clickModal(e) {
     e.preventDefault();
-    console.log('modal clicked');
+    console.log('overview-modal clicked');
     if (this.state.showModal) {
-      document.body.classList.remove('modal-open');
+      document.body.classList.remove('overview-modal-open');
     } else {
-      document.body.classList.add('modal-open');
+      document.body.classList.add('overview-modal-open');
     }
     this.setState(prev => ({
       showModal: !prev.showModal
@@ -128,10 +128,10 @@ class Overview extends React.Component {
             </div>
           </div>
           {this.state.showModal
-            ? <div className='modal fade in' style={{ display: 'block' }}><ProModal clickModal={this.clickModal} /> </div>
-            : <div className='modal fade' style={{ display: 'none' }}><ProModal clickModal={this.clickModal} /> </div>
+            ? <div className='overview-modal fade in' style={{ display: 'block' }}><ProModal clickModal={this.clickModal} /> </div>
+            : <div className='overview-modal fade' style={{ display: 'none' }}><ProModal clickModal={this.clickModal} /> </div>
           }
-          {this.state.showModal && <div className="modal-backdrop fade in" />}
+          {this.state.showModal && <div className="overview-modal-backdrop fade in" />}
         </div>
       )
     } else {

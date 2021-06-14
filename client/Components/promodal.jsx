@@ -14,13 +14,13 @@ class ProModal extends React.Component {
 
   render() {
     return (
-      <div className='modal-dialog'>
-        <div className='modal-content-overview'>
+      <div className='overview-modal-dialog'>
+        <div className='overview-modal-content'>
 
-          <div className='modal-header'>
-            <button className='modal-close' onClick={this.closeModal}>
+          <div className='overview-modal-header'>
+            <button className='overview-modal-close' onClick={this.closeModal}>
               <span>x</span></button>
-            <h4 className='modal-title'>
+            <h4 className='overview-modal-title'>
               <span className='icon-alert'><i className='fas fa-exclamation-triangle'></i></span>
               <span className='pro-warning'>Upgrade to PRO to unlock this feature!</span>
             </h4>

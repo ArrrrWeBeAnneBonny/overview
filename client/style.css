@@ -178,7 +178,7 @@ body {
     width: 58.333333333%;
     float: left;
   }
-  .modal-dialog {
+  .overview-modal-dialog {
     width: 430px;
     margin: 30px auto;
 }
@@ -848,7 +848,7 @@ li.sticky-nav {
   float: left;
 }
 
-.modal-open  {
+.overview-modal-open  {
   overflow: hidden;
   padding-right: 15px;
   background-color: white;
@@ -858,11 +858,11 @@ li.sticky-nav {
   opacity: 0;
   transition: opacity 0.15s linear;
 }
-.modal-open .modal {
+.overview-modal-open .overview-modal {
   overflow-x: hidden;
   overflow-y: auto;
 }
-.modal {
+.overview-modal {
   display: none;
   overflow: hidden;
   position: fixed;
@@ -873,24 +873,24 @@ li.sticky-nav {
   z-index: -1;
   outline: 0;
 }
-.fade.in.modal {
-  z-index: 10;
+.fade.in.overview-modal {
+  z-index: 1100;
   opacity: 1;
 }
-.modal-dialog .modal-content-overview {
+.overview-modal-dialog .overview-modal-content {
   padding: 25px;
 }
-.modal-header {
+.overview-modal-header {
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
 }
-.modal-dialog .modal-content-overview .modal-header {
+.overview-modal-dialog .overview-modal-content .overview-modal-header {
   padding-bottom: 0;
   height: auto;
   border-bottom: none;
   transition: transform 0.3s ease-out;
 }
-.modal-content-overview {
+.overview-modal-content {
   border: 1px solid #ebebeb;
   box-shadow: 0 5px 15px rgb(0 0 0 / 20%);
   border-radius: 0px;
@@ -899,23 +899,23 @@ li.sticky-nav {
   background-clip: padding-box;
   outline: 0;
 }
-.modal-dialog .modal-content-overview .modal-title {
+.overview-modal-dialog .overview-modal-content .overview-modal-title {
   font-weight: 500;
   font-size: 32px;
   text-align: left;
   margin-left: 0px;
   margin-bottom: 15px;
 }
-button.modal-close {
+button.overview-modal-close {
   padding: 0;
   cursor: pointer;
   background: transparent;
   border: 0;
 }
-.modal-header .modal-close {
+.overview-modal-header .overview-modal-close {
   margin-top: -2px;
 }
-.modal-close {
+.overview-modal-close {
   float: right;
   font-size: 24px;
   font-weight: bold;
@@ -926,36 +926,36 @@ button.modal-close {
   filter: alpha(opacity=20);
 }
 button{overflow:visible}
-button.modal-close {
+button.overview-modal-close {
   font-family: inherit;
   padding: 0;
   cursor: pointer;
   background: transparent;
   border: 0;
 }
-.modal .modal-close {
+.overview-modal .overview-modal-close {
   font-size: 28px;
   font-weight: 400;
   line-height: 0.5;
   z-index: 1200;
   transition: opacity 0.25s ease 0s;
 }
-.modal-dialog .modal-content-overview .modal-close {
+.overview-modal-dialog .overview-modal-content .overview-modal-close {
   font-size: 40px;
   font-weight: 400;
   opacity: 1;
   float: none;
 }
-.modal-backdrop.in {
+.overview-modal-backdrop.in {
   opacity: 0.9;
   filter: alpha(opacity=90);
 }
-.modal-backdrop {
+.overview-modal-backdrop {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background-color: white;
-  z-index: 5;
+  z-index: 1100;
 }
