@@ -13,6 +13,7 @@ class Header extends React.Component {
   }
 
   isInView() {
+    console.log('checking if header is in view');
     // get how much pixels left to scrolling the header element
     // const top = this.viewHeader.getBoundingClientRect().top;
     const bottom = this.viewHeader.current.getBoundingClientRect().bottom;

@@ -350,7 +350,7 @@ div.breadcrumb>li+li:before {
   margin-top: 20px;
 }
 .header .recommend-percentage .icon .fa {
-  font-size: 1em;
+  font-size: 2em;
   font-weight: 900;
   display: inline-block;
   font-style: normal;
@@ -768,7 +768,7 @@ li.sticky-nav {
   margin-right: 10px;
 }
 .tri-card .card .list .icon span {
-  font-size: 1.2rem;
+  font-size: 20px;
 }
 .tri-card .card .list .absent {
   color: #757575;
