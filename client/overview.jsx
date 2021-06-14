@@ -40,21 +40,20 @@ class Overview extends React.Component {
   }
 
   headerState(headerInView) {
-    console.log(`sticky header ${this.state.headerInView? 'showing' : 'hiding'}`)
+    console.log(`sticky header ${this.state.headerInView ? 'showing' : 'hiding'}`);
     this.setState({
       headerInView
     });
   };
 
   fetchOverview() {
-    let url = {}
+    let url = {};
     if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
       url = config.dev;
     } else {
       url = config.production;
     }
-    console.log('node env ', process.env.NODE_ENV);
-    console.log('urls for get ', url);
+    console.log('node env ', process.env.NODE_ENV, '   urls for get ', url);
     return axios.get(`${url.overview}overview/all`, { params: { campId: this.state.campId } })
       .then(response => {
         // console.log('Response for get overview', response.data);
@@ -75,7 +74,7 @@ class Overview extends React.Component {
             fetched: true
           });
         }
-        console.log(this.state);
+        // console.log(this.state);
       })
       .catch(error => {
         console.log('------ERROR IN FETCH OVERVIEW------');
@@ -84,7 +83,6 @@ class Overview extends React.Component {
   }
 
   componentDidMount() {
-    console.log('rendered');
     this.setState({
       mounted: true
     });
@@ -105,7 +103,6 @@ class Overview extends React.Component {
   }
 
   render() {
-
     if (this.state.fetched && this.state.mounted) {
       return (
         <div className={`main`}>
