@@ -2,7 +2,7 @@ const AWS = require('aws-sdk');
 const fs = require('fs');
 const path = require('path');
 
-const { AWSAccessKeyId, AWSSecretKey } = require('../aws.config.js');
+const { AWSAccessKeyId, AWSSecretKey } = require('./aws.config.js');
 AWS.config.update({
   accessKeyId: AWSAccessKeyId,
   secretAccessKey: AWSSecretKey,
@@ -59,12 +59,19 @@ const CSSToS3 = (CSS) => {
     })
 };
 
-const pathToBundle = path.resolve('./dist/overview.js');
-console.log('path: ', pathToBundle)
-const bundle = fs.readFileSync(pathToBundle);
-bundleToS3(bundle);
+const uploadBundle = () =>{
+  const pathToBundle = path.resolve('./dist/overview.js');
+  console.log('path: ', pathToBundle)
+  const bundle = fs.readFileSync(pathToBundle);
+  bundleToS3(bundle);
+}
 
-const pathToCSS = path.resolve('./client/style.css');
-console.log('path: ', pathToCSS)
-const CSS = fs.readFileSync(pathToCSS);
-CSSToS3(CSS);
+const uploadCSS = () => {
+  const pathToCSS = path.resolve('./client/style.css');
+  console.log('path: ', pathToCSS)
+  const CSS = fs.readFileSync(pathToCSS);
+  CSSToS3(CSS);
+}
+
+module.exports.uploadCSS = uploadCSS;
+module.exports.uploadBundle = uploadBundle;

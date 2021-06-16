@@ -16,7 +16,8 @@
     "watch": "NODE_ENV=development nodemon ./server/index.js",
     "build-dev": "npx webpack --mode=development --watch",
     "build-prod": "npx webpack --mode=production",
-    "launch-prod": "npx webpack --mode=production && node ./build/awsBundleSeeding.js",
+    "launch-prod": "npx webpack --mode=production && node ./build/bundle.js && node ./build/css.js",
+    "launch-css": "node ./build/css.js",
     "test": "jest"
   },
   "dependencies": {

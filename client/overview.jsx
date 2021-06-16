@@ -134,13 +134,9 @@ class Overview extends React.Component {
           {this.state.showModal && <div className="overview-modal-backdrop fade in" />}
         </div>
       )
-    } else {
-      return (
-        <div className='loading'>
-          <h1>Loading...</h1>
-        </div>
-      )
     }
+
+    return null
   }
 }
 

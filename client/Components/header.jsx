@@ -9,7 +9,16 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
+    console.log('header mounted');
+    console.log('document ', document);
+
     document.addEventListener("scroll", this.isInView);
+
+    const header = this.viewHeader.current;
+    console.log('header ', header);
+    const bottom = this.viewHeader.current.getBoundingClientRect().bottom;
+    console.log('bottom ', bottom);
+
   }
 
   isInView() {
