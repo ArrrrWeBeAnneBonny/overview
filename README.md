@@ -1,21 +1,21 @@
-# FEC AnneBonny - HipCamp: Overview Service
+# HipCamp: Overview Service
 
-> During our Front End Capstone (FEC), we were challenged to replicate a currently running business's item page. Replicating the information, look and event handling of the site. Our team, Anne Bonny, chose to do hipcamp (https://www.hipcamp.com/en-US/california/twisselman-ranch/twisselman-s-glamping-by-the-pond). My Service is the Overview service. 
+This application service relicates the information, look and event handling of the Hipcamp Site (https://www.hipcamp.com/en-US/california/twisselman-ranch/twisselman-s-glamping-by-the-pond), specifically the Overview service. 
+
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/ArrrrWeBeAnneBonny/photogallery
+  - https://github.com/ArrrrWeBeAnneBonny/booking
+  - https://github.com/ArrrrWeBeAnneBonny/reviews
 
-## Table of Contents
+<!-- ## Table of Contents
 
-1. [Usage](#Usage)
+1. [General Overview](#general)
 1. [Requirements](#requirements)
 1. [Development](#development)
 
-## Usage
+## General Overview
 
 > Some usage instructions
 
@@ -30,7 +30,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ### Installing Dependencies
 
-From within the root directory:
+From within the root directory: -->
 
 ```sh
 npm install -g webpack
