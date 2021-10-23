@@ -1,6 +1,6 @@
-# FEC AnneBonny - HipCamp: Overview Service
+# HipCamp: Overview Service
 
-![main](/readme_images/Main.mov)
+This application service relicates the information, look and event handling of the Hipcamp Site (https://www.hipcamp.com/en-US/california/twisselman-ranch/twisselman-s-glamping-by-the-pond), specifically the Overview service. 
 
 ## Related Services
   - https://github.com/ArrrrWeBeAnneBonny/booking
@@ -9,11 +9,11 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [General Overview](#general)
 1. [Requirements](#requirements)
 1. [Development](#development)
 
-## Usage
+## General Overview
 
 > Some usage instructions
 
@@ -26,7 +26,7 @@
 
 ### Installing Dependencies
 
-From within the root directory:
+From within the root directory: -->
 
 ```sh
 npm install -g webpack
