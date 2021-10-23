@@ -1,9 +1,8 @@
 # FEC AnneBonny - HipCamp: Overview Service
 
+![main](/readme_images/Main.mov)
 
-
-## Related Projects
-
+## Related Services
   - https://github.com/ArrrrWeBeAnneBonny/booking
   - https://github.com/ArrrrWeBeAnneBonny/photogallery
   - https://github.com/ArrrrWeBeAnneBonny/reviews
@@ -19,8 +18,6 @@
 > Some usage instructions
 
 ## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
 - etc
