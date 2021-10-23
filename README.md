@@ -1,13 +1,12 @@
 # FEC AnneBonny - HipCamp: Overview Service
 
-> During our Front End Capstone (FEC), we were challenged to replicate a currently running business's item page. Replicating the information, look and event handling of the site. Our team, Anne Bonny, chose to do hipcamp (https://www.hipcamp.com/en-US/california/twisselman-ranch/twisselman-s-glamping-by-the-pond). My Service is the Overview service. 
+
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/ArrrrWeBeAnneBonny/booking
+  - https://github.com/ArrrrWeBeAnneBonny/photogallery
+  - https://github.com/ArrrrWeBeAnneBonny/reviews
 
 ## Table of Contents
 
